@@ -20,7 +20,7 @@
 
 ## Overview
 
-_**Living La Vida, Vegan** is an application that allows you to store all your favorite vegan recipes _
+_**Living La Vida, Vegan** is an application that allows you to create and account where you can store all your favorite vegan recipes, whether it's your own yummy creation or a borrowed best._
 
 <br>
 
@@ -28,19 +28,18 @@ _**Living La Vida, Vegan** is an application that allows you to store all your f
 
 > The Minimum Viable Product should be a well-planned, easily-communicated product, ensuring that the client's deliverable will be achievable and meet specifications within the time frame estimated.
 
-_The **Living La Vida, Vegan** MVP lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dapibus fermentum risus vitae bibendum. Integer vel ipsum mollis odio sollicitudin ornare eu vel ex. In quis fringilla velit, ac maximus quam. Etiam eget placerat neque. Aenean faucibus sem non nisi lobortis ullamcorper._
+_The **Living La Vida, Vegan** MVP is to complete full CRUD capability for creating and add recipes to your account. The user will be able to create an account and view their recipes and those that others have shared via a tiled page feed._
 
 <br>
 
 ### Goals
 
-- _Lorem ipsum, dolor sit amet,_
-- _consectetur adipiscing elit._
-- _Phasellus dapibus fermentum risus vitae bibendum._
-- _Integer vel ipsum mollis odio sollicitudin ornare eu vel ex._
-- _etc._
+- _Create a user profile to store recipes_
+- _Full CRUD workflow for recipe component_
+- _Create seed data to setup API with_
+- _Execute full-stack application development_
 
-<br>
+  <br>
 
 ### Libraries and Dependencies
 
@@ -60,11 +59,11 @@ _The **Living La Vida, Vegan** MVP lorem ipsum dolor sit amet, consectetur adipi
 
 - Desktop View
 
-![Desktop Prototype](url)
+[Desktop Prototype](url)
 
 - Mobile View (In Progress)
 
-![Mobile Prototype](url)
+[Mobile Prototype](url)
 
 #### Component Tree
 
@@ -176,7 +175,7 @@ src
 
 #### ERD Model
 
-[ERD](https://res.cloudinary.com/zumariposa/image/upload/v1597025969/Screen_Shot_2020-08-09_at_10.07.31_PM_qkzmd0.png)
+![ERD](https://res.cloudinary.com/zumariposa/image/upload/v1597025969/Screen_Shot_2020-08-09_at_10.07.31_PM_qkzmd0.png)
 
 <br>
 
