@@ -59,7 +59,7 @@ _The **Living La Vida, Vegan** MVP is to complete full CRUD capability for creat
 
 - Desktop View
 
-[Desktop Prototype](url)
+[Desktop Prototype](https://xd.adobe.com/view/9cfd32a9-50c8-4ffd-9f09-a59b4d61293e-c9ae/?fullscreen&hints=off)
 
 - Mobile View (In Progress)
 
