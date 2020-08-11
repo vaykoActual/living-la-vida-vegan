@@ -16,11 +16,14 @@ class CommentsController < ApplicationController
   # POST /comments
   def create
     @comment = Comment.new(comment_params)
+    @comment.user_id = current_user.id if user_signed_in?
 
     if @comment.save
-      render json: @comment, status: :created
+      redirect_to dashboard_path, flash: {success: 'Comment was successfully created!'} 
+      # render json: @comment, status: :created
     else
-      render json: @comment.errors, status: :unprocessable_entity
+      redirect_to dashboard_path, flash: {danger: 'Comment was not saved!'} 
+      # render json: @comment.errors, status: :unprocessable_entity
     end
   end
 
