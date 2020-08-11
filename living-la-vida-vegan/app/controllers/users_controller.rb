@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   # GET /users
   def index
     @users = User.all
+    @comment = Comment.new
 
     render json: @users
   end

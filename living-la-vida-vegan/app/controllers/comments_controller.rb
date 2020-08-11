@@ -1,17 +1,18 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :update, :destroy]
+  # before_action :authorize_request, except: :create
 
-  # GET /comments
-  def index
-    @comments = Comment.all
+  # # GET /comments
+  # def index
+  #   @comments = Comment.all
 
-    render json: @comments
-  end
+  #   render json: @comments
+  # end
 
-  # GET /comments/1
-  def show
-    render json: @comment
-  end
+  # # GET /comments/1
+  # def show
+  #   render json: @comment
+  # end
 
   # POST /comments
   def create
@@ -19,11 +20,11 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id if user_signed_in?
 
     if @comment.save
-      redirect_to dashboard_path, flash: {success: 'Comment was successfully created!'} 
-      # render json: @comment, status: :created
+      # redirect_to dashboard_path, flash: {success: 'Comment was successfully created!'} 
+      render json: @comment, status: :created
     else
-      redirect_to dashboard_path, flash: {danger: 'Comment was not saved!'} 
-      # render json: @comment.errors, status: :unprocessable_entity
+      # redirect_to dashboard_path, flash: {danger: 'Comment was not saved!'} 
+      render json: @comment.errors, status: :unprocessable_entity
     end
   end
 
@@ -51,4 +52,8 @@ class CommentsController < ApplicationController
     def comment_params
       params.require(:comment).permit(:content)
     end
+
+    # def recipe_params
+    #   params.require(:recipe).permit(:upload_photo, :recipe_name, :description, :prep_time, :cook_time, :ingredients, :instructions, :source)
+    # end
 end
