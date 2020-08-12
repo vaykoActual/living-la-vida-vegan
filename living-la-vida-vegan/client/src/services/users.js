@@ -1,12 +1,12 @@
 import api from "./api-helper";
 
 export const loginUser = async (loginData) => {
-  const responseonse = await api.post("/auth/login", {
+  const response = await api.post("/auth/login", {
     authentication: loginData,
   });
   localStorage.setUser("authToken", response.data.token);
   api.defaults.headers.common.authorization = `Bearer ${response.data.token}`;
-  return responseonse.data.user;
+  return response.data.user;
 };
 
 export const registerUser = async (registerData) => {
