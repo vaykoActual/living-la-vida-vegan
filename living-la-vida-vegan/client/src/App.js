@@ -1,10 +1,26 @@
-import React from "react";
-import "./App.css";
+import React, { useState, useEffect } from 'react';
+import './App.css';
+import Header from './components/Header/Header';
+import Main from './components/Main/Main';
+import { verifyUser } from './services/users';
+import { Route } from 'react-router-dom';
 
 function App() {
+  const [currentUser, setCurrentUser] = useState(null);
+
+  const handleVerify = async () => {
+    const userData = await verifyUser();
+    setCurrentUser(userData);
+  };
+
+  useEffect(() => {
+    handleVerify();
+  }, []);
+
   return (
-    <div className="App">
-      <h1>Sup Y'all</h1>
+    <div className='App'>
+      <Header currentUser={currentUser} setCurrentUser={setCurrentUser} />
+      <Main setCurrentUser={setCurrentUser} />
     </div>
   );
 }

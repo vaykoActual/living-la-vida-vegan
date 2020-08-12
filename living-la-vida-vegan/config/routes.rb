@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get '/auth/verify', to: 'authentication#verify'
   put '/comments/:comment_id/recipes/:id', to: 'recipes#add_comment' 
 
+  resources :recipes, only [:index]
+
   resources :users do
     resources :recipes
     resources :comments, only: [:create, :update, :destroy]
