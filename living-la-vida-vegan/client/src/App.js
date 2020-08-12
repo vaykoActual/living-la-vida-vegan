@@ -19,7 +19,6 @@ function App() {
   return (
     <div className="App">
       <Header currentUser={currentUser} setCurrentUser={setCurrentUser} />
-      <h1>Sup y'all</h1>
       <Main setCurrentUser={setCurrentUser} />
     </div>
   );
