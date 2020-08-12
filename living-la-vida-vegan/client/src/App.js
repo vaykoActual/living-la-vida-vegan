@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import Header from "./components/Header/Header.jsx";
+import Main from "./components/Main/Main.jsx";
+import { verifyUser } from "./services/users";
 
 function App() {
+  const [currentUser, setCurrentUser] = useState({});
+
+  const handleVerify = async () => {
+    const userData = await verifyUser();
+    setCurrentUser(userData);
+  };
+
+  useEffect(() => {
+    handleVerify();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header currentUser={currentUser} setCurrentUser={setCurrentUser} />
+      <h1>Sup y'all</h1>
+      <Main setCurrentUser={setCurrentUser} />
     </div>
   );
 }
