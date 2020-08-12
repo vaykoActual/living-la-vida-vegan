@@ -5,7 +5,7 @@ import Main from "./components/Main/Main.jsx";
 import { verifyUser } from "./services/users";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState(null);
 
   const handleVerify = async () => {
     const userData = await verifyUser();
