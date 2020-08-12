@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Register.css';
 import { registerUser } from '../../services/users';
+import { Button } from 'react-bootstrap';
 
 export default function Register(props) {
   const [formData, setFormData] = useState({
@@ -27,7 +28,7 @@ export default function Register(props) {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form className='d-flex flex-column' onSubmit={handleSubmit}>
         <h3>Make an Account</h3>
         <input
           type='text'
@@ -57,7 +58,7 @@ export default function Register(props) {
           onChange={handleChange}
           placeholder='Confirm Password'
         />
-        <button>Next</button>
+        <Button variant='outline-primary'>Next</Button>
       </form>
     </div>
   );
