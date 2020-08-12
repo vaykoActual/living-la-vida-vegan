@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
-import "./App.css";
-import Header from "./components/Header/Header.jsx";
-import Main from "./components/Main/Main.jsx";
-import { verifyUser } from "./services/users";
+import React, { useState, useEffect } from 'react';
+import './App.css';
+import Header from './components/Header/Header';
+import Main from './components/Main/Main';
+import { verifyUser } from './services/users';
+import { Route } from 'react-router-dom';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -17,7 +18,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className='App'>
       <Header currentUser={currentUser} setCurrentUser={setCurrentUser} />
       <Main setCurrentUser={setCurrentUser} />
     </div>

@@ -1,7 +1,7 @@
-import api from "./api-helper";
+import api from './api-helper';
 
 export const readAllRecipes = async () => {
-  const response = await api.get("/recipes");
+  const response = await api.get('/recipes');
   return response.data;
 };
 
@@ -11,7 +11,7 @@ export const readOneRecipe = async (id) => {
 };
 
 export const postRecipe = async (recipeData) => {
-  const response = await applicationCache.update(`/recipes/${id}`, {
+  const response = await api.post('/recipes', {
     recipe: recipeData,
   });
   return response.data;
