@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import './Login.css';
+import './Register.css';
 import { registerUser } from '../../services/users';
 
-export default function Register() {
+export default function Register(props) {
   const [formData, setFormData] = useState({
     email: '',
     username: '',
@@ -28,6 +28,7 @@ export default function Register() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
+        <h3>Make an Account</h3>
         <input
           type='text'
           name='email'
