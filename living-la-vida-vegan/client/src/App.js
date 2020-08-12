@@ -3,7 +3,6 @@ import './App.css';
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
 import { verifyUser } from './services/users';
-import { Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
