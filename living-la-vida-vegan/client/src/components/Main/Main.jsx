@@ -35,8 +35,19 @@ export default function Main(props) {
           <Register {...props} setCurrentUser={setCurrentUser} />
         )}
       />
-      <Route path='/comments' render={() => <ShowComments />} />
-      <Route exact path='/recipes' render={() => <ShowRecipes />} />
+      <Route
+        path='/comments'
+        render={() => (
+          <ShowComments {...props} setCurrentUser={setCurrentUser} />
+        )}
+      />
+      <Route
+        exact
+        path='/recipes'
+        render={() => (
+          <ShowRecipes {...props} setCurrentUser={setCurrentUser} />
+        )}
+      />
       <Route
         path='/recipes/new'
         render={(props) => (
@@ -51,12 +62,19 @@ export default function Main(props) {
       <Route
         exact
         path='/recipes/:id'
-        render={(props) => <Recipe {...props} />}
+        render={(props) => (
+          <Recipe {...props} setCurrentUser={setCurrentUser} />
+        )}
       />
       <Route
         path='/recipes/:id/edit'
         render={(props) => (
-          <UpdateRecipe {...props} recipes={recipes} setRecipes={setRecipes} />
+          <UpdateRecipe
+            {...props}
+            recipes={recipes}
+            setRecipes={setRecipes}
+            setCurrentUser={setCurrentUser}
+          />
         )}
       />
     </main>
