@@ -7,7 +7,11 @@ export default function ShowUser(props) {
   return (
     <>
       <div className='profile-info'>
-        <img src={props.setCurrentUser.imgUrl} alt='' className='' />
+        <img
+          src={props.setCurrentUser.imgUrl}
+          alt='profile-picture'
+          className=''
+        />
         <h2>{props.setCurrentUser.username}</h2>
         <h4>About Me</h4>
         <p>{props.setCurrentUser.aboutMe}</p>
@@ -19,6 +23,7 @@ export default function ShowUser(props) {
         {props.recipes &&
           props.recipes.map((recipe) => (
             <div className='profile-recipe-tiles'>
+              <p>recipes should show here</p>
               <h5>{recipe.recipeName}</h5>
               <img
                 src={recipe.uploadPhoto}

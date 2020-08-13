@@ -65,7 +65,7 @@ export default function Main(props) {
             {...props}
             setCurrentUser={setCurrentUser}
             recipes={recipes}
-            setRecipes={setRecipes}
+            // setRecipes={setRecipes}
           />
         )}
       />

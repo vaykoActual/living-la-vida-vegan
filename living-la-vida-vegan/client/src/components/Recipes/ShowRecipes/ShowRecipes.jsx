@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { destroyRecipe } from '../../../services/recipes';
+// import { destroyRecipe } from '../../../services/recipes';
 
 export default function ShowRecipes(props) {
-  const handleClick = async (id) => {
-    await destroyRecipe(id);
-    props.setRecipes(
-      props.recipes.filter((recipe) => {
-        return recipe.id !== id;
-      })
-    );
-  };
+  // const handleClick = async (id) => {
+  //   await destroyRecipe(id);
+  //   props.setRecipes(
+  //     props.recipes.filter((recipe) => {
+  //       return recipe.id !== id;
+  //     })
+  //   );
+  // };
 
   return (
     <div>
