@@ -6,6 +6,7 @@ export const readAllRecipes = async () => {
 };
 
 export const readOneRecipe = async (id) => {
+  debugger;
   const response = await api.get(`/recipes/${id}`);
   return response.data;
 };

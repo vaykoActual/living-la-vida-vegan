@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import {
   readOneRecipe,
   addComment,
+  destroyRecipe,
   // readAllRecipes,
 } from '../../../services/recipes';
+import { Link } from 'react-router-dom';
 
 export default function Recipe(props) {
   const [recipe, setRecipe] = useState('');
@@ -28,14 +30,26 @@ export default function Recipe(props) {
     const recipe = await addComment(commentId, recipe.id);
     setRecipe(recipe);
   };
+
+  const handleClick = async (id) => {
+    await destroyRecipe(id);
+    props.setRecipes(
+      props.recipes.filter((recipe) => {
+        return recipe.id !== id;
+      })
+    );
+  };
+
   return (
     <div>
-      {recipe && (
+      {props.recipes && (
         <>
-          {recipe.map((rec) => (
+          {props.recipes.map((rec) => (
             <>
               <img src={rec.uploadPhoto} alt='recipe-photo' className='' />
-              <h3>{rec.recipeName}</h3>
+              <Link to={`/recipes/${recipe.id}`}>
+                <h3>{rec.recipeName}</h3>
+              </Link>
               <div className='time-check'>
                 <h4>Prep Time:</h4>
                 <p>{rec.prepTime}</p>
@@ -56,14 +70,21 @@ export default function Recipe(props) {
                   <p>{rec.recipeName}</p>
                 </a>
               </div>
+              <div className='button-bar'>
+                <Link to={`/recipes/${recipe.id}`}>
+                  <button>Edit</button>
+                </Link>
+                <Link>
+                  <button>Save</button>
+                </Link>
+                <button onClick={() => handleClick(recipe.id)}>Delete</button>
+              </div>
             </>
           ))}
 
           <div className='comment-section'>
             <h2>Comments: </h2>
-            {recipe.comments.map((comment) => (
-              <p>{comment.content}</p>
-            ))}
+            {/* <p>{comment.content}</p> */}
           </div>
         </>
       )}
