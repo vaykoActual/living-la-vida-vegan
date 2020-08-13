@@ -22,7 +22,7 @@ export default function UpdateRecipe(props) {
   //   clicked: false,
   // });
 
-  const defaultRecipeData = () => {
+  const defaultRecipeData = (e) => {
     const recipe = props.recipes.find((recipe) => {
       return recipe.id === props.match.params.id;
     });
