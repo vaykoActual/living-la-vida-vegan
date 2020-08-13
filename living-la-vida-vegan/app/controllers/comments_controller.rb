@@ -3,16 +3,17 @@ class CommentsController < ApplicationController
   # before_action :authorize_request, except: :create
 
   # # GET /comments
-  # def index
-  #   @comments = Comment.all
+  def index
+    @recipe = Recipe.find(params[:recipe_id])
+    @comments = Comment.where(recipe_id: @recipe.id)
 
-  #   render json: @comments
-  # end
+    render json: @comments, include: {recipe: {include: :user}}, status: :ok 
+  end
 
   # # GET /comments/1
-  # def show
-  #   render json: @comment
-  # end
+  def show
+    render json: @comment
+  end
 
   # POST /comments
   def create
@@ -50,7 +51,8 @@ class CommentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def comment_params
-      params.require(:comment).permit(:content)
+      # params.require(:comment).permit(:content)
+      params.fetch(:comment, {})
     end
 
     # def recipe_params
