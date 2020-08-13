@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Nav() {
   return (
-    <div>
+    <div className='nav-section'>
       <Link to='/profile'>
         <p>profile</p>
       </Link>
@@ -12,12 +13,8 @@ export default function Nav() {
       <Link to='/recipes'>
         <p>home</p>
       </Link>
-      <Link>
-        <p>favs</p>
-      </Link>
-      <Link>
-        <p>share</p>
-      </Link>
+      <p>favs</p>
+      <p>share</p>
     </div>
   );
 }

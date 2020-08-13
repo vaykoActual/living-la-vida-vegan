@@ -21,6 +21,7 @@ export default function ShowRecipes(props) {
         <h3>Row 1</h3>
 
         <Link to='/recipes/:id'>
+          {/* {`/recipes/${recipe.id}`} */}
           <Card style={{ width: '18rem' }}>
             <Card.Title>you should see stuff here</Card.Title>
             {props.recipes.map((rec) => (
