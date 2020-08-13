@@ -6,12 +6,12 @@ export default function Login(props) {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
-    confirmPassword: '',
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
+      ...formData,
       [name]: value,
     });
   };
@@ -40,13 +40,6 @@ export default function Login(props) {
           value={formData.password}
           onChange={handleChange}
           placeholder='Password'
-        />
-        <input
-          type='password'
-          name='confirm-password'
-          value={formData.confirmPassword}
-          onChange={handleChange}
-          placeholder='Confirm Password'
         />
         <button>Enter</button>
       </form>

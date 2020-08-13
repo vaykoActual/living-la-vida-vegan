@@ -119,11 +119,12 @@ export default function UpdateRecipe(props) {
           onChange={handleChange}
           placeholder='Source'
         />
-        {/* <Link to={`/recipes/${id}`}> */}
-        <button>Edit</button>
-        <button>Save</button>
-        <button>Delete</button>
+        {/* <Link to={`/recipes/${id}`}> */} <button>Edit</button>{' '}
         {/* </Link> */}
+        <Link>
+          <button>Save</button>
+        </Link>
+        {/* <Link to='/delete-recipe'><button>Delete</button></Link> */}
       </form>
     </div>
   );

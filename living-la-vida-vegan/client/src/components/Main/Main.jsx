@@ -27,25 +27,54 @@ export default function Main(props) {
       <Route exact path='/' render={() => <Home />} />
       <Route
         path='/login'
-        render={() => <Login {...props} setCurrentUser={setCurrentUser} />}
+        render={(props) => <Login {...props} setCurrentUser={setCurrentUser} />}
       />
       <Route
         path='/register'
-        render={() => <Register {...props} setCurrentUser={setCurrentUser} />}
-      />
-      <Route path='/comments' render={() => <ShowComments />} />
-      <Route exact path='/recipes' render={() => <ShowRecipes />} />
-      <Route
-        path='/recipes/new'
-        render={() => (
-          <CreateRecipe {...props} recipes={recipes} setRecipes={setRecipes} />
+        render={(props) => (
+          <Register {...props} setCurrentUser={setCurrentUser} />
         )}
       />
-      <Route exact path='/recipes/:id' render={() => <Recipe {...props} />} />
+      <Route
+        path='/comments'
+        render={() => (
+          <ShowComments {...props} setCurrentUser={setCurrentUser} />
+        )}
+      />
+      <Route
+        exact
+        path='/recipes'
+        render={() => (
+          <ShowRecipes {...props} setCurrentUser={setCurrentUser} />
+        )}
+      />
+      <Route
+        path='/recipes/new'
+        render={(props) => (
+          <CreateRecipe
+            {...props}
+            recipes={recipes}
+            setRecipes={setRecipes}
+            setCurrentUser={setCurrentUser}
+          />
+        )}
+      />
+      <Route
+        exact
+        path='/recipes/:id'
+        render={(props) => (
+          <Recipe {...props} setCurrentUser={setCurrentUser} />
+        )}
+      />
       <Route
         path='/recipes/:id/edit'
-        render={() => (
-          <UpdateRecipe {...props} recipes={recipes} setRecipes={setRecipes} />
+        render={(props) => (
+          <UpdateRecipe
+            {...props}
+            recipes={recipes}
+            setRecipes={setRecipes}
+            setCurrentUser={setCurrentUser}
+          />
         )}
       />
     </main>

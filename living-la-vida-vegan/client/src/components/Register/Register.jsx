@@ -32,7 +32,7 @@ export default function Register(props) {
     e.preventDefault();
     const userData = await registerUser(formData);
     props.setCurrentUser(userData);
-    props.history.push('/');
+    // props.history.push('/');
   };
 
   const handleClick = () => {
@@ -66,40 +66,40 @@ export default function Register(props) {
         />
         <input
           type='password'
-          name='confirm-password'
+          name='confirmPassword'
           value={formData.confirmPassword}
           onChange={handleChange}
           placeholder='Confirm Password'
         />
-        <button onClick={handleClick}>Next</button>
+        <p onClick={handleClick}>Next</p>
         {clicked ? (
           ''
         ) : (
           <div>
             <input
               type='text'
-              name='upload-photo'
+              name='uploadPhoto'
               value={formData.uploadPhoto}
               onChange={handleChange}
               placeholder='Image URL'
             />
             <input
               type='text'
-              name='about-me'
+              name='aboutMe'
               value={formData.aboutMe}
               onChange={handleChange}
               placeholder='share a few words about yourself'
             />
             <input
               type='text'
-              name='likes-interests'
+              name='likesInterests'
               value={formData.likesInterests}
               onChange={handleChange}
               placeholder='any likes or interests?'
             />
-            <Link to='/'>
-              <button>Save</button>
-            </Link>
+            {/* <Link to='/'> */}
+            <button>Save</button>
+            {/* </Link> */}
           </div>
         )}
       </form>
