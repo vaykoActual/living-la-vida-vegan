@@ -4,9 +4,10 @@ class RecipesController < ApplicationController
 
   # GET /recipes
   def index
-    @recipes = Recipe.all
+    @user = User.find(params[:user_id])
+    @recipes = Recipe.where(recipe_id: @recipe_id)
 
-    render json: @recipes
+    render json: @recipes, include: :user, status: :ok
   end
 
   # GET /recipes/1
@@ -57,6 +58,7 @@ class RecipesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def recipe_params
-      params.require(:recipe).permit(:upload_photo, :recipe_name, :description, :prep_time, :cook_time, :ingredients, :instructions, :source)
+      # params.require(:recipe).permit(:upload_photo, :recipe_name, :description, :prep_time, :cook_time, :ingredients, :instructions, :source)
+    params.fetch(:recipe, {})
     end
 end
