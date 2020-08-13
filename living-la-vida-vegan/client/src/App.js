@@ -21,7 +21,7 @@ function App() {
   return (
     <div className='App'>
       <Header currentUser={currentUser} setCurrentUser={setCurrentUser} />
-      <Main setCurrentUser={setCurrentUser} />
+      <Main currentUser={currentUser} setCurrentUser={setCurrentUser} />
     </div>
   );
 }

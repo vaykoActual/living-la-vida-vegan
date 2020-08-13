@@ -12,11 +12,14 @@ export default function ShowUser(props) {
           alt='profile-picture'
           className=''
         />
-        <h2>{props.setCurrentUser.username}</h2>
+        <h2>
+          props don't work-but go here-but go here
+          {props.setCurrentUser.username}
+        </h2>
         <h4>About Me</h4>
-        <p>{props.setCurrentUser.aboutMe}</p>
+        <p>props don't work-but go here{props.setCurrentUser.aboutMe}</p>
         <h4>Likes/Interests</h4>
-        <p>{props.setCurrentUser.likesInterests}</p>
+        <p>props don't work-but go here{props.setCurrentUser.likesInterests}</p>
       </div>
 
       <Link to='/recipes/:id'>
