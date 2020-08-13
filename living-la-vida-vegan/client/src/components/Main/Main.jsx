@@ -27,24 +27,35 @@ export default function Main(props) {
       <Route exact path='/' render={() => <Home />} />
       <Route
         path='/login'
-        render={() => <Login {...props} setCurrentUser={setCurrentUser} />}
+        render={(props) => <Login {...props} setCurrentUser={setCurrentUser} />}
       />
       <Route
         path='/register'
-        render={() => <Register {...props} setCurrentUser={setCurrentUser} />}
+        render={(props) => (
+          <Register {...props} setCurrentUser={setCurrentUser} />
+        )}
       />
       <Route path='/comments' render={() => <ShowComments />} />
       <Route exact path='/recipes' render={() => <ShowRecipes />} />
       <Route
         path='/recipes/new'
-        render={() => (
-          <CreateRecipe {...props} recipes={recipes} setRecipes={setRecipes} />
+        render={(props) => (
+          <CreateRecipe
+            {...props}
+            recipes={recipes}
+            setRecipes={setRecipes}
+            setCurrentUser={setCurrentUser}
+          />
         )}
       />
-      <Route exact path='/recipes/:id' render={() => <Recipe {...props} />} />
+      <Route
+        exact
+        path='/recipes/:id'
+        render={(props) => <Recipe {...props} />}
+      />
       <Route
         path='/recipes/:id/edit'
-        render={() => (
+        render={(props) => (
           <UpdateRecipe {...props} recipes={recipes} setRecipes={setRecipes} />
         )}
       />
