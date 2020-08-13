@@ -1,0 +1,10 @@
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.comp-icon {
+  width: 60px;
+  height: 60px;
+}
