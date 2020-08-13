@@ -1,11 +1,11 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :update, :destroy]
-  before_action :authorize_request, except: [:index, :show]
+  # before_action :authorize_request, except: [:index, :show]
 
   # GET /recipes
   def index
     @user = User.find(params[:user_id])
-    @recipes = Recipe.where(recipe_id: @recipe_id)
+    @recipes = Recipe.where(user_id: @user.id).all
 
     render json: @recipes, include: :user, status: :ok
   end
@@ -17,7 +17,8 @@ class RecipesController < ApplicationController
 
   # POST /recipes
   def create
-    @recipe = Recipe.new(recipe_params)
+    @user = User.find(params[:user_id])
+    @recipe = Recipe.where(user_id: @user.id).new(recipe_params)
 
     if @recipe.save
       render json: @recipe, status: :created
