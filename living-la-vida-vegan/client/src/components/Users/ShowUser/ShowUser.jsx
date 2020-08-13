@@ -7,7 +7,7 @@ export default function ShowUser(props) {
   return (
     <>
       <div className='profile-info'>
-        <img src='' alt='' className='' />
+        <img src={props.setCurrentUser.imgUrl} alt='' className='' />
         <h2>{props.setCurrentUser.username}</h2>
         <h4>About Me</h4>
         <p>{props.setCurrentUser.aboutMe}</p>
