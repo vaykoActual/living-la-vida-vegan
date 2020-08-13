@@ -10,7 +10,6 @@ import CreateRecipe from '../Recipes/CreateRecipe/CreateRecipe';
 import ShowRecipes from '../Recipes/ShowRecipes/ShowRecipes';
 import Recipe from '../Recipes/Recipe/Recipe';
 import UpdateRecipe from '../Recipes/UpdateRecipe/UpdateRecipe';
-import Home from '../Home/Home';
 import ShowUser from '../Users/ShowUser/ShowUser';
 
 export default function Main(props) {
@@ -25,7 +24,18 @@ export default function Main(props) {
 
   return (
     <main>
-      <Route exact path='/' render={() => <Home />} />
+      <Route
+        exact
+        path='/'
+        render={() => (
+          <ShowRecipes
+            {...props}
+            setCurrentUser={setCurrentUser}
+            recipes={recipes}
+            setRecipes={setRecipes}
+          />
+        )}
+      />
       <Route
         path='/login'
         render={(props) => <Login {...props} setCurrentUser={setCurrentUser} />}
@@ -65,7 +75,7 @@ export default function Main(props) {
             {...props}
             setCurrentUser={setCurrentUser}
             recipes={recipes}
-            // setRecipes={setRecipes}
+            setRecipes={setRecipes}
           />
         )}
       />
@@ -80,18 +90,7 @@ export default function Main(props) {
           />
         )}
       />
-      <Route
-        exact
-        path='/recipes'
-        render={() => (
-          <ShowRecipes
-            {...props}
-            setCurrentUser={setCurrentUser}
-            recipes={recipes}
-            setRecipes={setRecipes}
-          />
-        )}
-      />
+
       <Route
         path='/comments'
         render={() => (

@@ -1,7 +1,17 @@
 import React from 'react';
 import { Modal } from 'react-bootstrap';
+// import { destroyRecipe } from '../../../services/recipes';
 
 export default function DeleteRecipes() {
+  // const handleClick = async (id) => {
+  //   await destroyRecipe(id);
+  //   props.setRecipes(
+  //     props.recipes.filter((recipe) => {
+  //       return recipe.id !== id;
+  //     })
+  //   );
+  // };
+
   return (
     <>
       <Modal
