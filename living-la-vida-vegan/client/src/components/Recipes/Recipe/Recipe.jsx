@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { readOneRecipe, addComment } from '../../../services/recipes';
 
 export default function Recipe(props) {

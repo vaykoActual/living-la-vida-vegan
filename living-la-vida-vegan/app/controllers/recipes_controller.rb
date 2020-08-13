@@ -4,9 +4,10 @@ class RecipesController < ApplicationController
 
   # GET /recipes
   def index
-    @recipes = Recipe.all
+    @user = User.find(params[:user_id])
+    @recipes = Recipe.where(recipe_id: @recipe_id)
 
-    render json: @recipes
+    render json: @recipes, include: :user, status: :ok
   end
 
   # GET /recipes/1
