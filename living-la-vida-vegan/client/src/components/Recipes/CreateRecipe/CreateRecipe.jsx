@@ -29,7 +29,7 @@ export default function CreateRecipe(props) {
     e.preventDefault();
     const newRecipe = await postRecipe(recipeInput);
     props.setRecipes([...props.recipes, newRecipe]);
-    props.history.push('/recipes');
+    props.history.push('/recipes/:id');
   };
 
   // const handleClick = () => {
@@ -96,9 +96,7 @@ export default function CreateRecipe(props) {
           onChange={handleChange}
           placeholder='Source'
         />
-        {/* <Link to={`/recipes/${id}`}> */}
         <button>Save</button>
-        {/* </Link> */}
       </form>
     </div>
   );

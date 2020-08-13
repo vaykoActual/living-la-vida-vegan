@@ -4,7 +4,6 @@ class AuthenticationController < ApplicationController
   # POST /auth/login
   def login
     @user = User.find_by(username: login_params[:username])
-    byebug
     if @user.authenticate(login_params[:password]) #authenticate method provided by Bcrypt and 'has_secure_password'
       token = encode({id: @user.id})
       render json: {

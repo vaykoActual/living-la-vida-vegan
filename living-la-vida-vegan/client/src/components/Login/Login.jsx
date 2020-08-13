@@ -20,7 +20,7 @@ export default function Login(props) {
     e.preventDefault();
     const userData = await loginUser(formData);
     props.setCurrentUser(userData);
-    props.history.push('/');
+    props.history.push('/profile');
   };
 
   return (
