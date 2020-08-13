@@ -27,9 +27,9 @@ export default function CreateRecipe(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const recipeData = await postRecipe(recipeInput);
-    // props.setCurrentUser(userData);
-    props.history.push('/');
+    const newRecipe = await postRecipe(recipeInput);
+    props.setRecipes([...props.recipes, newRecipe]);
+    props.history.push('/recipes');
   };
 
   // const handleClick = () => {
