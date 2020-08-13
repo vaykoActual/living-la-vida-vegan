@@ -11,6 +11,7 @@ import ShowRecipes from '../Recipes/ShowRecipes/ShowRecipes';
 import Recipe from '../Recipes/Recipe/Recipe';
 import UpdateRecipe from '../Recipes/UpdateRecipe/UpdateRecipe';
 import Home from '../Home/Home';
+import ShowUser from '../Users/ShowUser/ShowUser';
 
 export default function Main(props) {
   const { setCurrentUser } = props;
@@ -36,16 +37,13 @@ export default function Main(props) {
         )}
       />
       <Route
-        path='/comments'
-        render={() => (
-          <ShowComments {...props} setCurrentUser={setCurrentUser} />
-        )}
-      />
-      <Route
-        exact
-        path='/recipes'
-        render={() => (
-          <ShowRecipes {...props} setCurrentUser={setCurrentUser} />
+        path='/profile'
+        render={(props) => (
+          <ShowUser
+            {...props}
+            setCurrentUser={setCurrentUser}
+            recipes={recipes}
+          />
         )}
       />
       <Route
@@ -63,7 +61,12 @@ export default function Main(props) {
         exact
         path='/recipes/:id'
         render={(props) => (
-          <Recipe {...props} setCurrentUser={setCurrentUser} />
+          <Recipe
+            {...props}
+            setCurrentUser={setCurrentUser}
+            recipes={recipes}
+            setRecipes={setRecipes}
+          />
         )}
       />
       <Route
@@ -75,6 +78,24 @@ export default function Main(props) {
             setRecipes={setRecipes}
             setCurrentUser={setCurrentUser}
           />
+        )}
+      />
+      <Route
+        exact
+        path='/recipes'
+        render={() => (
+          <ShowRecipes
+            {...props}
+            setCurrentUser={setCurrentUser}
+            recipes={recipes}
+            setRecipes={setRecipes}
+          />
+        )}
+      />
+      <Route
+        path='/comments'
+        render={() => (
+          <ShowComments {...props} setCurrentUser={setCurrentUser} />
         )}
       />
     </main>

@@ -32,7 +32,7 @@ export default function Register(props) {
     e.preventDefault();
     const userData = await registerUser(formData);
     props.setCurrentUser(userData);
-    // props.history.push('/');
+    props.history.push('/recipes');
   };
 
   const handleClick = () => {
@@ -41,7 +41,7 @@ export default function Register(props) {
 
   return (
     <div>
-      <form className='d-flex flex-column' onSubmit={handleSubmit}>
+      <form className='register-form' onSubmit={handleSubmit}>
         <h3>Make an Account</h3>
         <input
           type='text'
