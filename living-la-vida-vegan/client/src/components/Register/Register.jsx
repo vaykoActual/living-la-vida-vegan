@@ -2,17 +2,18 @@ import React, { useState } from 'react';
 import './Register.css';
 import { registerUser } from '../../services/users';
 import { Button } from 'react-bootstrap';
-import RegisterCont from './RegisterCont';
+import { Link } from 'react-router-dom';
+// import RegisterCont from './RegisterCont';
 
 export default function Register(props) {
   const [formData, setFormData] = useState({
     email: '',
     username: '',
     password: '',
-    confirm_password: '',
-    upload_photo: '',
-    about_me: '',
-    likes_interests: '',
+    confirmPassword: '',
+    uploadPhoto: '',
+    aboutMe: '',
+    likesInterests: '',
   });
 
   const [clicked, setClicked] = useState({
@@ -29,7 +30,7 @@ export default function Register(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const userData = await registerUser(formData);
+    const userData = await registerUser(setFormData);
     props.setCurrentUser(userData);
     props.history.push('/');
   };
@@ -65,8 +66,8 @@ export default function Register(props) {
         />
         <input
           type='password'
-          name='confirmPassword'
-          value={formData.confirm_password}
+          name='confirm-password'
+          value={formData.confirmPassword}
           onChange={handleChange}
           placeholder='Confirm Password'
         />
@@ -77,26 +78,28 @@ export default function Register(props) {
           <div>
             <input
               type='text'
-              name='uploadPhoto'
-              value={formData.upload_photo}
+              name='upload-photo'
+              value={formData.uploadPhoto}
               onChange={handleChange}
               placeholder='Image URL'
             />
             <input
               type='text'
-              name='aboutMe'
-              value={formData.about_me}
+              name='about-me'
+              value={formData.aboutMe}
               onChange={handleChange}
               placeholder='share a few words about yourself'
             />
             <input
               type='text'
-              name='likesInterests'
-              value={formData.likes_interests}
+              name='likes-interests'
+              value={formData.likesInterests}
               onChange={handleChange}
               placeholder='any likes or interests?'
             />
-            <button>Save</button>
+            <Link to='/'>
+              <button>Save</button>
+            </Link>
           </div>
         )}
       </form>

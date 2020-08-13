@@ -6,7 +6,7 @@ export default function Login(props) {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
-    confirm_password: '',
+    confirmPassword: '',
   });
 
   const handleChange = (e) => {
@@ -45,7 +45,7 @@ export default function Login(props) {
         <input
           type='password'
           name='confirm-password'
-          value={formData.confirm_password}
+          value={formData.confirmPassword}
           onChange={handleChange}
           placeholder='Confirm Password'
         />
