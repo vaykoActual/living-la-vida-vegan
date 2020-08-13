@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @users = User.all
     @comment = Comment.new
 
-    render json: @users
+    render json: @users, include: :recipes, status: :ok
   end
 
   # # GET /users/1
