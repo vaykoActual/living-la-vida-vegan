@@ -96,9 +96,9 @@ export default function CreateRecipe(props) {
           onChange={handleChange}
           placeholder='Source'
         />
-        <Link to='/recipe'>
-          <button>Save</button>
-        </Link>
+        {/* <Link to={`/recipes/${id}`}> */}
+        <button>Save</button>
+        {/* </Link> */}
       </form>
     </div>
   );

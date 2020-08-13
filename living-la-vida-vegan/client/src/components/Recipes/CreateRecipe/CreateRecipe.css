@@ -1,0 +1,10 @@
+.add-recipe {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+input {
+  margin: 10px;
+}
