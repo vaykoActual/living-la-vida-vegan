@@ -6,7 +6,7 @@ export default function DeleteRecipes(props) {
   const handleClick = async (id) => {
     await destroyRecipe(id);
     props.setRecipes(
-      props.recipes.filter((recipe) => {
+      props.recipeDelete.filter((recipe) => {
         return recipe.id !== id;
       })
     );

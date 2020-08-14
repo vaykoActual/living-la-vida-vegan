@@ -17,10 +17,10 @@ export default function UpdateRecipe(props) {
 
   useEffect(() => {
     defaultRecipeData();
-  }, [props.recipes]);
+  }, [props.recipeEdit]);
 
   const defaultRecipeData = (e) => {
-    const recipe = props.recipes.find((recipe) => {
+    const recipe = props.recipeEdit.find((recipe) => {
       return recipe.id === props.match.params.id;
     });
     if (recipe) {
@@ -45,10 +45,11 @@ export default function UpdateRecipe(props) {
     const { id } = props.match.params;
     const newRecipe = await putRecipe(id, recipeUpdate);
     props.setRecipes(
-      props.recipes.map((recipe) => {
+      props.recipeEdit.map((recipe) => {
         return recipe.id === parseInt(id) ? newRecipe : recipe;
       })
     );
+    alert("You've updated the recipe!");
     props.history.push('/');
   };
 
@@ -71,12 +72,12 @@ export default function UpdateRecipe(props) {
               <Form onSubmit={handleSubmit}>
                 <Form.Group controlId='RecipeId' className='create-input'>
                   <Form.Control
-                    onChange={handleChange}
                     type='text'
-                    name='upload_photo'
+                    name='recipe_name'
                     required
-                    defaultValue={recipeUpdate.upload_photo}
-                    placeholder='Upload a Photo'
+                    disabled
+                    defaultValue={recipeUpdate.recipe_name}
+                    placeholder='should show existing Recipe Name'
                   />
                 </Form.Group>
               </Form>
@@ -87,11 +88,12 @@ export default function UpdateRecipe(props) {
               <Form onSubmit={handleSubmit}>
                 <Form.Group controlId='RecipeId' className='create-input'>
                   <Form.Control
+                    onChange={handleChange}
                     type='text'
-                    name='recipe_name'
+                    name='upload_photo'
                     required
-                    defaultValue={recipeUpdate.recipe_name}
-                    placeholder='Recipe Name'
+                    defaultValue={recipeUpdate.upload_photo}
+                    placeholder='Upload a Photo'
                   />
                 </Form.Group>
               </Form>

@@ -107,18 +107,19 @@ export default function Recipe(props) {
                 <Button variant='secondary' onClick={handleShowEdit}>
                   Save
                 </Button>
-                <Button variant='danger' onClick={handleShowDelete}>
-                  Delete
-                </Button>
                 <UpdateRecipe
                   {...props}
-                  recipe={recipe}
+                  recipeEdit={props.recipes}
                   show={showEdit}
                   onHide={handleCloseEdit}
                 />
+                <Button variant='danger' onClick={handleShowDelete}>
+                  Delete
+                </Button>
+
                 <DeleteRecipe
                   {...props}
-                  recipe={recipe}
+                  recipeDelete={props.recipes}
                   show={showDelete}
                   onHide={handleCloseDelete}
                 />
