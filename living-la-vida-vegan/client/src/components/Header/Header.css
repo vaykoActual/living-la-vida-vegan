@@ -1,10 +1,17 @@
-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.header {
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* justify-content: space-between; */
+  padding: 10px;
+  text-align: right;
 }
 
 .comp-icon {
   width: 60px;
   height: 60px;
+}
+
+.side-bar {
+  margin: 10px;
+  text-align: right;
 }

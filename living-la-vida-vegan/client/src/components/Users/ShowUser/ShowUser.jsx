@@ -6,33 +6,39 @@ import { Link } from 'react-router-dom';
 export default function ShowUser(props) {
   return (
     <>
-      <div className='profile-info'>
-        <img
-          src={props.setCurrentUser.imgUrl}
-          alt='profile-picture'
-          className=''
-        />
-        <h2>{props.setCurrentUser.username}</h2>
-        <h4>About Me</h4>
-        <p>{props.setCurrentUser.aboutMe}</p>
-        <h4>Likes/Interests</h4>
-        <p>{props.setCurrentUser.likesInterests}</p>
-      </div>
+      {props.currentUser && (
+        <>
+          <div className='profile-info'>
+            <img
+              src={props.currentUser.img_url}
+              alt='profile-picture'
+              className=''
+            />
+            <h2>{props.currentUser.username}</h2>
+            <h4>About Me</h4>
+            <p>props don't work-but go here{props.currentUser.aboutMe}</p>
+            <h4>Likes/Interests</h4>
+            <p>
+              props don't work-but go here{props.currentUser.likesInterests}
+            </p>
+          </div>
 
-      <Link to='/recipes/:id'>
-        {props.recipes &&
-          props.recipes.map((recipe) => (
-            <div className='profile-recipe-tiles'>
-              <p>recipes should show here</p>
-              <h5>{recipe.recipeName}</h5>
-              <img
-                src={recipe.uploadPhoto}
-                alt='recipe-photo'
-                className='recipe-photo-tile'
-              />
-            </div>
-          ))}
-      </Link>
+          {props.recipes &&
+            props.recipes.map((recipe) => (
+              <Link to={`/recipes/${recipe.id}`}>
+                <div className='profile-recipe-tiles'>
+                  <p>recipes should show here</p>
+                  <h5>{recipe.recipe_name}</h5>
+                  <img
+                    src={recipe.upload_photo}
+                    alt='recipe-photo'
+                    className='recipe-photo-tile'
+                  />
+                </div>
+              </Link>
+            ))}
+        </>
+      )}
     </>
   );
 }

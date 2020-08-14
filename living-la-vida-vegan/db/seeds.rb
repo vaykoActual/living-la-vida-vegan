@@ -10,7 +10,7 @@ Comment.destroy_all
 Recipe.destroy_all
 User.destroy_all
 
-@admin = User.create!(username: 'zulay', email: 'zulay@lifefromabackpack.com', password: '012345' img_url: 'https://scontent-lga3-2.cdninstagram.com/v/t51.2885-15/e35/117108718_700206797498048_7903621190218213824_n.jpg?_nc_ht=scontent-lga3-2.cdninstagram.com&_nc_cat=108&_nc_ohc=SDx5RaG_fOoAX9uKyJb&oh=1c1c6e097a1d83ffe6f5db918a579573&oe=5F5D4AD2')
+@admin = User.create!(username: 'zulay', email: 'zulay@lifefromabackpack.com', password: '012345', img_url: 'https://scontent-lga3-2.cdninstagram.com/v/t51.2885-15/e35/117108718_700206797498048_7903621190218213824_n.jpg?_nc_ht=scontent-lga3-2.cdninstagram.com&_nc_cat=108&_nc_ohc=SDx5RaG_fOoAX9uKyJb&oh=1c1c6e097a1d83ffe6f5db918a579573&oe=5F5D4AD2')
 p "Users created: #{User.count}"
 
 @curry = Recipe.create(upload_photo: 'https://avirtualvegan.com/wp-content/uploads/2019/09/Butternut-Squash-Curry-A-Virtual-Vegan-13-500x500.jpg', 

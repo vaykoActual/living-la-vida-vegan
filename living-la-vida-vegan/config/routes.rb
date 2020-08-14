@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   post '/auth/login', to: 'authentication#login'
   get '/auth/verify', to: 'authentication#verify'
   put '/comments/:comment_id/recipes/:id', to: 'recipes#add_comment' 
+  get '/recipes', to: 'recipes#all_recipes'
 
   # resources :recipes, only: [:index]
 

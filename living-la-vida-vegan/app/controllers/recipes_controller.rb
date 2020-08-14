@@ -1,11 +1,11 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :update, :destroy]
-  # before_action :authorize_request, except: [:index, :show]
+  before_action :authorize_request, except: [:index, :show, :all_recipes]
 
   # GET /recipes
   def index
     @user = User.find(params[:user_id])
-    @recipes = Recipe.where(user_id: params[:user_id]).all
+    @recipes = Recipe.where(user_id: @user_id).all
 
     render json: @recipes, include: :user, status: :ok
   end
@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
   # GET /recipes/1
   def show
     @user = User.find(params[:user_id])
-    @recipe = Recipe.where(user_id: params[:user_id])
+    @recipe = Recipe.where(user_id: @user_id)
     # render json: @recipes, include: :user, status: :ok
     render json: @recipe, include: :comments
   end
@@ -21,7 +21,7 @@ class RecipesController < ApplicationController
   # POST /recipes
   def create
     @user = User.find(params[:user_id])
-    @recipe = Recipe.where(user_id: params[:user_id]).new(recipe_params)
+    @recipe = Recipe.where(user_id: @user_id).new(recipe_params)
 
     if @recipe.save
       render json: @recipe, status: :created
@@ -52,6 +52,13 @@ class RecipesController < ApplicationController
     @recipe.comments << @comment
 
     render json: @recipe, include: :comments
+  end
+
+
+  def all_recipes
+    @recipes = Recipe.all
+
+    render json: @recipes 
   end
 
   private

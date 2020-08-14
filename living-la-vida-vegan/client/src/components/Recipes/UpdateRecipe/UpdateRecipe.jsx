@@ -52,7 +52,7 @@ export default function UpdateRecipe(props) {
         return recipe.id === parseInt(id) ? newRecipe : recipe;
       })
     );
-    props.history.push('/recipes');
+    props.history.push('/');
   };
 
   // const handleClick = () => {

@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Nav from '../Nav/Nav';
 
 export default function Header() {
   return (
-    <div>
-      <header>
+    <header>
+      <div className='header'>
         <Link to='/'>
           <img
             src='https://res.cloudinary.com/zumariposa/image/upload/c_scale,w_100/v1597281956/living-la-vida-vegan/apple-touch-icon_s4rh6b.png'
@@ -22,7 +23,8 @@ export default function Header() {
             <p className='register-button'>Register</p>
           </Link>
         </div>
-      </header>
-    </div>
+      </div>
+      <Nav />
+    </header>
   );
 }

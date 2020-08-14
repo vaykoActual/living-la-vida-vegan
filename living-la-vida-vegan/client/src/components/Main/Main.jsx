@@ -10,11 +10,10 @@ import CreateRecipe from '../Recipes/CreateRecipe/CreateRecipe';
 import ShowRecipes from '../Recipes/ShowRecipes/ShowRecipes';
 import Recipe from '../Recipes/Recipe/Recipe';
 import UpdateRecipe from '../Recipes/UpdateRecipe/UpdateRecipe';
-import Home from '../Home/Home';
 import ShowUser from '../Users/ShowUser/ShowUser';
 
 export default function Main(props) {
-  const { setCurrentUser } = props;
+  const { currentUser, setCurrentUser } = props;
 
   const [recipes, setRecipes] = useState([]);
 
@@ -23,9 +22,24 @@ export default function Main(props) {
     setRecipes(recipesList);
   };
 
+  useEffect(() => {
+    getRecipes();
+  }, []);
+
   return (
     <main>
-      <Route exact path='/' render={() => <Home />} />
+      <Route
+        exact
+        path='/'
+        render={() => (
+          <ShowRecipes
+            {...props}
+            setCurrentUser={setCurrentUser}
+            recipes={recipes}
+            setRecipes={setRecipes}
+          />
+        )}
+      />
       <Route
         path='/login'
         render={(props) => <Login {...props} setCurrentUser={setCurrentUser} />}
@@ -39,11 +53,7 @@ export default function Main(props) {
       <Route
         path='/profile'
         render={(props) => (
-          <ShowUser
-            {...props}
-            setCurrentUser={setCurrentUser}
-            recipes={recipes}
-          />
+          <ShowUser {...props} currentUser={currentUser} recipes={recipes} />
         )}
       />
       <Route
@@ -53,7 +63,7 @@ export default function Main(props) {
             {...props}
             recipes={recipes}
             setRecipes={setRecipes}
-            setCurrentUser={setCurrentUser}
+            currentUser={currentUser}
           />
         )}
       />
@@ -63,9 +73,9 @@ export default function Main(props) {
         render={(props) => (
           <Recipe
             {...props}
-            setCurrentUser={setCurrentUser}
+            currentUser={currentUser}
             recipes={recipes}
-            // setRecipes={setRecipes}
+            setRecipes={setRecipes}
           />
         )}
       />
@@ -76,27 +86,14 @@ export default function Main(props) {
             {...props}
             recipes={recipes}
             setRecipes={setRecipes}
-            setCurrentUser={setCurrentUser}
+            currentUser={currentUser}
           />
         )}
       />
-      <Route
-        exact
-        path='/recipes'
-        render={() => (
-          <ShowRecipes
-            {...props}
-            setCurrentUser={setCurrentUser}
-            recipes={recipes}
-            setRecipes={setRecipes}
-          />
-        )}
-      />
+
       <Route
         path='/comments'
-        render={() => (
-          <ShowComments {...props} setCurrentUser={setCurrentUser} />
-        )}
+        render={() => <ShowComments {...props} currentUser={currentUser} />}
       />
     </main>
   );
