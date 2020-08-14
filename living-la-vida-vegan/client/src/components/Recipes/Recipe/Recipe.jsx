@@ -14,10 +14,16 @@ export default function Recipe(props) {
   const [recipe, setRecipe] = useState('');
   const [commentId, setCommentId] = useState('');
   const [showDelete, setDelete] = useState(false);
+  const [showEdit, setEdit] = useState(false);
+  // const [showSave, setSave] = useState(false)
 
-  useEffect(() => {
-    getRecipe();
-  }, []);
+  const handleClose = () => {
+    setDelete(false);
+  };
+
+  const handleShow = () => {
+    setDelete(true);
+  };
 
   const getRecipe = async () => {
     const recipe = await readOneRecipe(props.match.params.id);
@@ -35,13 +41,9 @@ export default function Recipe(props) {
     setRecipe(recipe);
   };
 
-  const handleClose = () => {
-    setDelete(false);
-  };
-
-  const handleShow = () => {
-    setDelete(true);
-  };
+  useEffect(() => {
+    getRecipe();
+  }, []);
 
   return (
     <div>
@@ -105,6 +107,12 @@ export default function Recipe(props) {
                 </Link>
                 {/* </div> */}
                 <Button variant='primary' onClick={handleShow}>
+                  Edit
+                </Button>
+                <Button variant='secondary' onClick={handleShow}>
+                  Save
+                </Button>
+                <Button variant='danger' onClick={handleShow}>
                   Delete
                 </Button>
                 <DeleteRecipe
