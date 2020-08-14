@@ -5,13 +5,13 @@ import { Modal, Button, Col, Row, Form } from 'react-bootstrap';
 
 export default function UpdateRecipe(props) {
   const [recipeUpdate, setRecipeUpdate] = useState({
-    uploadPhoto: '',
-    recipeName: '',
+    upload_photo: '',
+    recipe_name: '',
     description: '',
-    prepTime: '',
-    cookTime: '',
+    prep_time: '',
+    cook_time: '',
     ingredients: '',
-    stepsInstructions: '',
+    instructions: '',
     source: '',
   });
 

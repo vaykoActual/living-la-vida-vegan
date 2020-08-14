@@ -24,7 +24,6 @@ export default function Recipe(props) {
         props.currentUser.id,
         props.match.params.id
       );
-      console.log('you did it ');
       setRecipe(recipe);
     }
   };
@@ -38,6 +37,7 @@ export default function Recipe(props) {
     e.preventDefault();
     const recipe = await addComment(commentId, recipe.id);
     setRecipe(recipe);
+    // props.history.push(`/recipes/${recipe.id}`);
   };
 
   useEffect(() => {
@@ -71,10 +71,7 @@ export default function Recipe(props) {
                   alt='recipe-photo'
                   className='recipe-photo'
                 />
-                <Link to={`/recipes/${recipe.id}`}>
-                  <h3>{rec.recipe_name}</h3>
-                </Link>
-
+                <h3>{rec.recipe_name}</h3>
                 <p>{rec.description}</p>
                 <div className='time-check'>
                   <div className='prep'>

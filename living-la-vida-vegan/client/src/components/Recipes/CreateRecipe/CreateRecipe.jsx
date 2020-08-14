@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './CreateRecipe.css';
-import { Link } from 'react-router-dom';
 import { postRecipe } from '../../../services/recipes';
 import { Button, Col, Row, Form, ButtonToolbar } from 'react-bootstrap';
 
@@ -27,7 +26,6 @@ export default function CreateRecipe(props) {
     e.preventDefault();
     const newRecipe = await postRecipe(props.currentUser.id, recipeInput);
     props.setRecipes([...props.recipes, newRecipe]);
-    // alert("You've added a new recipe!");
     props.history.push(`/recipes/${newRecipe.id}`);
   };
 
@@ -40,14 +38,14 @@ export default function CreateRecipe(props) {
           <h3>Add a Recipe</h3>
           <input
             type='text'
-            name='upload-photo'
+            name='upload_photo'
             value={recipeInput.upload_photo}
             onChange={handleChange}
             placeholder='Upload a Photo'
           />
           <input
             type='text'
-            name='recipe-name'
+            name='recipe_name'
             value={recipeInput.recipe_name}
             onChange={handleChange}
             placeholder='Recipe Name'
@@ -61,14 +59,14 @@ export default function CreateRecipe(props) {
           />
           <input
             type='text'
-            name='prep-time'
+            name='prep_time'
             value={recipeInput.prep_time}
             onChange={handleChange}
             placeholder='Prep Time'
           />
           <input
             type='text'
-            name='cook-time'
+            name='cook_time'
             value={recipeInput.cook_time}
             onChange={handleChange}
             placeholder='Cook Time'
@@ -82,7 +80,7 @@ export default function CreateRecipe(props) {
           />
           <input
             type='text'
-            name='steps-instructions'
+            name='instructions'
             value={recipeInput.instructions}
             onChange={handleChange}
             placeholder='Steps/Instructions'

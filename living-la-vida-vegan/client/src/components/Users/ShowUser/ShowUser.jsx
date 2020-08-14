@@ -8,7 +8,6 @@ export default function ShowUser(props) {
   const [userRecipe, setUserRecipe] = useState('');
 
   const getRecipes = async () => {
-    console.log(props.currentUser.id);
     const recipe = await readUserRecipes(props.currentUser.id);
     setUserRecipe(userRecipe);
   };
@@ -30,9 +29,9 @@ export default function ShowUser(props) {
             <div className='profile-text'>
               <h2>{props.currentUser.username}</h2>
               <h4>About Me</h4>
-              <p>{props.currentUser.aboutMe}</p>
+              <p>{props.currentUser.about_me}</p>
               <h4>Likes/Interests</h4>
-              <p>{props.currentUser.likesInterests}</p>
+              <p>{props.currentUser.likes_interests}</p>
             </div>
           </div>
 
