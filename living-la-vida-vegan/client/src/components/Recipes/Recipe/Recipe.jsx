@@ -88,24 +88,11 @@ export default function Recipe(props) {
                 </a>
               </div>
               {/* <div className='button-bar'> */}
-              <ButtonToolbar>
-                <Link to={`/recipes/${recipe.id}/edit`}>
-                  <button
-                    // onClick={() => handleClick(recipe.id)}
-                    className='choice-button'
-                  >
-                    Edit
-                  </button>
-                </Link>
-                <Link to={`/recipes/${recipe.id}`}>
-                  <button
-                    // onClick={() => handleClick(recipe.id)}
-                    className='choice-button'
-                  >
-                    Save
-                  </button>
-                </Link>
-                {/* </div> */}
+              <ButtonToolbar className='justify-content-center align-items-center'>
+                {/* <Link to={`/recipes/${recipe.id}/edit`}> */}
+
+                {/* <Link to={`/recipes/${recipe.id}`}> */}
+
                 <Button variant='primary' onClick={handleShow}>
                   Edit
                 </Button>
