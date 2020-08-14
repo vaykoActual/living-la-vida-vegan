@@ -61,19 +61,37 @@ export default function UpdateRecipe(props) {
 
   return (
     <div>
+      <div>
+        <Row>
+          <Col sm={6}>
+            <Form onSubmit={this.handleSubmit}>
+              <Form.Group controlId='DepartmentName'>
+                <Form.Label>Department Name</Form.Label>
+                <Form.Control
+                  type='text'
+                  name='DepartmentName'
+                  required
+                  placeholder='DepartmentName'
+                />
+              </Form.Group>
+            </Form.Label>
+          </Col>
+        </Row>
+      </div>
+
       <form className='add-recipe' onSubmit={handleSubmit}>
         <h3>Update Recipe</h3>
         <input
           type='text'
           name='upload-photo'
-          value={recipeUpdate.uploadPhoto}
+          value={recipeUpdate.upload_photo}
           onChange={handleChange}
           placeholder='Upload a Photo'
         />
         <input
           type='text'
           name='recipe-name'
-          value={recipeUpdate.recipeName}
+          value={recipeUpdate.recipe_name}
           onChange={handleChange}
           placeholder='Recipe Name'
         />
@@ -87,14 +105,14 @@ export default function UpdateRecipe(props) {
         <input
           type='text'
           name='prep-time'
-          value={recipeUpdate.prepTime}
+          value={recipeUpdate.prep_time}
           onChange={handleChange}
           placeholder='Prep Time'
         />
         <input
           type='text'
           name='cook-time'
-          value={recipeUpdate.cookTime}
+          value={recipeUpdate.cook_time}
           onChange={handleChange}
           placeholder='Cook Time'
         />
@@ -108,7 +126,7 @@ export default function UpdateRecipe(props) {
         <input
           type='text'
           name='steps-instructions'
-          value={recipeUpdate.stepsInstructions}
+          value={recipeUpdate.instructions}
           onChange={handleChange}
           placeholder='Steps/Instructions'
         />

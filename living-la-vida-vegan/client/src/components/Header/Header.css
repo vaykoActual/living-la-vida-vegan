@@ -1,8 +1,7 @@
 .header {
-  /* display: flex; */
-  /* flex-direction: row; */
-  /* justify-content: space-between; */
-  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   text-align: right;
 }
 
@@ -12,6 +11,14 @@
 }
 
 .side-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   margin: 10px;
   text-align: right;
+}
+
+.login-button,
+.register-button {
+  margin: 8px;
 }

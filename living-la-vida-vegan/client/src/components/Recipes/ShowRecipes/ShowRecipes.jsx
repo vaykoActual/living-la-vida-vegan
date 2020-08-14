@@ -1,25 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import { destroyRecipe } from '../../../services/recipes';
 import { Card } from 'react-bootstrap';
 
 export default function ShowRecipes(props) {
-  // const handleClick = async (id) => {
-  //   await destroyRecipe(id);
-  //   props.setRecipes(
-  //     props.recipes.filter((recipe) => {
-  //       return recipe.id !== id;
-  //     })
-  //   );
-  // };
-
   return (
-    <div>
+    <>
       <h1>Recipes</h1>
 
       <div className='d-flex flex-row tile-rows'>
-        <h3>Row 1</h3>
-
         {props.recipes.map((rec) => (
           <Card style={{ width: '18rem' }}>
             <Card.Title>you should see stuff here</Card.Title>
@@ -30,7 +18,6 @@ export default function ShowRecipes(props) {
                 src={rec.upload_photo}
                 alt='recipe-photo'
               />
-              {/* <img src={rec.uploadPhoto} alt='recipe-photo' className='' /> */}
               <Link to={`/recipes/${rec.id}`}>
                 <h3>{rec.recipe_name}</h3>
               </Link>
@@ -45,8 +32,8 @@ export default function ShowRecipes(props) {
                 <p>{rec.ingredients}</p>
               </div>
               <div className='instructions'>
-                <h4>Steps</h4>
-                <p>{rec.steps_instructions}</p>
+                <h4>Instructions</h4>
+                <p>{rec.instructions}</p>
               </div>
               <div className='source'>
                 <h4>Source:</h4>
@@ -57,66 +44,7 @@ export default function ShowRecipes(props) {
             </Card.Body>
           </Card>
         ))}
-
-        {/* </Link> */}
-
-        <Card style={{ width: '18rem' }}>
-          <Card.Img variant='top' src='holder.js/100px180' />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-          </Card.Body>
-        </Card>
-        <Card style={{ width: '18rem' }}>
-          <Card.Img variant='top' src='holder.js/100px180' />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-          </Card.Body>
-        </Card>
       </div>
-
-      <div className='d-flex flex-row tile-rows'>
-        <h3>Row 2</h3>
-        <Card style={{ width: '18rem' }}>
-          <Card.Img variant='top' src='holder.js/100px180' />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-          </Card.Body>
-        </Card>
-        <Card style={{ width: '18rem' }}>
-          <Card.Img variant='top' src='holder.js/100px180' />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-          </Card.Body>
-        </Card>
-        <Card style={{ width: '18rem' }}>
-          <Card.Img variant='top' src='holder.js/100px180' />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-          </Card.Body>
-        </Card>
-      </div>
-
-      <div className='d-flex flex-row tile-rows'>
-        <h3>Row 3</h3>
-        <Card style={{ width: '18rem' }}>
-          <Card.Img variant='top' src='holder.js/100px180' />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-          </Card.Body>
-        </Card>
-        <Card style={{ width: '18rem' }}>
-          <Card.Img variant='top' src='holder.js/100px180' />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-          </Card.Body>
-        </Card>
-        <Card style={{ width: '18rem' }}>
-          <Card.Img variant='top' src='holder.js/100px180' />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-          </Card.Body>
-        </Card>
-      </div>
-    </div>
+    </>
   );
 }

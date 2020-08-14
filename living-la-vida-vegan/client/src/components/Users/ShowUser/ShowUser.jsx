@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import Register from '../Register/Register';
-// import Recipe from '../Recipes/Recipe/Recipe';
+import './ShowUser.css';
 
 export default function ShowUser(props) {
   return (
@@ -12,22 +11,21 @@ export default function ShowUser(props) {
             <img
               src={props.currentUser.img_url}
               alt='profile-picture'
-              className=''
+              className='profile-picture'
             />
-            <h2>{props.currentUser.username}</h2>
-            <h4>About Me</h4>
-            <p>props don't work-but go here{props.currentUser.aboutMe}</p>
-            <h4>Likes/Interests</h4>
-            <p>
-              props don't work-but go here{props.currentUser.likesInterests}
-            </p>
+            <div className='profile-text'>
+              <h2>{props.currentUser.username}</h2>
+              <h4>About Me</h4>
+              <p>{props.currentUser.aboutMe}</p>
+              <h4>Likes/Interests</h4>
+              <p>{props.currentUser.likesInterests}</p>
+            </div>
           </div>
 
           {props.recipes &&
             props.recipes.map((recipe) => (
               <Link to={`/recipes/${recipe.id}`}>
                 <div className='profile-recipe-tiles'>
-                  <p>recipes should show here</p>
                   <h5>{recipe.recipe_name}</h5>
                   <img
                     src={recipe.upload_photo}
