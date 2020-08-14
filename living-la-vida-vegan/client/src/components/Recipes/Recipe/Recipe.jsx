@@ -3,13 +3,17 @@ import {
   readOneRecipe,
   addComment,
   destroyRecipe,
-  // readAllRecipes,
 } from '../../../services/recipes';
+import { readAllComments } from '../../../services/comments';
 import { Link } from 'react-router-dom';
+import './Recipe.css';
+import { Button, ButtonToolbar } from 'react-bootstrap';
+import DeleteRecipe from '../DeleteRecipe/DeleteRecipe';
 
 export default function Recipe(props) {
   const [recipe, setRecipe] = useState('');
   const [commentId, setCommentId] = useState('');
+  const [showDelete, setDelete] = useState(false);
 
   useEffect(() => {
     getRecipe();
@@ -31,13 +35,12 @@ export default function Recipe(props) {
     setRecipe(recipe);
   };
 
-  const handleClick = async (id) => {
-    await destroyRecipe(id);
-    props.setRecipes(
-      props.recipes.filter((recipe) => {
-        return recipe.id !== id;
-      })
-    );
+  const handleClose = () => {
+    setDelete(false);
+  };
+
+  const handleShow = () => {
+    setDelete(true);
   };
 
   return (
@@ -45,45 +48,78 @@ export default function Recipe(props) {
       {props.recipes && (
         <>
           {props.recipes.map((rec) => (
-            <>
-              <img src={rec.uploadPhoto} alt='recipe-photo' className='' />
-              <Link to={`/recipes/${recipe.id}`}>
-                <h3>{rec.recipeName}</h3>
-              </Link>
-              <div className='time-check'>
-                <h4>Prep Time:</h4>
-                <p>{rec.prepTime}</p>
-                <h4>Cook Time:</h4>
-                <p>{rec.cookTime}</p>
+            <div className='recipe-page'>
+              <div className='recipe-details'>
+                <img
+                  src={rec.upload_photo}
+                  alt='recipe-photo'
+                  className='recipe-photo'
+                />
+                <Link to={`/recipes/${recipe.id}`}>
+                  <h3>{rec.recipe_name}</h3>
+                </Link>
+
+                <p>{rec.description}</p>
+                <div className='time-check'>
+                  <div className='prep'>
+                    <h5>Prep Time: </h5>
+                    <h6 className='prep-times'>{rec.prep_time}</h6>
+                  </div>
+                  <div className='cook'>
+                    <h5>Cook Time:</h5>
+                    <h6 className='cook-times'>{rec.cook_time}</h6>
+                  </div>
+                </div>
               </div>
+
               <div className='ingredients'>
                 <h4>Ingredients</h4>
                 <p>{rec.ingredients}</p>
               </div>
               <div className='instructions'>
                 <h4>Steps</h4>
-                <p>{rec.stepsInstructions}</p>
+                <p>{rec.instructions}</p>
               </div>
               <div>
-                <h4>Source:</h4>
                 <a href={rec.source}>
-                  <p>{rec.recipeName}</p>
+                  <h6>view full recipe here</h6>
                 </a>
               </div>
-              <div className='button-bar'>
+              {/* <div className='button-bar'> */}
+              <ButtonToolbar>
+                <Link to={`/recipes/${recipe.id}/edit`}>
+                  <button
+                    // onClick={() => handleClick(recipe.id)}
+                    className='choice-button'
+                  >
+                    Edit
+                  </button>
+                </Link>
                 <Link to={`/recipes/${recipe.id}`}>
-                  <button>Edit</button>
+                  <button
+                    // onClick={() => handleClick(recipe.id)}
+                    className='choice-button'
+                  >
+                    Save
+                  </button>
                 </Link>
-                <Link>
-                  <button>Save</button>
-                </Link>
-                <button onClick={() => handleClick(recipe.id)}>Delete</button>
-              </div>
-            </>
+                {/* </div> */}
+                <Button variant='primary' onClick={handleShow}>
+                  Delete
+                </Button>
+                <DeleteRecipe
+                  {...props}
+                  recipe={recipe}
+                  show={showDelete}
+                  onHide={handleClose}
+                />
+              </ButtonToolbar>
+            </div>
           ))}
 
           <div className='comment-section'>
-            <h2>Comments: </h2>
+            <h3>Comments: </h3>
+            <p>{/* {props.currentUser.username} */}: ohhh so yum</p>
             {/* <p>{comment.content}</p> */}
           </div>
         </>

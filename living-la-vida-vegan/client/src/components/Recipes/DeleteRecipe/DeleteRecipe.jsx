@@ -1,16 +1,16 @@
 import React from 'react';
-import { Modal } from 'react-bootstrap';
-// import { destroyRecipe } from '../../../services/recipes';
+import { Modal, Button } from 'react-bootstrap';
+import { destroyRecipe } from '../../../services/recipes';
 
-export default function DeleteRecipes() {
-  // const handleClick = async (id) => {
-  //   await destroyRecipe(id);
-  //   props.setRecipes(
-  //     props.recipes.filter((recipe) => {
-  //       return recipe.id !== id;
-  //     })
-  //   );
-  // };
+export default function DeleteRecipes(props) {
+  const handleClick = async (id) => {
+    await destroyRecipe(id);
+    props.setRecipes(
+      props.recipes.filter((recipe) => {
+        return recipe.id !== id;
+      })
+    );
+  };
 
   return (
     <>
@@ -20,22 +20,17 @@ export default function DeleteRecipes() {
         aria-labelledby='contained-modal-title-vcenter'
         centered
       >
-        <Modal.Header closeButton>
-          {/* <Modal.Title id='contained-modal-title-vcenter'>
-            Modal heading
-          </Modal.Title> */}
-        </Modal.Header>
+        <Modal.Header closeButton></Modal.Header>
         <Modal.Body>
-          <h4>Centered Modal</h4>
-          <p>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-            ac consectetur ac, vestibulum at eros.
-          </p>
+          <h4> Are you sure you want to delete this recipe?</h4>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
-          <Button onClick={props.onHide}>Close</Button>
+          <Button variant='secondary' onClick={props.onHide}>
+            Save Changes
+          </Button>
+          <Button variant='danger' onClick={props.onHide}>
+            Close
+          </Button>
         </Modal.Footer>
       </Modal>
     </>
