@@ -21,7 +21,6 @@ export default function ShowUser(props) {
     <>
       {props.currentUser && (
         <>
-          <Nav />
           <div className='profile-info'>
             <img
               src={props.currentUser.img_url}
