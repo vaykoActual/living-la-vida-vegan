@@ -19,10 +19,6 @@ export default function UpdateRecipe(props) {
     defaultRecipeData();
   }, [props.recipes]);
 
-  // const [clicked, setClicked] = useState({
-  //   clicked: false,
-  // });
-
   const defaultRecipeData = (e) => {
     const recipe = props.recipes.find((recipe) => {
       return recipe.id === props.match.params.id;
@@ -56,29 +52,151 @@ export default function UpdateRecipe(props) {
     props.history.push('/');
   };
 
-  // const handleClick = () => {
-  //   setClicked(!clicked);
-  // };
-
   return (
     <>
-      <Row>
-        <Col sm={6}>
-          <Form onSubmit={handleSubmit}>
-            <Form.Group controlId='RecipeId'>
-              <Form.Label>Upload a Photo</Form.Label>
-              <Form.Control
-                type='text'
-                name='DepartmentName'
-                required
-                disabled
-                defaultValue={props.upload_photo}
-                placeholder='DepartmentName'
-              />
-            </Form.Group>
-          </Form>
-        </Col>
-      </Row>
+      <Modal
+        {...props}
+        size='lg'
+        aria-labelledby='contained-modal-title-vcenter'
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id='contained-modal-title-vcenter'>
+            Update Recipe
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body className='update-recipe-form mx-1'>
+          <Row className='row h-100 justify-content-center align-items-center '>
+            <Col sm={6}>
+              <Form onSubmit={handleSubmit}>
+                <Form.Group controlId='RecipeId' className='create-input'>
+                  <Form.Control
+                    onChange={handleChange}
+                    type='text'
+                    name='upload_photo'
+                    required
+                    defaultValue={recipeUpdate.upload_photo}
+                    placeholder='Upload a Photo'
+                  />
+                </Form.Group>
+              </Form>
+            </Col>
+          </Row>
+          <Row className='row h-100 justify-content-center align-items-center '>
+            <Col sm={6}>
+              <Form onSubmit={handleSubmit}>
+                <Form.Group controlId='RecipeId' className='create-input'>
+                  <Form.Control
+                    type='text'
+                    name='recipe_name'
+                    required
+                    defaultValue={recipeUpdate.recipe_name}
+                    placeholder='Recipe Name'
+                  />
+                </Form.Group>
+              </Form>
+            </Col>
+          </Row>
+          <Row className='row h-100 justify-content-center align-items-center '>
+            <Col sm={6}>
+              <Form onSubmit={handleSubmit}>
+                <Form.Group controlId='RecipeId' className='create-input'>
+                  <Form.Control
+                    type='text'
+                    name='description'
+                    required
+                    defaultValue={recipeUpdate.description}
+                    placeholder='Description'
+                  />
+                </Form.Group>
+              </Form>
+            </Col>
+          </Row>
+          <Row className='row h-100 justify-content-center align-items-center '>
+            <Col sm={6}>
+              <Form onSubmit={handleSubmit}>
+                <Form.Group controlId='RecipeId' className='create-input'>
+                  <Form.Control
+                    type='text'
+                    name='prep_time'
+                    required
+                    defaultValue={recipeUpdate.prep_time}
+                    placeholder='Prep Time'
+                  />
+                </Form.Group>
+              </Form>
+            </Col>
+          </Row>
+          <Row className='row h-100 justify-content-center align-items-center '>
+            <Col sm={6}>
+              <Form onSubmit={handleSubmit}>
+                <Form.Group controlId='RecipeId' className='create-input'>
+                  <Form.Control
+                    type='text'
+                    name='cook_time'
+                    required
+                    defaultValue={recipeUpdate.cook_time}
+                    placeholder='Cook Time'
+                  />
+                </Form.Group>
+              </Form>
+            </Col>
+          </Row>
+          <Row className='row h-100 justify-content-center align-items-center '>
+            <Col sm={6}>
+              <Form onSubmit={handleSubmit}>
+                <Form.Group controlId='RecipeId' className='create-input'>
+                  <Form.Control
+                    type='text'
+                    name='ingredients'
+                    required
+                    defaultValue={recipeUpdate.ingredients}
+                    placeholder='Ingredients'
+                  />
+                </Form.Group>
+              </Form>
+            </Col>
+          </Row>
+          <Row className='row h-100 justify-content-center align-items-center '>
+            <Col sm={6}>
+              <Form onSubmit={handleSubmit}>
+                <Form.Group controlId='RecipeId' className='create-input'>
+                  <Form.Control
+                    type='text'
+                    name='instructions'
+                    required
+                    defaultValue={recipeUpdate.instructions}
+                    placeholder='Instructions'
+                  />
+                </Form.Group>
+              </Form>
+            </Col>
+          </Row>
+          <Row className='row h-100 justify-content-center align-items-center '>
+            <Col sm={6}>
+              <Form onSubmit={handleSubmit}>
+                <Form.Group controlId='RecipeId' className='create-input'>
+                  <Form.Control
+                    type='text'
+                    name='source'
+                    required
+                    defaultValue={recipeUpdate.source}
+                    placeholder='Source'
+                  />
+                </Form.Group>
+              </Form>
+            </Col>
+          </Row>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant='secondary' onClick={props.onHide}>
+            Save Changes
+          </Button>
+          <Button variant='danger' onClick={props.onHide}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 }

@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import './Recipe.css';
 import { Button, ButtonToolbar } from 'react-bootstrap';
 import DeleteRecipe from '../DeleteRecipe/DeleteRecipe';
+import UpdateRecipe from '../UpdateRecipe/UpdateRecipe';
 
 export default function Recipe(props) {
   const [recipe, setRecipe] = useState('');
@@ -17,12 +18,19 @@ export default function Recipe(props) {
   const [showEdit, setEdit] = useState(false);
   // const [showSave, setSave] = useState(false)
 
-  const handleClose = () => {
+  const handleCloseDelete = () => {
     setDelete(false);
   };
+  const handleCloseEdit = () => {
+    setEdit(false);
+  };
 
-  const handleShow = () => {
+  const handleShowDelete = () => {
     setDelete(true);
+  };
+
+  const handleShowEdit = () => {
+    setEdit(true);
   };
 
   const getRecipe = async () => {
@@ -93,20 +101,26 @@ export default function Recipe(props) {
 
                 {/* <Link to={`/recipes/${recipe.id}`}> */}
 
-                <Button variant='primary' onClick={handleShow}>
+                <Button variant='primary' onClick={handleShowEdit}>
                   Edit
                 </Button>
-                <Button variant='secondary' onClick={handleShow}>
+                <Button variant='secondary' onClick={handleShowEdit}>
                   Save
                 </Button>
-                <Button variant='danger' onClick={handleShow}>
+                <Button variant='danger' onClick={handleShowDelete}>
                   Delete
                 </Button>
+                <UpdateRecipe
+                  {...props}
+                  recipe={recipe}
+                  show={showEdit}
+                  onHide={handleCloseEdit}
+                />
                 <DeleteRecipe
                   {...props}
                   recipe={recipe}
                   show={showDelete}
-                  onHide={handleClose}
+                  onHide={handleCloseDelete}
                 />
               </ButtonToolbar>
             </div>

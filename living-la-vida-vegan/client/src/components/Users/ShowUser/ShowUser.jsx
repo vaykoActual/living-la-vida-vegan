@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './ShowUser.css';
+import Nav from '../../Nav/Nav';
 
 export default function ShowUser(props) {
   return (
     <>
       {props.currentUser && (
         <>
+          <Nav />
           <div className='profile-info'>
             <img
               src={props.currentUser.img_url}
