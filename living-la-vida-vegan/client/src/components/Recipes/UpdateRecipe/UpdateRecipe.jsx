@@ -61,6 +61,24 @@ export default function UpdateRecipe(props) {
 
   return (
     <div>
+      <div>
+        <Row>
+          <Col sm={6}>
+            <Form onSubmit={this.handleSubmit}>
+              <Form.Group controlId='DepartmentName'>
+                <Form.Label>Department Name</Form.Label>
+                <Form.Control
+                  type='text'
+                  name='DepartmentName'
+                  required
+                  placeholder='DepartmentName'
+                />
+              </Form.Group>
+            </Form.Label>
+          </Col>
+        </Row>
+      </div>
+
       <form className='add-recipe' onSubmit={handleSubmit}>
         <h3>Update Recipe</h3>
         <input
