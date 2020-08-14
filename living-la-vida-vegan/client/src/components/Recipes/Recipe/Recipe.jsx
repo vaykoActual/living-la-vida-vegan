@@ -100,29 +100,27 @@ export default function Recipe(props) {
                 {/* <Link to={`/recipes/${recipe.id}/edit`}> */}
 
                 {/* <Link to={`/recipes/${recipe.id}`}> */}
-
-                <Button variant='primary' onClick={handleShowEdit}>
-                  Edit
-                </Button>
-                <Button variant='secondary' onClick={handleShowEdit}>
-                  Save
-                </Button>
                 <UpdateRecipe
                   {...props}
                   recipeEdit={props.recipes}
                   show={showEdit}
                   onHide={handleCloseEdit}
                 />
-                <Button variant='danger' onClick={handleShowDelete}>
-                  Delete
+                <Button variant='primary' onClick={handleShowEdit}>
+                  Edit
                 </Button>
-
+                <Button variant='secondary' onClick={handleShowEdit}>
+                  Save
+                </Button>
                 <DeleteRecipe
                   {...props}
                   recipeDelete={props.recipes}
                   show={showDelete}
                   onHide={handleCloseDelete}
                 />
+                <Button variant='danger' onClick={handleShowDelete}>
+                  Delete
+                </Button>
               </ButtonToolbar>
             </div>
           ))}
