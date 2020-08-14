@@ -6,7 +6,7 @@ export default function DeleteRecipes(props) {
   const handleClick = async (id) => {
     await destroyRecipe(id);
     props.setRecipes(
-      props.recipes.filter((recipe) => {
+      props.recipeDelete.filter((recipe) => {
         return recipe.id !== id;
       })
     );
@@ -26,10 +26,10 @@ export default function DeleteRecipes(props) {
         </Modal.Body>
         <Modal.Footer>
           <Button variant='secondary' onClick={props.onHide}>
-            Save Changes
+            Cancel
           </Button>
           <Button variant='danger' onClick={props.onHide}>
-            Close
+            Delete
           </Button>
         </Modal.Footer>
       </Modal>

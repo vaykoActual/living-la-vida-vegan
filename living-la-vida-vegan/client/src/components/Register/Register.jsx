@@ -32,7 +32,7 @@ export default function Register(props) {
     e.preventDefault();
     const userData = await registerUser(formData);
     props.setCurrentUser(userData);
-    props.history.push('/recipes');
+    props.history.push('/profile');
   };
 
   const handleClick = () => {

@@ -25,7 +25,6 @@ export default function Header() {
           </Link>
         </div>
       </div>
-      <Nav />
     </header>
   );
 }
