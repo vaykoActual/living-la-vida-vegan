@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { putRecipe } from '../../../services/recipes';
+import { Modal, Button, Col, Row, Form } from 'react-bootstrap';
 
 export default function UpdateRecipe(props) {
   const [recipeUpdate, setRecipeUpdate] = useState({
@@ -60,90 +61,24 @@ export default function UpdateRecipe(props) {
   // };
 
   return (
-    <div>
-      <div>
-        <Row>
-          <Col sm={6}>
-            <Form onSubmit={this.handleSubmit}>
-              <Form.Group controlId='DepartmentName'>
-                <Form.Label>Department Name</Form.Label>
-                <Form.Control
-                  type='text'
-                  name='DepartmentName'
-                  required
-                  placeholder='DepartmentName'
-                />
-              </Form.Group>
-            </Form.Label>
-          </Col>
-        </Row>
-      </div>
-
-      <form className='add-recipe' onSubmit={handleSubmit}>
-        <h3>Update Recipe</h3>
-        <input
-          type='text'
-          name='upload-photo'
-          value={recipeUpdate.upload_photo}
-          onChange={handleChange}
-          placeholder='Upload a Photo'
-        />
-        <input
-          type='text'
-          name='recipe-name'
-          value={recipeUpdate.recipe_name}
-          onChange={handleChange}
-          placeholder='Recipe Name'
-        />
-        <input
-          type='text'
-          name='description'
-          value={recipeUpdate.description}
-          onChange={handleChange}
-          placeholder='Description'
-        />
-        <input
-          type='text'
-          name='prep-time'
-          value={recipeUpdate.prep_time}
-          onChange={handleChange}
-          placeholder='Prep Time'
-        />
-        <input
-          type='text'
-          name='cook-time'
-          value={recipeUpdate.cook_time}
-          onChange={handleChange}
-          placeholder='Cook Time'
-        />
-        <input
-          type='text'
-          name='ingredients'
-          value={recipeUpdate.ingredients}
-          onChange={handleChange}
-          placeholder='Ingredients'
-        />
-        <input
-          type='text'
-          name='steps-instructions'
-          value={recipeUpdate.instructions}
-          onChange={handleChange}
-          placeholder='Steps/Instructions'
-        />
-        <input
-          type='text'
-          name='source'
-          value={recipeUpdate.source}
-          onChange={handleChange}
-          placeholder='Source'
-        />
-        {/* <Link to={`/recipes/${id}`}> */} <button>Edit</button>{' '}
-        {/* </Link> */}
-        <Link>
-          <button>Save</button>
-        </Link>
-        {/* <Link to='/delete-recipe'><button>Delete</button></Link> */}
-      </form>
-    </div>
+    <>
+      <Row>
+        <Col sm={6}>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group controlId='RecipeId'>
+              <Form.Label>Upload a Photo</Form.Label>
+              <Form.Control
+                type='text'
+                name='DepartmentName'
+                required
+                disabled
+                defaultValue={props.upload_photo}
+                placeholder='DepartmentName'
+              />
+            </Form.Group>
+          </Form>
+        </Col>
+      </Row>
+    </>
   );
 }

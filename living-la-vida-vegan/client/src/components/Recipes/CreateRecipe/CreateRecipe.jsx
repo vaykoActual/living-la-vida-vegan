@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { postRecipe } from '../../../services/recipes';
+import { Modal, Button, Col, Row, Form } from 'react-bootstrap';
 
 export default function CreateRecipe(props) {
   const [recipeInput, setRecipeInput] = useState({
@@ -37,8 +38,25 @@ export default function CreateRecipe(props) {
   // };
 
   return (
-    <div>
-      <form className='add-recipe' onSubmit={handleSubmit}>
+    <>
+      <Row>
+        <Col sm={6}>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group controlId='RecipeId'>
+              <Form.Label>Upload a Photo</Form.Label>
+              <Form.Control
+                type='text'
+                name='DepartmentName'
+                required
+                disabled
+                defaultValue={props.upload_photo}
+                placeholder='DepartmentName'
+              />
+            </Form.Group>
+          </Form>
+        </Col>
+      </Row>
+      {/* <form className='add-recipe' onSubmit={handleSubmit}>
         <h3>Add a Recipe</h3>
         <input
           type='text'
@@ -97,7 +115,7 @@ export default function CreateRecipe(props) {
           placeholder='Source'
         />
         <button>Save</button>
-      </form>
-    </div>
+      </form> */}
+    </>
   );
 }
