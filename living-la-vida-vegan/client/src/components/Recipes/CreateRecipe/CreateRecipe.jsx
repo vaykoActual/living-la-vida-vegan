@@ -33,7 +33,6 @@ export default function CreateRecipe(props) {
     e.preventDefault();
     const newRecipe = await postRecipe(props.currentUser.id, recipeInput);
     props.setRecipes([...props.recipes, newRecipe]);
-
     props.history.push(`/recipes/${newRecipe.id}`);
   };
 
