@@ -18,24 +18,15 @@ export default function Recipe(props) {
   const [showEdit, setEdit] = useState(false);
   // const [showSave, setSave] = useState(false)
 
-  const handleCloseDelete = () => {
-    setDelete(false);
-  };
-  const handleCloseEdit = () => {
-    setEdit(false);
-  };
-
-  const handleShowDelete = () => {
-    setDelete(true);
-  };
-
-  const handleShowEdit = () => {
-    setEdit(true);
-  };
-
   const getRecipe = async () => {
-    const recipe = await readOneRecipe(props.match.params.id);
-    setRecipe(recipe);
+    if (props.currentUser) {
+      const recipe = await readOneRecipe(
+        props.currentUser.id,
+        props.match.params.id
+      );
+      console.log('you did it ');
+      setRecipe(recipe);
+    }
   };
 
   const handleChange = (e) => {
@@ -52,6 +43,21 @@ export default function Recipe(props) {
   useEffect(() => {
     getRecipe();
   }, []);
+
+  const handleCloseDelete = () => {
+    setDelete(false);
+  };
+  const handleCloseEdit = () => {
+    setEdit(false);
+  };
+
+  const handleShowDelete = () => {
+    setDelete(true);
+  };
+
+  const handleShowEdit = () => {
+    setEdit(true);
+  };
 
   return (
     <div>

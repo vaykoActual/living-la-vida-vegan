@@ -8,7 +8,7 @@ export default function Nav() {
       <Link to='/profile'>
         <p className='profile-opt'>profile</p>
       </Link>
-      <Link to='/recipes/new'>
+      <Link to='/new/recipes'>
         <p className='profile-opt'> add</p>
       </Link>
       <Link to='/recipes'>

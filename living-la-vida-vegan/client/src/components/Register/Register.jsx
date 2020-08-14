@@ -11,6 +11,7 @@ export default function Register(props) {
     username: '',
     password: '',
     confirmPassword: '',
+    img_url: '',
     uploadPhoto: '',
     aboutMe: '',
     likesInterests: '',
@@ -78,8 +79,8 @@ export default function Register(props) {
           <div>
             <input
               type='text'
-              name='uploadPhoto'
-              value={formData.uploadPhoto}
+              name='img_url'
+              value={formData.img_url}
               onChange={handleChange}
               placeholder='Image URL'
             />

@@ -16,7 +16,6 @@ export const readOneRecipe = async (user_id, id) => {
 };
 
 export const postRecipe = async (user_id, recipeData) => {
-  // `/users/${userId}/recipes`
   const response = await api.post(`/users/${user_id}/recipes`, {
     recipe: recipeData,
   });
