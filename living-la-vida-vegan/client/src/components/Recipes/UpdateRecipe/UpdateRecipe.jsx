@@ -66,8 +66,8 @@ export default function UpdateRecipe(props) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className='update-recipe-form mx-1'>
-          <Row className='row h-100 justify-content-center align-items-center '>
-            <Col sm={6}>
+          <Row className='row h-100 w-300 justify-content-center align-items-center '>
+            <Col sm={6} className=''>
               <Form>
                 <Form.Group controlId='RecipeId' className='create-input'>
                   <Form.Control

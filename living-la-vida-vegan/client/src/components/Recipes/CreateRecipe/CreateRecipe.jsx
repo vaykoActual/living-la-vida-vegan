@@ -24,6 +24,7 @@ export default function CreateRecipe(props) {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setRecipeInput({
+      ...recipeInput,
       [name]: value,
     });
   };
