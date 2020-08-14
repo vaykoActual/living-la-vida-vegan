@@ -6,13 +6,13 @@ import { Button, Col, Row, Form, ButtonToolbar } from 'react-bootstrap';
 
 export default function CreateRecipe(props) {
   const [recipeInput, setRecipeInput] = useState({
-    uploadPhoto: '',
-    recipeName: '',
+    upload_photo: '',
+    recipe_name: '',
     description: '',
-    prepTime: '',
-    cookTime: '',
+    prep_time: '',
+    cook_time: '',
     ingredients: '',
-    stepsInstructions: '',
+    instructions: '',
     source: '',
   });
 
@@ -25,141 +25,77 @@ export default function CreateRecipe(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const newRecipe = await postRecipe(recipeInput);
+    const newRecipe = await postRecipe(props.currentUser.id, recipeInput);
     props.setRecipes([...props.recipes, newRecipe]);
-    alert("You've added a new recipe!");
-    props.history.push('/recipes/:id');
+    // alert("You've added a new recipe!");
+    props.history.push(`/recipes/${newRecipe.id}`);
   };
 
   return (
     <>
       <div className='create-recipe-form'>
         <h2 className='form-title'>Add a Recipe</h2>
-        <Row className='row h-100 justify-content-center align-items-center my-2'>
-          <Col sm={6}>
-            <Form onSubmit={handleSubmit}>
-              <Form.Group controlId='RecipeId' className='create-input'>
-                <Form.Control
-                  onChange={handleChange}
-                  type='text'
-                  name='upload_photo'
-                  required
-                  defaultValue={recipeInput.upload_photo}
-                  placeholder='Upload a Photo'
-                />
-              </Form.Group>
-            </Form>
-          </Col>
-        </Row>
-        <Row className='row h-100 justify-content-center align-items-center my-2'>
-          <Col sm={6}>
-            <Form onSubmit={handleSubmit}>
-              <Form.Group controlId='RecipeId' className='create-input'>
-                <Form.Control
-                  type='text'
-                  name='recipe_name'
-                  required
-                  defaultValue={recipeInput.recipe_name}
-                  placeholder='Recipe Name'
-                />
-              </Form.Group>
-            </Form>
-          </Col>
-        </Row>
-        <Row className='row h-100 justify-content-center align-items-center my-2'>
-          <Col sm={6}>
-            <Form onSubmit={handleSubmit}>
-              <Form.Group controlId='RecipeId' className='create-input'>
-                <Form.Control
-                  type='text'
-                  name='description'
-                  required
-                  defaultValue={recipeInput.description}
-                  placeholder='Description'
-                />
-              </Form.Group>
-            </Form>
-          </Col>
-        </Row>
-        <Row className='row h-100 justify-content-center align-items-center my-2'>
-          <Col sm={6}>
-            <Form onSubmit={handleSubmit}>
-              <Form.Group controlId='RecipeId' className='create-input'>
-                <Form.Control
-                  type='text'
-                  name='prep_time'
-                  required
-                  defaultValue={recipeInput.prep_time}
-                  placeholder='Prep Time'
-                />
-              </Form.Group>
-            </Form>
-          </Col>
-        </Row>
-        <Row className='row h-100 justify-content-center align-items-center my-2'>
-          <Col sm={6}>
-            <Form onSubmit={handleSubmit}>
-              <Form.Group controlId='RecipeId' className='create-input'>
-                <Form.Control
-                  type='text'
-                  name='cook_time'
-                  required
-                  defaultValue={recipeInput.cook_time}
-                  placeholder='Cook Time'
-                />
-              </Form.Group>
-            </Form>
-          </Col>
-        </Row>
-        <Row className='row h-100 justify-content-center align-items-center my-2'>
-          <Col sm={6}>
-            <Form onSubmit={handleSubmit}>
-              <Form.Group controlId='RecipeId' className='create-input'>
-                <Form.Control
-                  type='text'
-                  name='ingredients'
-                  required
-                  defaultValue={recipeInput.ingredients}
-                  placeholder='Ingredients'
-                />
-              </Form.Group>
-            </Form>
-          </Col>
-        </Row>
-        <Row className='row h-100 justify-content-center align-items-center my-2'>
-          <Col sm={6}>
-            <Form onSubmit={handleSubmit}>
-              <Form.Group controlId='RecipeId' className='create-input'>
-                <Form.Control
-                  type='text'
-                  name='instructions'
-                  required
-                  defaultValue={recipeInput.instructions}
-                  placeholder='Instructions'
-                />
-              </Form.Group>
-            </Form>
-          </Col>
-        </Row>
-        <Row className='row h-100 justify-content-center align-items-center my-2'>
-          <Col sm={6}>
-            <Form onSubmit={handleSubmit}>
-              <Form.Group controlId='RecipeId' className='create-input'>
-                <Form.Control
-                  type='text'
-                  name='source'
-                  required
-                  defaultValue={recipeInput.source}
-                  placeholder='Source'
-                />
-              </Form.Group>
-            </Form>
-          </Col>
-        </Row>
-
-        <ButtonToolbar className='justify-content-center align-items-center'>
-          <Button variant='secondary'>Save</Button>
-        </ButtonToolbar>
+        create recipe inputs
+        <form className='add-recipe' onSubmit={handleSubmit}>
+          <h3>Add a Recipe</h3>
+          <input
+            type='text'
+            name='upload-photo'
+            value={recipeInput.upload_photo}
+            onChange={handleChange}
+            placeholder='Upload a Photo'
+          />
+          <input
+            type='text'
+            name='recipe-name'
+            value={recipeInput.recipe_name}
+            onChange={handleChange}
+            placeholder='Recipe Name'
+          />
+          <input
+            type='text'
+            name='description'
+            value={recipeInput.description}
+            onChange={handleChange}
+            placeholder='Description'
+          />
+          <input
+            type='text'
+            name='prep-time'
+            value={recipeInput.prep_time}
+            onChange={handleChange}
+            placeholder='Prep Time'
+          />
+          <input
+            type='text'
+            name='cook-time'
+            value={recipeInput.cook_time}
+            onChange={handleChange}
+            placeholder='Cook Time'
+          />
+          <input
+            type='text'
+            name='ingredients'
+            value={recipeInput.ingredients}
+            onChange={handleChange}
+            placeholder='Ingredients'
+          />
+          <input
+            type='text'
+            name='steps-instructions'
+            value={recipeInput.instructions}
+            onChange={handleChange}
+            placeholder='Steps/Instructions'
+          />
+          <input
+            type='text'
+            name='source'
+            value={recipeInput.source}
+            onChange={handleChange}
+            placeholder='Source'
+          />
+          <button>Save</button>
+        </form>
       </div>
     </>
   );

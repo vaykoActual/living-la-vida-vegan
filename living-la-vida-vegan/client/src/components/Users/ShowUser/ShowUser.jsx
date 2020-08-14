@@ -8,7 +8,8 @@ export default function ShowUser(props) {
   const [userRecipe, setUserRecipe] = useState('');
 
   const getRecipes = async () => {
-    const recipe = await readUserRecipes(props.match.params.id);
+    console.log(props.currentUser.id);
+    const recipe = await readUserRecipes(props.currentUser.id);
     setUserRecipe(userRecipe);
   };
 

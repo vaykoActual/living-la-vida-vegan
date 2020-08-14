@@ -57,7 +57,7 @@ export default function Main(props) {
         )}
       />
       <Route
-        path='/recipes/new'
+        path='/new/recipes'
         render={(props) => (
           <CreateRecipe
             {...props}

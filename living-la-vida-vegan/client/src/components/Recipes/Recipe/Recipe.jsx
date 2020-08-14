@@ -19,8 +19,14 @@ export default function Recipe(props) {
   // const [showSave, setSave] = useState(false)
 
   const getRecipe = async () => {
-    const recipe = await readOneRecipe(props.match.params.id);
-    setRecipe(recipe);
+    if (props.currentUser) {
+      const recipe = await readOneRecipe(
+        props.currentUser.id,
+        props.match.params.id
+      );
+      console.log('you did it ');
+      setRecipe(recipe);
+    }
   };
 
   const handleChange = (e) => {
