@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { putRecipe } from '../../../services/recipes';
-import { Modal, Button, Col, Row, Form } from 'react-bootstrap';
+import { Modal, Button, ButtonToolbar, Col, Row, Form } from 'react-bootstrap';
 
 export default function UpdateRecipe(props) {
   const [recipeUpdate, setRecipeUpdate] = useState({
@@ -50,7 +49,7 @@ export default function UpdateRecipe(props) {
       })
     );
     alert("You've updated the recipe!");
-    props.history.push('/');
+    // props.history.push(`/recipes/${newRecipe.id}`);
   };
 
   return (
@@ -69,7 +68,7 @@ export default function UpdateRecipe(props) {
         <Modal.Body className='update-recipe-form mx-1'>
           <Row className='row h-100 justify-content-center align-items-center '>
             <Col sm={6}>
-              <Form onSubmit={handleSubmit}>
+              <Form>
                 <Form.Group controlId='RecipeId' className='create-input'>
                   <Form.Control
                     type='text'
@@ -85,7 +84,7 @@ export default function UpdateRecipe(props) {
           </Row>
           <Row className='row h-100 justify-content-center align-items-center '>
             <Col sm={6}>
-              <Form onSubmit={handleSubmit}>
+              <Form>
                 <Form.Group controlId='RecipeId' className='create-input'>
                   <Form.Control
                     onChange={handleChange}
@@ -101,7 +100,7 @@ export default function UpdateRecipe(props) {
           </Row>
           <Row className='row h-100 justify-content-center align-items-center '>
             <Col sm={6}>
-              <Form onSubmit={handleSubmit}>
+              <Form>
                 <Form.Group controlId='RecipeId' className='create-input'>
                   <Form.Control
                     type='text'
@@ -116,7 +115,7 @@ export default function UpdateRecipe(props) {
           </Row>
           <Row className='row h-100 justify-content-center align-items-center '>
             <Col sm={6}>
-              <Form onSubmit={handleSubmit}>
+              <Form>
                 <Form.Group controlId='RecipeId' className='create-input'>
                   <Form.Control
                     type='text'
@@ -131,7 +130,7 @@ export default function UpdateRecipe(props) {
           </Row>
           <Row className='row h-100 justify-content-center align-items-center '>
             <Col sm={6}>
-              <Form onSubmit={handleSubmit}>
+              <Form>
                 <Form.Group controlId='RecipeId' className='create-input'>
                   <Form.Control
                     type='text'
@@ -146,7 +145,7 @@ export default function UpdateRecipe(props) {
           </Row>
           <Row className='row h-100 justify-content-center align-items-center '>
             <Col sm={6}>
-              <Form onSubmit={handleSubmit}>
+              <Form>
                 <Form.Group controlId='RecipeId' className='create-input'>
                   <Form.Control
                     type='text'
@@ -161,7 +160,7 @@ export default function UpdateRecipe(props) {
           </Row>
           <Row className='row h-100 justify-content-center align-items-center '>
             <Col sm={6}>
-              <Form onSubmit={handleSubmit}>
+              <Form>
                 <Form.Group controlId='RecipeId' className='create-input'>
                   <Form.Control
                     type='text'
@@ -176,7 +175,7 @@ export default function UpdateRecipe(props) {
           </Row>
           <Row className='row h-100 justify-content-center align-items-center '>
             <Col sm={6}>
-              <Form onSubmit={handleSubmit}>
+              <Form>
                 <Form.Group controlId='RecipeId' className='create-input'>
                   <Form.Control
                     type='text'
@@ -191,11 +190,15 @@ export default function UpdateRecipe(props) {
           </Row>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant='secondary' onClick={props.onHide}>
-            Save Changes
-          </Button>
           <Button variant='danger' onClick={props.onHide}>
-            Close
+            Cancel
+          </Button>
+          <Button
+            variant='secondary'
+            onClick={props.onHide}
+            onSubmit={handleSubmit}
+          >
+            Save Changes
           </Button>
         </Modal.Footer>
       </Modal>

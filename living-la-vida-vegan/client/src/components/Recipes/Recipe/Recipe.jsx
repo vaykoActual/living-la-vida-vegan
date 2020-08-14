@@ -100,28 +100,31 @@ export default function Recipe(props) {
               </div>
               {/* <div className='button-bar'> */}
               <ButtonToolbar className='justify-content-center align-items-center'>
-                {/* <Link to={`/recipes/${recipe.id}/edit`}> */}
-
-                {/* <Link to={`/recipes/${recipe.id}`}> */}
                 <UpdateRecipe
                   {...props}
                   recipeEdit={props.recipes}
                   show={showEdit}
                   onHide={handleCloseEdit}
                 />
-                <Button variant='primary' onClick={handleShowEdit}>
-                  Edit
+                <Button
+                  variant='outline-info'
+                  onClick={handleShowEdit}
+                  className='mx-2'
+                >
+                  Change
                 </Button>
-                <Button variant='secondary' onClick={handleShowEdit}>
-                  Save
-                </Button>
+
                 <DeleteRecipe
                   {...props}
                   recipeDelete={props.recipes}
                   show={showDelete}
                   onHide={handleCloseDelete}
                 />
-                <Button variant='danger' onClick={handleShowDelete}>
+                <Button
+                  variant='outline-danger'
+                  onClick={handleShowDelete}
+                  className='my-2'
+                >
                   Delete
                 </Button>
               </ButtonToolbar>
@@ -130,7 +133,7 @@ export default function Recipe(props) {
 
           <div className='comment-section'>
             <h3>Comments: </h3>
-            <p>{/* {props.currentUser.username} */}: ohhh so yum</p>
+            {/* <p>{props.currentUser.username}: ohhh so yum</p> */}
             {/* <p>{comment.content}</p> */}
           </div>
         </>

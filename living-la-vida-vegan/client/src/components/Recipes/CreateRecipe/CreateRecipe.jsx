@@ -14,6 +14,12 @@ export default function CreateRecipe(props) {
     instructions: '',
     source: '',
   });
+  // const [addText, setText] = useState('');
+
+  // const charReplace = (str) => {
+  //   return String(str).replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  //   setText(addText);
+  // };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,6 +32,7 @@ export default function CreateRecipe(props) {
     e.preventDefault();
     const newRecipe = await postRecipe(props.currentUser.id, recipeInput);
     props.setRecipes([...props.recipes, newRecipe]);
+
     props.history.push(`/recipes/${newRecipe.id}`);
   };
 
