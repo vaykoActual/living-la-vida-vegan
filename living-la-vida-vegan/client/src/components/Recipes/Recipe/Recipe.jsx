@@ -27,7 +27,7 @@ export default function Recipe(props) {
       setRecipe(recipe);
     }
   };
-
+  console.log(props.match.params.id);
   const deleteRecipe = async (id) => {
     if (props.currentUser) {
       await destroyRecipe(props.currentUser.id, props.match.params.id);
@@ -75,32 +75,32 @@ export default function Recipe(props) {
       {props.recipes && (
         <>
           {props.recipes.map((rec) => (
-            <div className='recipe-page'>
-              <div className='recipe-details'>
+            <div className="recipe-page">
+              <div className="recipe-details">
                 <img
                   src={rec.upload_photo}
-                  alt='recipe-photo'
-                  className='recipe-photo'
+                  alt="recipe-photo"
+                  className="recipe-photo"
                 />
                 <h3>{rec.recipe_name}</h3>
                 <p>{rec.description}</p>
-                <div className='time-check'>
-                  <div className='prep'>
+                <div className="time-check">
+                  <div className="prep">
                     <h5>Prep Time: </h5>
-                    <h6 className='prep-times'>{rec.prep_time}</h6>
+                    <h6 className="prep-times">{rec.prep_time}</h6>
                   </div>
-                  <div className='cook'>
+                  <div className="cook">
                     <h5>Cook Time:</h5>
-                    <h6 className='cook-times'>{rec.cook_time}</h6>
+                    <h6 className="cook-times">{rec.cook_time}</h6>
                   </div>
                 </div>
               </div>
 
-              <div className='ingredients'>
+              <div className="ingredients">
                 <h4>Ingredients</h4>
                 <p>{rec.ingredients}</p>
               </div>
-              <div className='instructions'>
+              <div className="instructions">
                 <h4>Steps</h4>
                 <p>{rec.instructions}</p>
               </div>
@@ -110,7 +110,7 @@ export default function Recipe(props) {
                 </a>
               </div>
               {/* <div className='button-bar'> */}
-              <ButtonToolbar className='justify-content-center align-items-center'>
+              <ButtonToolbar className="justify-content-center align-items-center">
                 <UpdateRecipe
                   {...props}
                   recipeEdit={props.recipes}
@@ -118,9 +118,9 @@ export default function Recipe(props) {
                   onHide={handleCloseEdit}
                 />
                 <Button
-                  variant='outline-info'
+                  variant="outline-info"
                   onClick={handleShowEdit}
-                  className='mx-2'
+                  className="mx-2"
                 >
                   Change
                 </Button>
@@ -133,9 +133,9 @@ export default function Recipe(props) {
                   handleClick={deleteRecipe}
                 />
                 <Button
-                  variant='outline-danger'
+                  variant="outline-danger"
                   onClick={handleShowDelete}
-                  className='my-2'
+                  className="my-2"
                 >
                   Delete
                 </Button>
@@ -143,7 +143,7 @@ export default function Recipe(props) {
             </div>
           ))}
 
-          <div className='comment-section'>
+          <div className="comment-section">
             <h3>Comments: </h3>
             {/* <p>{props.currentUser.username}: ohhh so yum</p> */}
             {/* <p>{comment.content}</p> */}

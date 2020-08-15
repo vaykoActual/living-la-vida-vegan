@@ -20,8 +20,8 @@ export default function DeleteRecipes(props) {
       {props.currentUser && (
         <Modal
           {...props}
-          size='lg'
-          aria-labelledby='contained-modal-title-vcenter'
+          size="lg"
+          aria-labelledby="contained-modal-title-vcenter"
           centered
         >
           <Modal.Header closeButton></Modal.Header>
@@ -29,11 +29,11 @@ export default function DeleteRecipes(props) {
             <h4> Are you sure you want to delete this recipe?</h4>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant='secondary' onClick={props.onHide}>
+            <Button variant="secondary" onClick={props.onHide}>
               Cancel
             </Button>
-            <Link to='/profile'>
-              <Button variant='danger' onClick={props.handleClick}>
+            <Link to="/">
+              <Button variant="danger" onClick={props.handleClick}>
                 Delete
               </Button>
             </Link>

@@ -58,82 +58,82 @@ export default function UpdateRecipe(props) {
     <>
       <Modal
         {...props}
-        size='lg'
-        aria-labelledby='contained-modal-title-vcenter'
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
         centered
       >
         <Modal.Header closeButton>
-          <Modal.Title id='contained-modal-title-vcenter'>
+          <Modal.Title id="contained-modal-title-vcenter">
             Update Recipe
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body className='update-recipe-form mx-1'>
-          <form className='add-recipe'>
+        <Modal.Body className="update-recipe-form mx-1">
+          <form className="add-recipe">
             <input
-              type='text'
-              name='recipe_name'
+              type="text"
+              name="recipe_name"
               required
-              disabled
+              // disabled
               defaultValue={recipeUpdate.recipe_name}
-              placeholder='should show existing Recipe Name'
+              placeholder="should show existing Recipe Name"
             />
             <input
               onChange={handleChange}
-              type='text'
-              name='upload_photo'
+              type="text"
+              name="upload_photo"
               required
               defaultValue={recipeUpdate.upload_photo}
-              placeholder='Upload a Photo'
+              placeholder="Upload a Photo"
             />
             <input
-              type='text'
-              name='description'
+              type="text"
+              name="description"
               required
               defaultValue={recipeUpdate.description}
-              placeholder='Description'
+              placeholder="Description"
             />
             <input
-              type='text'
-              name='prep_time'
+              type="text"
+              name="prep_time"
               required
               defaultValue={recipeUpdate.prep_time}
-              placeholder='Prep Time'
+              placeholder="Prep Time"
             />
             <input
-              type='text'
-              name='cook_time'
+              type="text"
+              name="cook_time"
               required
               defaultValue={recipeUpdate.cook_time}
-              placeholder='Cook Time'
+              placeholder="Cook Time"
             />
             <input
-              type='text'
-              name='ingredients'
+              type="text"
+              name="ingredients"
               required
               defaultValue={recipeUpdate.ingredients}
-              placeholder='Ingredients'
+              placeholder="Ingredients"
             />
             <input
-              type='text'
-              name='instructions'
+              type="text"
+              name="instructions"
               required
               defaultValue={recipeUpdate.instructions}
-              placeholder='Instructions'
+              placeholder="Instructions"
             />
             <input
-              type='text'
-              name='source'
+              type="text"
+              name="source"
               required
               defaultValue={recipeUpdate.source}
-              placeholder='Source'
+              placeholder="Source"
             />
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant='danger' onClick={props.onHide}>
+          <Button variant="danger" onClick={props.onHide}>
             Cancel
           </Button>
-          <Button variant='secondary' onClick={handleSubmit}>
+          <Button variant="secondary" onClick={handleSubmit}>
             Save Changes
           </Button>
         </Modal.Footer>
