@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: right;
+}
+
+.comp-icon {
+  width: 60px;
+  height: 60px;
+}
+
+.side-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px;
+  text-align: right;
+}
+
+.login-button,
+.register-button {
+  margin: 8px;
+}

@@ -1,0 +1,60 @@
+.recipe-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 40px;
+  padding: 30px;
+  width: 800px;
+  border: 3px solid black;
+  border-radius: 5px;
+}
+
+.recipe-photo {
+  width: 400px;
+  height: 400px;
+  margin: 20px;
+}
+
+.recipe-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+}
+
+.time-check {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  margin: 0px 20px;
+}
+
+.prep,
+.cook {
+  display: flex;
+  align-content: center;
+  margin: 10px;
+}
+
+.prep-times,
+.cook-times {
+  font-size: 16px;
+  display: flex;
+  align-content: center;
+  margin: 5px;
+}
+
+.choice-button {
+  border: 3px solid black;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 5px 10px;
+}
+
+.comment-section {
+  width: 800px;
+  border: 3px solid black;
+  border-radius: 5px;
+}
