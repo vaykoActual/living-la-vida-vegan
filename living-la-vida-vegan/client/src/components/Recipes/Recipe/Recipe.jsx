@@ -28,7 +28,7 @@ export default function Recipe(props) {
     }
   };
 
-  const deleteRecipe = async () => {
+  const deleteRecipe = async (id) => {
     if (props.currentUser) {
       await destroyRecipe(props.currentUser.id, props.match.params.id);
       props.setRecipes(

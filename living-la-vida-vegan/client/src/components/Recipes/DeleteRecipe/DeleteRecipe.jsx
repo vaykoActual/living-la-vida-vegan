@@ -17,27 +17,29 @@ export default function DeleteRecipes(props) {
 
   return (
     <>
-      <Modal
-        {...props}
-        size='lg'
-        aria-labelledby='contained-modal-title-vcenter'
-        centered
-      >
-        <Modal.Header closeButton></Modal.Header>
-        <Modal.Body>
-          <h4> Are you sure you want to delete this recipe?</h4>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant='secondary' onClick={props.onHide}>
-            Cancel
-          </Button>
-          <Link to='/profile'>
-            <Button variant='danger' onClick={props.handleClick}>
-              Delete
+      {props.currentUser && (
+        <Modal
+          {...props}
+          size='lg'
+          aria-labelledby='contained-modal-title-vcenter'
+          centered
+        >
+          <Modal.Header closeButton></Modal.Header>
+          <Modal.Body>
+            <h4> Are you sure you want to delete this recipe?</h4>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant='secondary' onClick={props.onHide}>
+              Cancel
             </Button>
-          </Link>
-        </Modal.Footer>
-      </Modal>
+            <Link to='/profile'>
+              <Button variant='danger' onClick={props.handleClick}>
+                Delete
+              </Button>
+            </Link>
+          </Modal.Footer>
+        </Modal>
+      )}
     </>
   );
 }
