@@ -14,10 +14,17 @@ export default function CreateRecipe(props) {
     instructions: '',
     source: '',
   });
+  // const [addText, setText] = useState('');
+
+  // const charReplace = (str) => {
+  //   return String(str).replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  //   setText(addText);
+  // };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setRecipeInput({
+      ...recipeInput,
       [name]: value,
     });
   };

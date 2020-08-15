@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './ShowUser.css';
-import Nav from '../../Nav/Nav';
 import { readUserRecipes } from '../../../services/recipes';
 
 export default function ShowUser(props) {

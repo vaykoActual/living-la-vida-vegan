@@ -66,7 +66,7 @@ export default function Register(props) {
         />
         <input
           type='password'
-          name='confirmPassword'
+          name='confirm_password'
           value={formData.confirm_password}
           onChange={handleChange}
           placeholder='Confirm Password'
@@ -85,21 +85,19 @@ export default function Register(props) {
             />
             <input
               type='text'
-              name='aboutMe'
-              value={formData.abou_me}
+              name='about_me'
+              value={formData.about_me}
               onChange={handleChange}
               placeholder='share a few words about yourself'
             />
             <input
               type='text'
-              name='likesInterests'
+              name='likes_interests'
               value={formData.likes_interests}
               onChange={handleChange}
               placeholder='any likes or interests?'
             />
-            {/* <Link to='/'> */}
             <button>Save</button>
-            {/* </Link> */}
           </div>
         )}
       </form>
