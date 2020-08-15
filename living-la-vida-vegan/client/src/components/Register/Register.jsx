@@ -97,9 +97,7 @@ export default function Register(props) {
               onChange={handleChange}
               placeholder='any likes or interests?'
             />
-            {/* <Link to='/'> */}
             <button>Save</button>
-            {/* </Link> */}
           </div>
         )}
       </form>
