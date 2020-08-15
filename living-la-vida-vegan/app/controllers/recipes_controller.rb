@@ -42,6 +42,7 @@ class RecipesController < ApplicationController
   # DELETE /recipes/1
   def destroy
     @recipe.destroy
+
   end
 
   # PUT /recipes/1/comments/1

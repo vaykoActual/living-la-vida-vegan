@@ -90,9 +90,8 @@ export default function Main(props) {
           />
         )}
       />
-
       <Route
-        path='/delete'
+        path='/recipes/:id'
         render={(props) => (
           <DeleteRecipe
             {...props}

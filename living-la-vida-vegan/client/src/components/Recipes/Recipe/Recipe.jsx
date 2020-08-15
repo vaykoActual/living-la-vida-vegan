@@ -28,6 +28,17 @@ export default function Recipe(props) {
     }
   };
 
+  const deleteRecipe = async () => {
+    if (props.currentUser) {
+      await destroyRecipe(props.currentUser.id, props.match.params.id);
+      props.setRecipes(
+        props.recipes.filter((recipe) => {
+          return recipe.id !== props.match.params.id;
+        })
+      );
+    }
+  };
+
   const handleChange = (e) => {
     const { value } = e.target;
     setCommentId(value);
@@ -119,6 +130,7 @@ export default function Recipe(props) {
                   recipeDelete={props.recipes}
                   show={showDelete}
                   onHide={handleCloseDelete}
+                  handleClick={deleteRecipe}
                 />
                 <Button
                   variant='outline-danger'
