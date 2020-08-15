@@ -16,7 +16,7 @@ export default function UpdateRecipe(props) {
 
   useEffect(() => {
     defaultRecipeData();
-  }, [props.recipeEdit]);
+  }, [props.recipeUpdate]);
 
   const defaultRecipeData = (e) => {
     const recipe = props.recipeEdit.find((recipe) => {
@@ -32,11 +32,13 @@ export default function UpdateRecipe(props) {
   };
 
   const handleChange = (e) => {
-    const { value } = e.target;
-    setRecipeUpdate({
-      ...recipeUpdate,
-      name: value,
-    });
+    if ((props.currentUser.id, props.match.params.id)) {
+      const { name, value } = e.target;
+      setRecipeUpdate({
+        ...recipeUpdate,
+        [name]: value,
+      });
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -75,14 +77,15 @@ export default function UpdateRecipe(props) {
               required
               disabled
               defaultValue={recipeUpdate.recipe_name}
+              onChange={handleChange}
               placeholder="should show existing Recipe Name"
             />
             <input
-              onChange={handleChange}
               type="text"
               name="upload_photo"
               required
               defaultValue={recipeUpdate.upload_photo}
+              onChange={handleChange}
               placeholder="Upload a Photo"
             />
             <input
@@ -90,6 +93,7 @@ export default function UpdateRecipe(props) {
               name="description"
               required
               defaultValue={recipeUpdate.description}
+              onChange={handleChange}
               placeholder="Description"
             />
             <input
@@ -97,6 +101,7 @@ export default function UpdateRecipe(props) {
               name="prep_time"
               required
               defaultValue={recipeUpdate.prep_time}
+              onChange={handleChange}
               placeholder="Prep Time"
             />
             <input
@@ -104,6 +109,7 @@ export default function UpdateRecipe(props) {
               name="cook_time"
               required
               defaultValue={recipeUpdate.cook_time}
+              onChange={handleChange}
               placeholder="Cook Time"
             />
             <input
@@ -111,6 +117,7 @@ export default function UpdateRecipe(props) {
               name="ingredients"
               required
               defaultValue={recipeUpdate.ingredients}
+              onChange={handleChange}
               placeholder="Ingredients"
             />
             <input
@@ -118,6 +125,7 @@ export default function UpdateRecipe(props) {
               name="instructions"
               required
               defaultValue={recipeUpdate.instructions}
+              onChange={handleChange}
               placeholder="Instructions"
             />
             <input
@@ -125,6 +133,7 @@ export default function UpdateRecipe(props) {
               name="source"
               required
               defaultValue={recipeUpdate.source}
+              onChange={handleChange}
               placeholder="Source"
             />
           </form>
@@ -133,7 +142,11 @@ export default function UpdateRecipe(props) {
           <Button variant="danger" onClick={props.onHide}>
             Cancel
           </Button>
-          <Button variant="secondary" onClick={handleSubmit}>
+          <Button
+            variant="secondary"
+            onClick={handleSubmit}
+            onClick={props.onHide}
+          >
             Save Changes
           </Button>
         </Modal.Footer>
