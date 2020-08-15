@@ -20,7 +20,6 @@ export default function UpdateRecipe(props) {
 
   const defaultRecipeData = (e) => {
     const recipe = props.recipeEdit.find((recipe) => {
-      console.log(props.match.params.id);
       return recipe.id === props.match.params.id;
     });
     if (recipe) {
@@ -43,14 +42,16 @@ export default function UpdateRecipe(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { id } = props.match.params;
-    const newRecipe = await putRecipe(id, recipeUpdate);
-    props.setRecipes(
-      props.recipeEdit.map((recipe) => {
-        return recipe.id === parseInt(id) ? newRecipe : recipe;
-      })
-    );
-    alert("You've updated the recipe!");
-    // props.history.push(`/recipes/${newRecipe.id}`);
+    if ((props.currentUser.id, id)) {
+      const newRecipe = await putRecipe(props.currentUser.id, id, recipeUpdate);
+      props.setRecipes(
+        props.recipeEdit.map((recipe) => {
+          return recipe.id === id ? newRecipe : recipe;
+        })
+      );
+      // alert("You've updated the recipe!");
+      props.history.push(`/recipes/${newRecipe.id}`);
+    }
   };
 
   return (
@@ -132,11 +133,7 @@ export default function UpdateRecipe(props) {
           <Button variant='danger' onClick={props.onHide}>
             Cancel
           </Button>
-          <Button
-            variant='secondary'
-            onClick={props.onHide}
-            onSubmit={handleSubmit}
-          >
+          <Button variant='secondary' onClick={handleSubmit}>
             Save Changes
           </Button>
         </Modal.Footer>
