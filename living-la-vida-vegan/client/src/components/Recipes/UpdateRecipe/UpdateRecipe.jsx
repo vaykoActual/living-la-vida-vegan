@@ -73,7 +73,7 @@ export default function UpdateRecipe(props) {
               type="text"
               name="recipe_name"
               required
-              // disabled
+              disabled
               defaultValue={recipeUpdate.recipe_name}
               placeholder="should show existing Recipe Name"
             />
