@@ -4,19 +4,21 @@ import { Modal, Button, ButtonToolbar, Col, Row, Form } from 'react-bootstrap';
 
 export default function UpdateRecipe(props) {
   const [recipeUpdate, setRecipeUpdate] = useState({
-    upload_photo: '',
-    recipe_name: '',
-    description: '',
-    prep_time: '',
-    cook_time: '',
-    ingredients: '',
-    instructions: '',
-    source: '',
+    recipe: {
+      upload_photo: '',
+      recipe_name: '',
+      description: '',
+      prep_time: '',
+      cook_time: '',
+      ingredients: '',
+      instructions: '',
+      source: '',
+    },
   });
 
   useEffect(() => {
     defaultRecipeData();
-  }, [props.recipeUpdate]);
+  }, [props.recipeEdit]);
 
   const defaultRecipeData = (e) => {
     const recipe = props.recipeEdit.find((recipe) => {
