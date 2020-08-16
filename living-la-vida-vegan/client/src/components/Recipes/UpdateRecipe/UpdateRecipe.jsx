@@ -1,44 +1,58 @@
 import React, { useState, useEffect } from 'react';
-import { putRecipe } from '../../../services/recipes';
+import { readOneRecipe, putRecipe } from '../../../services/recipes';
 import { Modal, Button, ButtonToolbar, Col, Row, Form } from 'react-bootstrap';
 
 export default function UpdateRecipe(props) {
   const [recipeUpdate, setRecipeUpdate] = useState({
-    recipe: {
-      upload_photo: '',
-      recipe_name: '',
-      description: '',
-      prep_time: '',
-      cook_time: '',
-      ingredients: '',
-      instructions: '',
-      source: '',
-    },
+    // recipe: {
+    upload_photo: '',
+    recipe_name: '',
+    description: '',
+    prep_time: '',
+    cook_time: '',
+    ingredients: '',
+    instructions: '',
+    source: '',
+    // },
   });
 
   useEffect(() => {
     defaultRecipeData();
-  }, [props.recipeEdit]);
+    // getRecipe();
+  }, [props.recipes]);
 
   const defaultRecipeData = (e) => {
-    const recipe = props.recipeEdit.find((recipe) => {
-      return recipe.id === props.match.params.id;
+    const recipe = props.recipes.find((recipe) => {
+      return recipe.id === parseInt(props.match.params.id);
     });
     if (recipe) {
-      const { name, value } = e.target;
-      setRecipeUpdate({
-        ...recipeUpdate,
-        [name]: value,
-      });
+      setRecipeUpdate({ name: recipe.recipe_name });
+      //   const { name, value } = e.target;
+      //   setRecipeUpdate({
+      //     ...recipeUpdate,
+      //     [name]: value,
+      //   });
     }
   };
 
+  // const getRecipe = async () => {
+  // const { id } = props.match.params;
+  // if (props.currentUser) {
+  //   const recipe = await readOneRecipe(id);
+  //   setRecipeUpdate({name: recipe.recipe_name});
+  // }
+  // };
+
   const handleChange = (e) => {
-    if ((props.currentUser.id, props.match.params.id)) {
-      const { name, value } = e.target;
+    // const { id } = props.match.params;
+    if (props.currentUser.id) {
+      const { value } = e.target;
       setRecipeUpdate({
-        ...recipeUpdate,
-        [name]: value,
+        name: value,
+        // recipe: {
+        //   ...recipeUpdate,
+        //   name: value,
+        // },
       });
     }
   };
@@ -49,8 +63,8 @@ export default function UpdateRecipe(props) {
     if ((props.currentUser.id, id)) {
       const newRecipe = await putRecipe(props.currentUser.id, id, recipeUpdate);
       props.setRecipes(
-        props.recipeEdit.map((recipe) => {
-          return recipe.id === id ? newRecipe : recipe;
+        props.recipes.map((recipe) => {
+          return recipe.id === parseInt(id) ? newRecipe : recipe;
         })
       );
       // alert("You've updated the recipe!");
@@ -58,6 +72,37 @@ export default function UpdateRecipe(props) {
     }
   };
 
+  // const [recipeInput, setRecipeInput] = useState({
+  //   upload_photo: '',
+  //   recipe_name: '',
+  //   description: '',
+  //   prep_time: '',
+  //   cook_time: '',
+  //   ingredients: '',
+  //   instructions: '',
+  //   source: '',
+  // });
+  // // const [addText, setText] = useState('');
+
+  // // const charReplace = (str) => {
+  // //   return String(str).replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  // //   setText(addText);
+  // // };
+
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setRecipeInput({
+  //     ...recipeInput,
+  //     [name]: value,
+  //   });
+  // };
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const newRecipe = await postRecipe(props.currentUser.id, recipeInput);
+  //   props.setRecipes([...props.recipes, newRecipe]);
+  //   props.history.push(`/recipes/${newRecipe.id}`);
+  // };
   return (
     <>
       <Modal
@@ -77,7 +122,7 @@ export default function UpdateRecipe(props) {
               type="text"
               name="recipe_name"
               required
-              disabled
+              // disabled
               defaultValue={recipeUpdate.recipe_name}
               onChange={handleChange}
               placeholder="should show existing Recipe Name"

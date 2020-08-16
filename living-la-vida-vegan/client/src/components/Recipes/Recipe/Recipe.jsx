@@ -30,10 +30,10 @@ export default function Recipe(props) {
   console.log(props.match.params.id);
   const deleteRecipe = async (id) => {
     if (props.currentUser) {
-      await destroyRecipe(props.currentUser.id, props.match.params.id);
+      await destroyRecipe(props.currentUser.id, id);
       props.setRecipes(
         props.recipes.filter((recipe) => {
-          return recipe.id !== props.match.params.id;
+          return recipe.id !== id;
         })
       );
     }
@@ -113,10 +113,11 @@ export default function Recipe(props) {
               <ButtonToolbar className="justify-content-center align-items-center">
                 <UpdateRecipe
                   {...props}
-                  recipeEdit={props.recipes}
+                  // recipeEdit={props.recipes}
                   show={showEdit}
                   onHide={handleCloseEdit}
                 />
+                {/* <Link to={`/recipes/${recipe.id}/edit`}> */}
                 <Button
                   variant="outline-info"
                   onClick={handleShowEdit}
@@ -124,6 +125,7 @@ export default function Recipe(props) {
                 >
                   Change
                 </Button>
+                {/* </Link> */}
 
                 <DeleteRecipe
                   {...props}
