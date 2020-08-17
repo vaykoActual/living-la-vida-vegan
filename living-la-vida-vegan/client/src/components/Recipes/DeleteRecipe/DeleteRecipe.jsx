@@ -1,20 +1,9 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
-import { destroyRecipe } from '../../../services/recipes';
+// import { destroyRecipe } from '../../../services/recipes';
 import { Link } from 'react-router-dom';
 
 export default function DeleteRecipes(props) {
-  // const handleClick = async (id) => {
-  //   if (props.currentUser.id) {
-  //     await destroyRecipe(id);
-  //     props.setRecipes(
-  //       props.recipeDelete.filter((recipe) => {
-  //         return recipe.id !== props.match.params.id;
-  //       })
-  //     );
-  //   }
-  // };
-
   return (
     <>
       {props.currentUser && (
@@ -33,7 +22,12 @@ export default function DeleteRecipes(props) {
               Cancel
             </Button>
             <Link to="/">
-              <Button variant="danger" onClick={props.handleClick}>
+              <Button
+                variant="danger"
+                onClick={() => {
+                  props.handleClick(props.recipeId);
+                }}
+              >
                 Delete
               </Button>
             </Link>

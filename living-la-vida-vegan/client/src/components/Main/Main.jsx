@@ -30,7 +30,7 @@ export default function Main(props) {
     <main>
       <Route
         exact
-        path='/'
+        path="/"
         render={() => (
           <ShowRecipes
             {...props}
@@ -41,23 +41,23 @@ export default function Main(props) {
         )}
       />
       <Route
-        path='/login'
+        path="/login"
         render={(props) => <Login {...props} setCurrentUser={setCurrentUser} />}
       />
       <Route
-        path='/register'
+        path="/register"
         render={(props) => (
           <Register {...props} setCurrentUser={setCurrentUser} />
         )}
       />
       <Route
-        path='/profile'
+        path="/profile"
         render={(props) => (
           <ShowUser {...props} currentUser={currentUser} recipes={recipes} />
         )}
       />
       <Route
-        path='/new/recipes'
+        path="/new/recipes"
         render={(props) => (
           <CreateRecipe
             {...props}
@@ -69,7 +69,7 @@ export default function Main(props) {
       />
       <Route
         exact
-        path='/recipes/:id'
+        path="/recipes/:id"
         render={(props) => (
           <Recipe
             {...props}
@@ -79,8 +79,8 @@ export default function Main(props) {
           />
         )}
       />
-      <Route
-        path='/recipes/:id/edit'
+      {/* <Route
+        path="/recipes/:id/edit"
         render={(props) => (
           <UpdateRecipe
             {...props}
@@ -89,8 +89,8 @@ export default function Main(props) {
             currentUser={currentUser}
           />
         )}
-      />
-      <Route
+      /> */}
+      {/* <Route
         path='/recipes/:id'
         render={(props) => (
           <DeleteRecipe
@@ -104,7 +104,7 @@ export default function Main(props) {
       <Route
         path='/comments'
         render={() => <ShowComments {...props} currentUser={currentUser} />}
-      />
+      /> */}
     </main>
   );
 }
