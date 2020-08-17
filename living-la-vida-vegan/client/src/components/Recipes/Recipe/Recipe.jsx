@@ -13,7 +13,8 @@ import UpdateRecipe from '../UpdateRecipe/UpdateRecipe';
 
 export default function Recipe(props) {
   const [recipe, setRecipe] = useState('');
-  const [commentId, setCommentId] = useState('');
+  const [comments, setComments] = useState([]);
+  // const [commentId, setCommentId] = useState('');
   const [showDelete, setDelete] = useState(false);
   const [showEdit, setEdit] = useState(false);
   // const [showSave, setSave] = useState(false)
@@ -28,6 +29,11 @@ export default function Recipe(props) {
     }
   };
 
+  const getComments = async () => {
+    const comments = await readAllComments(props.match.params.id);
+    setComments(comments);
+  };
+
   const deleteRecipe = async (id) => {
     if (props.currentUser) {
       await destroyRecipe(props.currentUser.id, id);
@@ -39,20 +45,14 @@ export default function Recipe(props) {
     }
   };
 
-  const handleChange = (e) => {
-    const { value } = e.target;
-    setCommentId(value);
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const recipe = await addComment(commentId, recipe.id);
-    setRecipe(recipe);
-    // props.history.push(`/recipes/${recipe.id}`);
-  };
+  // const handleChange = (e) => {
+  //   const { value } = e.target;
+  //   setCommentId(value);
+  // };
 
   useEffect(() => {
-    getRecipe();
+    // getRecipe();
+    getComments();
   }, []);
 
   const handleCloseDelete = () => {
@@ -100,7 +100,6 @@ export default function Recipe(props) {
                     </div>
                   </div>
                 </div>
-
                 <div className="ingredients">
                   <h4>Ingredients</h4>
                   <p>{rec.ingredients}</p>
@@ -114,7 +113,7 @@ export default function Recipe(props) {
                     <h6 className="source">Recipe Source</h6>
                   </a>
                 </div>
-                {/* <div className='button-bar'> */}
+                // add ternary to check if userexists
                 <ButtonToolbar className="justify-content-center align-items-center">
                   <UpdateRecipe
                     {...props}
@@ -122,7 +121,7 @@ export default function Recipe(props) {
                     show={showEdit}
                     onHide={handleCloseEdit}
                   />
-                  {/* <Link to={`/recipes/${recipe.id}/edit`}> */}
+
                   <Button
                     variant="outline-primary"
                     onClick={handleShowEdit}
@@ -130,7 +129,6 @@ export default function Recipe(props) {
                   >
                     Change
                   </Button>
-                  {/* </Link> */}
 
                   <DeleteRecipe
                     {...props}
@@ -148,13 +146,22 @@ export default function Recipe(props) {
                     Delete
                   </Button>
                 </ButtonToolbar>
+                <div className="comment-section">
+                  <h3>Comments:</h3>
+
+                  {
+                    // props.currentUser &&
+                    comments &&
+                      comments.map((comment) => (
+                        <>
+                          <h4>{comment.recipe.user.username}: </h4>
+                          <p>{comment.content}</p>
+                        </>
+                      ))
+                  }
+                </div>
               </div>
             ))}
-
-          {/* < className="comment-section">
-            <h3>Comments: </h3>
-            {/* <p>{props.currentUser.username}: ohhh so yum</p> */}
-          {/* <p>{comment.content}</p> */}
         </>
       )}
     </div>

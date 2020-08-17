@@ -4,7 +4,6 @@ import { Modal, Button, ButtonToolbar, Col, Row, Form } from 'react-bootstrap';
 
 export default function UpdateRecipe(props) {
   const [recipeUpdate, setRecipeUpdate] = useState({
-    // recipe: {
     upload_photo: '',
     recipe_name: '',
     description: '',
@@ -13,12 +12,10 @@ export default function UpdateRecipe(props) {
     ingredients: '',
     instructions: '',
     source: '',
-    // },
   });
 
   useEffect(() => {
     defaultRecipeData();
-    // getRecipe();
   }, [props.recipes]);
 
   const defaultRecipeData = (e) => {
@@ -26,62 +23,42 @@ export default function UpdateRecipe(props) {
       return recipe.id === parseInt(props.match.params.id);
     });
     if (recipe) {
-      setRecipeUpdate({ name: recipe.recipe_name });
-      //   const { name, value } = e.target;
-      //   setRecipeUpdate({
-      //     ...recipeUpdate,
-      //     [name]: value,
-      //   });
+      setRecipeUpdate({
+        upload_photo: recipe.upload_photo,
+        recipe_name: recipe.recipe_name,
+        description: recipe.description,
+        prep_time: recipe.prep_time,
+        cook_time: recipe.cook_time,
+        ingredients: recipe.ingredients,
+        instructions: recipe.instructions,
+        source: recipe.source,
+      });
     }
   };
 
-  // const getRecipe = async () => {
-  // const { id } = props.match.params;
-  // if (props.currentUser) {
-  //   const recipe = await readOneRecipe(id);
-  //   setRecipeUpdate({name: recipe.recipe_name});
-  // }
-  // };
-
   const handleChange = (e) => {
-    // const { id } = props.match.params;
     if (props.currentUser.id) {
-      const { value } = e.target;
+      const { name, value } = e.target;
       setRecipeUpdate({
-        name: value,
-        // recipe: {
-        //   ...recipeUpdate,
-        //   name: value,
-        // },
+        ...recipeUpdate,
+        [name]: value,
       });
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('it worked.');
     const { id } = props.match.params;
-    if ((props.currentUser.id, id)) {
-      const newRecipe = await putRecipe(props.currentUser.id, id, recipeUpdate);
-      props.setRecipes(
-        props.recipes.map((recipe) => {
-          return recipe.id === parseInt(id) ? newRecipe : recipe;
-        })
-      );
-      // alert("You've updated the recipe!");
-      props.history.push(`/recipes/${newRecipe.id}`);
-    }
+    const newRecipe = await putRecipe(props.currentUser.id, id, recipeUpdate);
+    props.setRecipes(
+      props.recipes.map((recipe) => {
+        return recipe.id === parseInt(id) ? newRecipe : recipe;
+      })
+    );
+    props.onHide();
   };
 
-  // const [recipeInput, setRecipeInput] = useState({
-  //   upload_photo: '',
-  //   recipe_name: '',
-  //   description: '',
-  //   prep_time: '',
-  //   cook_time: '',
-  //   ingredients: '',
-  //   instructions: '',
-  //   source: '',
-  // });
   // // const [addText, setText] = useState('');
 
   // // const charReplace = (str) => {
@@ -89,20 +66,6 @@ export default function UpdateRecipe(props) {
   // //   setText(addText);
   // // };
 
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setRecipeInput({
-  //     ...recipeInput,
-  //     [name]: value,
-  //   });
-  // };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const newRecipe = await postRecipe(props.currentUser.id, recipeInput);
-  //   props.setRecipes([...props.recipes, newRecipe]);
-  //   props.history.push(`/recipes/${newRecipe.id}`);
-  // };
   return (
     <>
       <Modal
@@ -117,7 +80,7 @@ export default function UpdateRecipe(props) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className="update-recipe-form mx-1">
-          <form className="add-recipe">
+          <form className="add-recipe" onSubmit={handleSubmit}>
             <input
               type="text"
               name="recipe_name"
@@ -183,20 +146,19 @@ export default function UpdateRecipe(props) {
               onChange={handleChange}
               placeholder="Source"
             />
+            {/* <Button variant="danger" onClick={props.onHide}>
+              Cancel
+            </Button> */}
+            <button
+            // variant="secondary"
+            // onClick={handleSubmit}
+            // onClick={props.onHide}
+            >
+              Save Changes
+            </button>
           </form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="danger" onClick={props.onHide}>
-            Cancel
-          </Button>
-          <Button
-            variant="secondary"
-            onClick={handleSubmit}
-            onClick={props.onHide}
-          >
-            Save Changes
-          </Button>
-        </Modal.Footer>
+        <Modal.Footer></Modal.Footer>
       </Modal>
     </>
   );
