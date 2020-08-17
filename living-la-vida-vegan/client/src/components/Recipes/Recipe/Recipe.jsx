@@ -30,10 +30,10 @@ export default function Recipe(props) {
   console.log(props.match.params.id);
   const deleteRecipe = async (id) => {
     if (props.currentUser) {
-      await destroyRecipe(props.currentUser.id, props.match.params.id);
+      await destroyRecipe(props.currentUser.id, id);
       props.setRecipes(
         props.recipes.filter((recipe) => {
-          return recipe.id !== props.match.params.id;
+          return recipe.id !== id;
         })
       );
     }
@@ -82,16 +82,14 @@ export default function Recipe(props) {
                   alt="recipe-photo"
                   className="recipe-photo"
                 />
-                <h3>{rec.recipe_name}</h3>
-                <p>{rec.description}</p>
+                <h3 className="recipe-title">{rec.recipe_name}</h3>
+                <p className="description">{rec.description}</p>
                 <div className="time-check">
                   <div className="prep">
-                    <h5>Prep Time: </h5>
-                    <h6 className="prep-times">{rec.prep_time}</h6>
+                    <h5 className="prep-times"> Prep Time: {rec.prep_time}</h5>
                   </div>
                   <div className="cook">
-                    <h5>Cook Time:</h5>
-                    <h6 className="cook-times">{rec.cook_time}</h6>
+                    <h5 className="cook-times">Cook Time: {rec.cook_time}</h5>
                   </div>
                 </div>
               </div>
@@ -106,24 +104,26 @@ export default function Recipe(props) {
               </div>
               <div>
                 <a href={rec.source}>
-                  <h6>view full recipe here</h6>
+                  <h6 className="source">Recipe Source</h6>
                 </a>
               </div>
               {/* <div className='button-bar'> */}
               <ButtonToolbar className="justify-content-center align-items-center">
                 <UpdateRecipe
                   {...props}
-                  recipeEdit={props.recipes}
+                  // recipeEdit={props.recipes}
                   show={showEdit}
                   onHide={handleCloseEdit}
                 />
+                {/* <Link to={`/recipes/${recipe.id}/edit`}> */}
                 <Button
-                  variant="outline-info"
+                  variant="outline-primary"
                   onClick={handleShowEdit}
                   className="mx-2"
                 >
                   Change
                 </Button>
+                {/* </Link> */}
 
                 <DeleteRecipe
                   {...props}

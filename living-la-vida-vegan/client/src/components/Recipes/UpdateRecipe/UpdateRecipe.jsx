@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { putRecipe } from '../../../services/recipes';
+import { readOneRecipe, putRecipe } from '../../../services/recipes';
 import { Modal, Button, ButtonToolbar, Col, Row, Form } from 'react-bootstrap';
 
 export default function UpdateRecipe(props) {
   const [recipeUpdate, setRecipeUpdate] = useState({
+    // recipe: {
     upload_photo: '',
     recipe_name: '',
     description: '',
@@ -12,31 +13,48 @@ export default function UpdateRecipe(props) {
     ingredients: '',
     instructions: '',
     source: '',
+    // },
   });
 
   useEffect(() => {
     defaultRecipeData();
-  }, [props.recipeEdit]);
+    // getRecipe();
+  }, [props.recipes]);
 
   const defaultRecipeData = (e) => {
-    const recipe = props.recipeEdit.find((recipe) => {
-      return recipe.id === props.match.params.id;
+    const recipe = props.recipes.find((recipe) => {
+      return recipe.id === parseInt(props.match.params.id);
     });
     if (recipe) {
-      const { name, value } = e.target;
-      setRecipeUpdate({
-        ...recipeUpdate,
-        [name]: value,
-      });
+      setRecipeUpdate({ name: recipe.recipe_name });
+      //   const { name, value } = e.target;
+      //   setRecipeUpdate({
+      //     ...recipeUpdate,
+      //     [name]: value,
+      //   });
     }
   };
 
+  // const getRecipe = async () => {
+  // const { id } = props.match.params;
+  // if (props.currentUser) {
+  //   const recipe = await readOneRecipe(id);
+  //   setRecipeUpdate({name: recipe.recipe_name});
+  // }
+  // };
+
   const handleChange = (e) => {
-    const { value } = e.target;
-    setRecipeUpdate({
-      ...recipeUpdate,
-      name: value,
-    });
+    // const { id } = props.match.params;
+    if (props.currentUser.id) {
+      const { value } = e.target;
+      setRecipeUpdate({
+        name: value,
+        // recipe: {
+        //   ...recipeUpdate,
+        //   name: value,
+        // },
+      });
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -45,8 +63,8 @@ export default function UpdateRecipe(props) {
     if ((props.currentUser.id, id)) {
       const newRecipe = await putRecipe(props.currentUser.id, id, recipeUpdate);
       props.setRecipes(
-        props.recipeEdit.map((recipe) => {
-          return recipe.id === id ? newRecipe : recipe;
+        props.recipes.map((recipe) => {
+          return recipe.id === parseInt(id) ? newRecipe : recipe;
         })
       );
       // alert("You've updated the recipe!");
@@ -54,6 +72,37 @@ export default function UpdateRecipe(props) {
     }
   };
 
+  // const [recipeInput, setRecipeInput] = useState({
+  //   upload_photo: '',
+  //   recipe_name: '',
+  //   description: '',
+  //   prep_time: '',
+  //   cook_time: '',
+  //   ingredients: '',
+  //   instructions: '',
+  //   source: '',
+  // });
+  // // const [addText, setText] = useState('');
+
+  // // const charReplace = (str) => {
+  // //   return String(str).replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  // //   setText(addText);
+  // // };
+
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setRecipeInput({
+  //     ...recipeInput,
+  //     [name]: value,
+  //   });
+  // };
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const newRecipe = await postRecipe(props.currentUser.id, recipeInput);
+  //   props.setRecipes([...props.recipes, newRecipe]);
+  //   props.history.push(`/recipes/${newRecipe.id}`);
+  // };
   return (
     <>
       <Modal
@@ -73,16 +122,17 @@ export default function UpdateRecipe(props) {
               type="text"
               name="recipe_name"
               required
-              disabled
+              // disabled
               defaultValue={recipeUpdate.recipe_name}
+              onChange={handleChange}
               placeholder="should show existing Recipe Name"
             />
             <input
-              onChange={handleChange}
               type="text"
               name="upload_photo"
               required
               defaultValue={recipeUpdate.upload_photo}
+              onChange={handleChange}
               placeholder="Upload a Photo"
             />
             <input
@@ -90,6 +140,7 @@ export default function UpdateRecipe(props) {
               name="description"
               required
               defaultValue={recipeUpdate.description}
+              onChange={handleChange}
               placeholder="Description"
             />
             <input
@@ -97,6 +148,7 @@ export default function UpdateRecipe(props) {
               name="prep_time"
               required
               defaultValue={recipeUpdate.prep_time}
+              onChange={handleChange}
               placeholder="Prep Time"
             />
             <input
@@ -104,6 +156,7 @@ export default function UpdateRecipe(props) {
               name="cook_time"
               required
               defaultValue={recipeUpdate.cook_time}
+              onChange={handleChange}
               placeholder="Cook Time"
             />
             <input
@@ -111,6 +164,7 @@ export default function UpdateRecipe(props) {
               name="ingredients"
               required
               defaultValue={recipeUpdate.ingredients}
+              onChange={handleChange}
               placeholder="Ingredients"
             />
             <input
@@ -118,6 +172,7 @@ export default function UpdateRecipe(props) {
               name="instructions"
               required
               defaultValue={recipeUpdate.instructions}
+              onChange={handleChange}
               placeholder="Instructions"
             />
             <input
@@ -125,6 +180,7 @@ export default function UpdateRecipe(props) {
               name="source"
               required
               defaultValue={recipeUpdate.source}
+              onChange={handleChange}
               placeholder="Source"
             />
           </form>
@@ -133,7 +189,11 @@ export default function UpdateRecipe(props) {
           <Button variant="danger" onClick={props.onHide}>
             Cancel
           </Button>
-          <Button variant="secondary" onClick={handleSubmit}>
+          <Button
+            variant="secondary"
+            onClick={handleSubmit}
+            onClick={props.onHide}
+          >
             Save Changes
           </Button>
         </Modal.Footer>
