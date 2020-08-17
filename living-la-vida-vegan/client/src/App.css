@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Special+Elite&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;1,300;1,400&family=Coming+Soon&family=Sue+Ellen+Francisco&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
 
 a {
@@ -16,4 +15,20 @@ a {
   align-items: center;
   background-color: rgba(104, 228, 170, 0.5);
   /* background-size: cover; */
+}
+
+form {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  text-align: left;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #285f72;
+  background: transparent;
+  color: #285f72;
 }
