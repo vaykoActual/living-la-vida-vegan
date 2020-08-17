@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './Login.css';
 import { loginUser } from '../../services/users';
-import { Button, Form } from 'react-bootstrap';
 
 export default function Login(props) {
   const [formData, setFormData] = useState({
@@ -25,34 +24,11 @@ export default function Login(props) {
   };
 
   return (
-    <div className="login-form">
-      {/* <Form>
-        <h2>Living La Vida Vegan</h2>
-        <Form.Group controlId="formBasicUsername">
-          <Form.Control
-            type="text"
-            name="username"
-            value={formData.username}
-            placeholder="Username"
-            onChange={handleChange}
-          />
-        </Form.Group>
-        <Form.Group controlId="formBasicPassword">
-          <Form.Control
-            type="password"
-            name="password"
-            value={formData.password}
-            placeholder="Password"
-            onChange={handleChange}
-          />
-        </Form.Group>
-        <Button variant="outline-primary" onSubmit={handleSubmit}>
-          Enter
-        </Button>
-      </Form> */}
-      <h1>Living La Vida Vegan</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="login">
+      <h1 className="login-title">LIVING LA VIDA VEGAN</h1>
+      <form className="login-form" onSubmit={handleSubmit}>
         <input
+          className="login-input"
           type="text"
           name="username"
           value={formData.username}
@@ -60,13 +36,14 @@ export default function Login(props) {
           placeholder="Username"
         />
         <input
+          className="login-input"
           type="password"
           name="password"
           value={formData.password}
           onChange={handleChange}
           placeholder="Password"
         />
-        <button>Enter</button>
+        <button className="login-button">Enter</button>
       </form>
     </div>
   );

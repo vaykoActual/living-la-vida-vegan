@@ -19,7 +19,7 @@ function App() {
   }, []);
 
   return (
-    <div className='App'>
+    <div className="App">
       <Header currentUser={currentUser} setCurrentUser={setCurrentUser} />
       <Main currentUser={currentUser} setCurrentUser={setCurrentUser} />
     </div>
