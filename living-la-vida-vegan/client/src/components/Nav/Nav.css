@@ -5,6 +5,12 @@
   align-items: flex-end;
 }
 
-.profile-opt {
+.profile-icon,
+.add-icon,
+.home-icon,
+.fav-icon,
+.share-icon {
   margin: 10px;
+  /* display: flex; */
+  /* flex-flow: column wrap; */
 }

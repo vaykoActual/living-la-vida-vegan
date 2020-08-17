@@ -82,7 +82,7 @@ export default function Recipe(props) {
                   alt="recipe-photo"
                   className="recipe-photo"
                 />
-                <h3>{rec.recipe_name}</h3>
+                <h3 className="recipe-title">{rec.recipe_name}</h3>
                 <p>{rec.description}</p>
                 <div className="time-check">
                   <div className="prep">
@@ -106,7 +106,7 @@ export default function Recipe(props) {
               </div>
               <div>
                 <a href={rec.source}>
-                  <h6>view full recipe here</h6>
+                  <h6>Recipe Source</h6>
                 </a>
               </div>
               {/* <div className='button-bar'> */}
@@ -119,7 +119,7 @@ export default function Recipe(props) {
                 />
                 {/* <Link to={`/recipes/${recipe.id}/edit`}> */}
                 <Button
-                  variant="outline-info"
+                  variant="outline-primary"
                   onClick={handleShowEdit}
                   className="mx-2"
                 >
