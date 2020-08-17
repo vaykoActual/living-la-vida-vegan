@@ -11,8 +11,13 @@ export default function ShowRecipes(props) {
           {props.recipes.map((rec) => (
             <Link to={`/recipes/${rec.id}`}>
               <Card
-                style={{ width: '18rem', padding: '20px' }}
-                className="justify-content-center align-items-center"
+                style={{
+                  width: '16rem',
+                  padding: '20px',
+                  border: '3px solid #285f72',
+                  backgroundColor: 'transparent',
+                }}
+                className="justify-content-center align-items-center recipe-card"
               >
                 <Card.Title className="recipe-title-home">
                   {rec.recipe_name}

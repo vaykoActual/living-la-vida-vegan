@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Nav from '../Nav/Nav';
+import Register from '../Register/Register';
 import './Header.css';
-import { Button } from 'react-bootstrap';
+import { Button, Modal } from 'react-bootstrap';
 
-export default function Header() {
+export default function Header(props) {
   return (
     <header>
       <div className="header">

@@ -2,10 +2,13 @@
   margin: 30px;
 }
 
-.tile-rows {
-  margin: 10px;
-}
-
 .recipe-title-home {
   font-family: 'Special Elite';
+  color: #285f72;
+}
+
+.recipe-card {
+  border: 3px solid #285f72;
+  border-radius: 6px;
+  margin: 20px;
 }
