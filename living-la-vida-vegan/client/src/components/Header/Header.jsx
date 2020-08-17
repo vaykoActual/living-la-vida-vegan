@@ -7,7 +7,7 @@ import { Button, Modal } from 'react-bootstrap';
 
 export default function Header(props) {
   return (
-    <header>
+    <>
       <div className="header">
         <div className="image-icon">
           <Link to="/">
@@ -35,6 +35,6 @@ export default function Header(props) {
       </div>
 
       <Nav />
-    </header>
+    </>
   );
 }
