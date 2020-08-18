@@ -20,17 +20,22 @@ export default function ShowUser(props) {
       {props.currentUser && (
         <div className="user-profile">
           <div className="profile-info">
-            <img
-              src={props.currentUser.img_url}
-              alt="profile-picture"
-              className="profile-picture"
-            />
+            <div>
+              <img
+                src={props.currentUser.img_url}
+                alt="profile-picture"
+                className="profile-picture"
+              />
+            </div>
+
             <div className="profile-text">
-              <h2>{props.currentUser.username}</h2>
-              <h4>About Me</h4>
-              <p>{props.currentUser.about_me}</p>
-              <h4>Likes/Interests</h4>
-              <p>{props.currentUser.likes_interests}</p>
+              <h4 className="profile-username">{props.currentUser.username}</h4>
+              <h6 className="profile-title">You asked about me?</h6>
+              <p>"{props.currentUser.about_me}"</p>
+              <p>
+                <span className="profile-title">I like </span>
+                {props.currentUser.likes_interests}
+              </p>
             </div>
           </div>
 
@@ -38,7 +43,7 @@ export default function ShowUser(props) {
             props.recipes.map((recipe) => (
               <Link to={`/recipes/${recipe.id}`}>
                 <div className="profile-recipe-tiles">
-                  <h5>{recipe.recipe_name}</h5>
+                  <h4 className="recipe-title">{recipe.recipe_name}</h4>
                   <img
                     src={recipe.upload_photo}
                     alt="recipe-photo"

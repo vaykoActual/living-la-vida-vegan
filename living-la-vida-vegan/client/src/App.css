@@ -11,10 +11,9 @@ a {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   background-color: rgba(104, 228, 170, 0.5);
-  /* background-size: cover; */
+  font-family: 'Oxygen';
 }
 
 form {

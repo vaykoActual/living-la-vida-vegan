@@ -51,7 +51,7 @@ export default function Recipe(props) {
   // };
 
   useEffect(() => {
-    // getRecipe();
+    getRecipe();
     getComments();
   }, []);
 
