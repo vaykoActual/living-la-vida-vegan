@@ -71,7 +71,7 @@ export default function Recipe(props) {
                 <div className="recipe-details">
                   <img
                     src={rec.upload_photo}
-                    alt="recipe-photo"
+                    alt="recipe"
                     className="recipe-photo"
                   />
                   <h1 className="recipe-title">{rec.recipe_name}</h1>

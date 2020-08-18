@@ -15,7 +15,6 @@ a {
 form {
   display: flex;
   flex-flow: column wrap;
-  justify-content: center;
   align-items: center;
 }
 
@@ -27,6 +26,7 @@ input {
   border: 1px solid #285f72;
   background: transparent;
   color: #285f72;
+  align-items: left;
 }
 
 .form-input {

@@ -49,7 +49,7 @@ class RecipesController < ApplicationController
   # PUT /recipes/1/comments/1
   def add_comment
     @recipes = Recipe.find(params[:id])
-    @comment = Comment.find(params[:flavor_id])
+    @comment = Comment.find(params[:comment_id])
 
     @recipe.comments << @comment
 
