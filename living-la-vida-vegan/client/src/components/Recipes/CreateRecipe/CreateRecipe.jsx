@@ -38,7 +38,7 @@ export default function CreateRecipe(props) {
   return (
     <>
       <div className="create-recipe-form">
-        <h2 className="form-title">Add a Recipe</h2>
+        <h2 className="form-title">ADD A RECIPE</h2>
         <form className="add-recipe" onSubmit={handleSubmit}>
           <input
             className="form-input"

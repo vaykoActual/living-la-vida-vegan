@@ -1,6 +1,7 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import './DeleteRecipe.css';
 
 export default function DeleteRecipes(props) {
   return (
@@ -13,7 +14,7 @@ export default function DeleteRecipes(props) {
           centered
         >
           <Modal.Header closeButton></Modal.Header>
-          <Modal.Body>
+          <Modal.Body className="popup-body">
             <h4> Are you sure you want to delete this recipe?</h4>
           </Modal.Body>
           <Modal.Footer>

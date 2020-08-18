@@ -74,26 +74,26 @@ export default function Recipe(props) {
                     alt="recipe-photo"
                     className="recipe-photo"
                   />
-                  <h3 className="recipe-title">{rec.recipe_name}</h3>
+                  <h1 className="recipe-title">{rec.recipe_name}</h1>
                   <p className="description">{rec.description}</p>
                   <div className="time-check">
-                    <div className="prep">
-                      <h5 className="prep-times">
-                        {' '}
-                        Prep Time: {rec.prep_time}
-                      </h5>
-                    </div>
-                    <div className="cook">
-                      <h5 className="cook-times">Cook Time: {rec.cook_time}</h5>
-                    </div>
+                    <h5 className="prep-times">
+                      <span className="time-title">Prep Time:</span>
+                      {rec.prep_time}
+                    </h5>
+
+                    <h5 className="cook-times">
+                      <span className="time-title">Cook Time:</span>{' '}
+                      {rec.cook_time}
+                    </h5>
                   </div>
                 </div>
-                <div className="ingredients">
-                  <h4>Ingredients</h4>
+                <div className="ingredients-container">
+                  <h4 className="ingredients">Ingredients</h4>
                   <p>{rec.ingredients}</p>
                 </div>
-                <div className="instructions">
-                  <h4>Steps</h4>
+                <div className="instructions-container">
+                  <h4 className="instructions">Instructions</h4>
                   <p>{rec.instructions}</p>
                 </div>
                 <div>
@@ -103,7 +103,7 @@ export default function Recipe(props) {
                 </div>
 
                 {props.currentUser.id ? (
-                  <ButtonToolbar className="justify-content-center align-items-center">
+                  <ButtonToolbar className="justify-content-center align-items-center button-toolbar">
                     <UpdateRecipe
                       {...props}
                       show={showEdit}
@@ -138,7 +138,8 @@ export default function Recipe(props) {
                   ''
                 )}
                 <div className="comment-section">
-                  <h5 className="comment-title">Comments</h5>
+                  <h4 className="comment-title">Comments</h4>
+                  <div className="comment-line"></div>
                   {comments &&
                     comments.map((comment) => (
                       <>

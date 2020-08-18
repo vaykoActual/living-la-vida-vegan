@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { putRecipe } from '../../../services/recipes';
 import { Modal } from 'react-bootstrap';
+import './UpdateRecipe.css';
 
 export default function UpdateRecipe(props) {
   const [recipeUpdate, setRecipeUpdate] = useState({
@@ -68,15 +69,18 @@ export default function UpdateRecipe(props) {
         centered
       >
         <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Update Recipe
+          <Modal.Title
+            id="contained-modal-title-vcenter"
+            className="form-title"
+          >
+            UPDATE RECIPE
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className="update-recipe-form mx-1">
           <form className="add-recipe" onSubmit={handleSubmit}>
             <label className="input-label">Recipe Name</label>
             <input
-              className="form-input"
+              className="update-form-input"
               type="text"
               name="recipe_name"
               required
@@ -85,7 +89,7 @@ export default function UpdateRecipe(props) {
             />
             <label className="input-label">Image URL</label>
             <input
-              className="form-input"
+              className="update-form-input"
               type="text"
               name="upload_photo"
               required
@@ -94,7 +98,7 @@ export default function UpdateRecipe(props) {
             />
             <label className="input-label">Description</label>
             <input
-              className="form-input"
+              className="update-form-input"
               type="text"
               name="description"
               required
@@ -103,7 +107,7 @@ export default function UpdateRecipe(props) {
             />
             <label className="input-label">Prep Time</label>
             <input
-              className="form-input"
+              className="update-form-input"
               type="text"
               name="prep_time"
               required
@@ -112,7 +116,7 @@ export default function UpdateRecipe(props) {
             />
             <label className="input-label">Cook Time</label>
             <input
-              className="form-input"
+              className="update-form-input"
               type="text"
               name="cook_time"
               required
@@ -121,7 +125,7 @@ export default function UpdateRecipe(props) {
             />
             <label className="input-label">Ingredients</label>
             <input
-              className="form-input"
+              className="update-form-input"
               type="text"
               name="ingredients"
               required
@@ -130,7 +134,7 @@ export default function UpdateRecipe(props) {
             />
             <label className="input-label">Instructions</label>
             <input
-              className="form-input"
+              className="update-form-input"
               type="text"
               name="instructions"
               required
@@ -139,7 +143,7 @@ export default function UpdateRecipe(props) {
             />
             <label className="input-label">Source</label>
             <input
-              className="form-input"
+              className="update-form-input"
               type="text"
               name="source"
               required

@@ -3,6 +3,18 @@
   padding: 10px;
 }
 
-.label-input {
-  float: left;
+.input-label {
+  display: inline-block;
+  text-align: left;
+  /* margin-left: 5px; */
+}
+
+.update-form-input {
+  width: 60%;
+  margin: 10px;
+}
+
+.form-title {
+  margin: 0;
+  font-weight: bold;
 }

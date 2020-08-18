@@ -19,20 +19,20 @@
 
 .profile-picture {
   margin: 20px;
-  max-width: 200px;
-  max-height: 200px;
+  max-width: 300px;
+  max-height: 300px;
   border-radius: 30px;
 }
 
 .profile-title {
-  font-family: 'Comic Neue';
+  padding: 20px;
+  font-family: 'Oxygen';
   font-weight: bold;
   font-size: 18px;
 }
 
-.recipe-title,
 .profile-username {
-  font-family: 'Comic Neue';
+  font-family: 'Oxygen';
   text-align: center;
   font-weight: bold;
   color: #285f72;
@@ -40,8 +40,8 @@
 
 .profile-text {
   align-content: center;
-  margin: 20px;
-  font-size: 16px;
+  font-size: 18px;
+  width: 60%;
 }
 
 .profile-recipe-tiles {

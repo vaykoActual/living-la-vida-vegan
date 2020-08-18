@@ -5,10 +5,11 @@
   justify-content: center;
   align-items: center;
   margin: 40px;
-  padding: 20px;
+  padding: 30px 50px;
   width: 800px;
   border: 3px solid #285f72;
   border-radius: 5px;
+  font-family: 'Oxygen';
 }
 
 .recipe-photo {
@@ -27,55 +28,56 @@
   margin: 20px;
 }
 
+.recipe-title {
+  font-family: 'Shadows Into Light Two', cursive, sans-serif;
+  font-weight: bold;
+  margin: 10px;
+  color: #285f72;
+}
+
 .time-check {
   display: flex;
   flex-direction: row;
   align-content: center;
-  margin: 0px 20px;
-}
-
-.prep,
-.cook {
-  display: flex;
-  align-content: center;
-  margin: 10px;
-  font-family: 'Oxygen';
+  margin: 0px 10px;
 }
 
 .prep-times,
 .cook-times {
   display: flex;
   align-content: center;
-  margin: 5px;
+  margin: 0px 12px;
 }
 
-.recipe-title {
-  font-family: 'Handlee', cursive, sans-serif;
-}
+/* .ingredients-container,
+.instructions-container {
+  /* width: 100px;
+} */
 
-.description,
 .ingredients,
 .instructions,
-.source {
-  font-family: 'Oxygen';
-}
-
-.source {
+.source,
+.comment-title,
+.time-title {
+  font-family: 'Shadows Into Light Two', cursive, sans-serif;
+  font-weight: bold;
   color: #285f72;
+  margin-right: 10px;
 }
 
 .comment-section {
   justify-content: flex-start;
   align-items: flex-start;
   border: none;
-  margin: 0;
-  padding: 30px;
+  margin-top: 0px;
 }
 
-.comment-title {
-  text-align: left;
+.comment-line {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  height: 1px;
+  width: 95%;
   border-bottom: 3px solid #285f72;
-  width: 100%;
 }
 
 .comment-text {
@@ -86,4 +88,8 @@
   font-weight: bold;
   font-style: normal;
   color: #285f72;
+}
+
+.button-toolbar {
+  margin: 10px;
 }
