@@ -111,7 +111,7 @@ export default function Recipe(props) {
                     />
 
                     <Button
-                      variant="outline-primary"
+                      variant="outline-info"
                       onClick={handleShowEdit}
                       className="mx-2"
                     >

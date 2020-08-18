@@ -16,13 +16,14 @@ export default function ShowRecipes(props) {
                     margin: '25px',
                     width: '16rem',
                     padding: '15px',
-                    border: '2px solid #285f72',
-                    backgroundColor: 'rgba(40, 95, 114, 0.6)',
-                    boxShadow: '5px 5px 6px 3px rgba(40, 95, 114, 0.6)',
+                    backgroundColor: 'rgb(40, 95, 114)',
                   }}
                   className="justify-content-center align-items-center recipe-card"
                 >
-                  <Card.Title className="recipe-title-home">
+                  <Card.Title
+                    className="recipe-title-home"
+                    style={{ fontSize: '30px' }}
+                  >
                     {rec.recipe_name}
                   </Card.Title>
                   <Card.Body>
