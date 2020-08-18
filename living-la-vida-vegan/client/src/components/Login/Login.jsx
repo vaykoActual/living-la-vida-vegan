@@ -25,7 +25,7 @@ export default function Login(props) {
 
   return (
     <div className="login">
-      <h1 className="login-title">LIVING LA VIDA VEGAN</h1>
+      <h1 className="login-title">LOGIN</h1>
       <form className="login-form" onSubmit={handleSubmit}>
         <input
           className="login-input"
