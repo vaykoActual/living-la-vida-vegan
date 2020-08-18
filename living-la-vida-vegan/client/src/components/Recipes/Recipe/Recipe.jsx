@@ -5,7 +5,6 @@ import {
   destroyRecipe,
 } from '../../../services/recipes';
 import { readAllComments } from '../../../services/comments';
-import { Link } from 'react-router-dom';
 import './Recipe.css';
 import { Button, ButtonToolbar } from 'react-bootstrap';
 import DeleteRecipe from '../DeleteRecipe/DeleteRecipe';
@@ -14,10 +13,8 @@ import UpdateRecipe from '../UpdateRecipe/UpdateRecipe';
 export default function Recipe(props) {
   const [recipe, setRecipe] = useState('');
   const [comments, setComments] = useState([]);
-  // const [commentId, setCommentId] = useState('');
   const [showDelete, setDelete] = useState(false);
   const [showEdit, setEdit] = useState(false);
-  // const [showSave, setSave] = useState(false)
 
   const getRecipe = async () => {
     if (props.currentUser) {
@@ -44,11 +41,6 @@ export default function Recipe(props) {
       );
     }
   };
-
-  // const handleChange = (e) => {
-  //   const { value } = e.target;
-  //   setCommentId(value);
-  // };
 
   useEffect(() => {
     getRecipe();
@@ -113,52 +105,55 @@ export default function Recipe(props) {
                     <h6 className="source">Recipe Source</h6>
                   </a>
                 </div>
-                // add ternary to check if userexists
-                <ButtonToolbar className="justify-content-center align-items-center">
-                  <UpdateRecipe
-                    {...props}
-                    // recipeEdit={props.recipes}
-                    show={showEdit}
-                    onHide={handleCloseEdit}
-                  />
 
-                  <Button
-                    variant="outline-primary"
-                    onClick={handleShowEdit}
-                    className="mx-2"
-                  >
-                    Change
-                  </Button>
+                {props.currentUser.id ? (
+                  <ButtonToolbar className="justify-content-center align-items-center">
+                    <UpdateRecipe
+                      {...props}
+                      show={showEdit}
+                      onHide={handleCloseEdit}
+                    />
 
-                  <DeleteRecipe
-                    {...props}
-                    recipeDelete={props.recipes}
-                    show={showDelete}
-                    onHide={handleCloseDelete}
-                    handleClick={deleteRecipe}
-                    recipeId={rec.id}
-                  />
-                  <Button
-                    variant="outline-danger"
-                    onClick={handleShowDelete}
-                    className="my-2"
-                  >
-                    Delete
-                  </Button>
-                </ButtonToolbar>
+                    <Button
+                      variant="outline-primary"
+                      onClick={handleShowEdit}
+                      className="mx-2"
+                    >
+                      Change
+                    </Button>
+
+                    <DeleteRecipe
+                      {...props}
+                      recipeDelete={props.recipes}
+                      show={showDelete}
+                      onHide={handleCloseDelete}
+                      handleClick={deleteRecipe}
+                      recipeId={rec.id}
+                    />
+                    <Button
+                      variant="outline-danger"
+                      onClick={handleShowDelete}
+                      className="my-2"
+                    >
+                      Delete
+                    </Button>
+                  </ButtonToolbar>
+                ) : (
+                  ''
+                )}
                 <div className="comment-section">
-                  <h3>Comments:</h3>
-
-                  {
-                    // props.currentUser &&
-                    comments &&
-                      comments.map((comment) => (
-                        <>
-                          <h4>{comment.recipe.user.username}: </h4>
-                          <p>{comment.content}</p>
-                        </>
-                      ))
-                  }
+                  <h5 className="comment-title">Comments</h5>
+                  {comments &&
+                    comments.map((comment) => (
+                      <>
+                        <p className="comment-text">
+                          <span className="username">
+                            {comment.recipe.user.username}: &nbsp;
+                          </span>
+                          {comment.content}
+                        </p>
+                      </>
+                    ))}
                 </div>
               </div>
             ))}
