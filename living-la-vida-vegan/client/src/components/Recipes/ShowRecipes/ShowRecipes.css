@@ -3,13 +3,13 @@
 }
 
 .recipe-title-home {
-  font-family: 'Special Elite';
+  font-family: 'Comic Neue';
   color: #285f72;
   text-align: center;
+  font-size: 40px;
 }
 
-.recipe-card {
-  border: 3px solid #285f72;
-  border-radius: 6px;
-  margin: 20px;
+.recipe-card-photo {
+  border-radius: 8px;
+  background-color: rgba(104, 228, 170, 0.5);
 }

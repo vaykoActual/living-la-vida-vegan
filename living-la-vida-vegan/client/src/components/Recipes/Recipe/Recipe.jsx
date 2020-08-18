@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {
-  readOneRecipe,
-  addComment,
-  destroyRecipe,
-} from '../../../services/recipes';
+import { readOneRecipe, destroyRecipe } from '../../../services/recipes';
 import { readAllComments } from '../../../services/comments';
 import './Recipe.css';
 import { Button, ButtonToolbar } from 'react-bootstrap';
