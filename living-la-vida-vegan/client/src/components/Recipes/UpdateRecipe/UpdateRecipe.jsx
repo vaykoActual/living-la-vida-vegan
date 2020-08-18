@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { readOneRecipe, putRecipe } from '../../../services/recipes';
-import { Modal, Button, ButtonToolbar, Col, Row, Form } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 
 export default function UpdateRecipe(props) {
   const [recipeUpdate, setRecipeUpdate] = useState({
@@ -81,81 +81,80 @@ export default function UpdateRecipe(props) {
         </Modal.Header>
         <Modal.Body className="update-recipe-form mx-1">
           <form className="add-recipe" onSubmit={handleSubmit}>
+            <label className="input-label">Recipe Name</label>
             <input
+              className="form-input"
               type="text"
               name="recipe_name"
               required
-              // disabled
               defaultValue={recipeUpdate.recipe_name}
               onChange={handleChange}
-              placeholder="should show existing Recipe Name"
             />
+            <label className="input-label">Image URL</label>
             <input
+              className="form-input"
               type="text"
               name="upload_photo"
               required
               defaultValue={recipeUpdate.upload_photo}
               onChange={handleChange}
-              placeholder="Upload a Photo"
             />
+            <label className="input-label">Description</label>
             <input
+              className="form-input"
               type="text"
               name="description"
               required
               defaultValue={recipeUpdate.description}
               onChange={handleChange}
-              placeholder="Description"
             />
+            <label className="input-label">Prep Time</label>
             <input
+              className="form-input"
               type="text"
               name="prep_time"
               required
               defaultValue={recipeUpdate.prep_time}
               onChange={handleChange}
-              placeholder="Prep Time"
             />
+            <label className="input-label">Cook Time</label>
             <input
+              className="form-input"
               type="text"
               name="cook_time"
               required
               defaultValue={recipeUpdate.cook_time}
               onChange={handleChange}
-              placeholder="Cook Time"
             />
+            <label className="input-label">Ingredients</label>
             <input
+              className="form-input"
               type="text"
               name="ingredients"
               required
               defaultValue={recipeUpdate.ingredients}
               onChange={handleChange}
-              placeholder="Ingredients"
             />
+            <label className="input-label">Instructions</label>
             <input
+              className="form-input"
               type="text"
               name="instructions"
               required
               defaultValue={recipeUpdate.instructions}
               onChange={handleChange}
-              placeholder="Instructions"
             />
+            <label className="input-label">Source</label>
             <input
+              className="form-input"
               type="text"
               name="source"
               required
               defaultValue={recipeUpdate.source}
               onChange={handleChange}
-              placeholder="Source"
             />
-            {/* <Button variant="danger" onClick={props.onHide}>
-              Cancel
-            </Button> */}
-            <button
-            // variant="secondary"
-            // onClick={handleSubmit}
-            // onClick={props.onHide}
-            >
-              Save Changes
-            </button>
+
+            <button className="save-button">Save Changes</button>
           </form>
         </Modal.Body>
         <Modal.Footer></Modal.Footer>

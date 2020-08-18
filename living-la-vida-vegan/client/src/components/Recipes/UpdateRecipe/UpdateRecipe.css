@@ -2,3 +2,7 @@
   text-align: center;
   padding: 10px;
 }
+
+.label-input {
+  float: left;
+}

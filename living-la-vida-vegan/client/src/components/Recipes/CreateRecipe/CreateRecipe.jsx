@@ -103,7 +103,7 @@ export default function CreateRecipe(props) {
             onChange={handleChange}
             placeholder="Source"
           />
-          <button className="create-button">Save</button>
+          <button className="save-button">Save</button>
         </form>
       </div>
     </>
