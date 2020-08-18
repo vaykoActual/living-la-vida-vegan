@@ -40,7 +40,7 @@ export default function ShowUser(props) {
             </div>
           </div>
 
-          {props.recipes &&
+          {props.currentUser.recipes &&
             props.recipes.map((recipe) => (
               <Link to={`/recipes/${recipe.id}`}>
                 <div className="profile-recipe-tiles">

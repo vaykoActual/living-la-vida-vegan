@@ -45,7 +45,7 @@ export default function Register(props) {
         <form className="register-form" onSubmit={handleSubmit}>
           <h3 className="register-title">MAKE AN ACCOUNT</h3>
           <input
-            className="register-input"
+            className="form-input"
             type="text"
             name="email"
             value={formData.email}
@@ -54,7 +54,7 @@ export default function Register(props) {
           />
 
           <input
-            className="register-input"
+            className="form-input"
             type="text"
             name="username"
             value={formData.username}
@@ -62,7 +62,7 @@ export default function Register(props) {
             placeholder="Username"
           />
           <input
-            className="register-input"
+            className="form-input"
             type="password"
             name="password"
             value={formData.password}
@@ -70,7 +70,7 @@ export default function Register(props) {
             placeholder="Password"
           />
           <input
-            className="register-input"
+            className="form-input"
             type="password"
             name="confirm_password"
             value={formData.confirm_password}
@@ -85,7 +85,7 @@ export default function Register(props) {
           ) : (
             <div>
               <input
-                className="register-input"
+                className="form-input"
                 type="text"
                 name="img_url"
                 value={formData.img_url}
@@ -93,7 +93,7 @@ export default function Register(props) {
                 placeholder="Image URL"
               />
               <input
-                className="register-input"
+                className="form-input"
                 type="text"
                 name="about_me"
                 value={formData.about_me}
@@ -101,7 +101,7 @@ export default function Register(props) {
                 placeholder="Add About Me"
               />
               <input
-                className="register-input"
+                className="form-input"
                 type="text"
                 name="likes_interests"
                 value={formData.likes_interests}

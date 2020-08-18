@@ -28,7 +28,7 @@ export default function Login(props) {
       <h1 className="login-title">LOGIN</h1>
       <form className="login-form" onSubmit={handleSubmit}>
         <input
-          className="login-input"
+          className="form-input"
           type="text"
           name="username"
           value={formData.username}
@@ -36,7 +36,7 @@ export default function Login(props) {
           placeholder="Username"
         />
         <input
-          className="login-input"
+          className="form-input"
           type="password"
           name="password"
           value={formData.password}

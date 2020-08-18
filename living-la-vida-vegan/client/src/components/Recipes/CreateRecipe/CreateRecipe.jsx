@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './CreateRecipe.css';
 import { postRecipe } from '../../../services/recipes';
-import { Button, Col, Row, Form, ButtonToolbar } from 'react-bootstrap';
 
 export default function CreateRecipe(props) {
   const [recipeInput, setRecipeInput] = useState({
@@ -38,68 +37,73 @@ export default function CreateRecipe(props) {
 
   return (
     <>
-      <div className='create-recipe-form'>
-        <h2 className='form-title'>Add a Recipe</h2>
-        create recipe inputs
-        <form className='add-recipe' onSubmit={handleSubmit}>
-          <h3>Add a Recipe</h3>
+      <div className="create-recipe-form">
+        <h2 className="form-title">Add a Recipe</h2>
+        <form className="add-recipe" onSubmit={handleSubmit}>
           <input
-            type='text'
-            name='upload_photo'
+            className="form-input"
+            type="text"
+            name="upload_photo"
             value={recipeInput.upload_photo}
             onChange={handleChange}
-            placeholder='Upload a Photo'
+            placeholder="Upload a Photo"
           />
           <input
-            type='text'
-            name='recipe_name'
+            className="form-input"
+            type="text"
+            name="recipe_name"
             value={recipeInput.recipe_name}
             onChange={handleChange}
-            placeholder='Recipe Name'
+            placeholder="Recipe Name"
           />
           <input
-            type='text'
-            name='description'
+            className="form-input"
+            type="text"
+            name="description"
             value={recipeInput.description}
             onChange={handleChange}
-            placeholder='Description'
+            placeholder="Description"
           />
           <input
-            type='text'
-            name='prep_time'
+            className="form-input"
+            type="text"
+            name="prep_time"
             value={recipeInput.prep_time}
             onChange={handleChange}
-            placeholder='Prep Time'
+            placeholder="Prep Time"
           />
           <input
-            type='text'
-            name='cook_time'
+            type="text"
+            name="cook_time"
             value={recipeInput.cook_time}
             onChange={handleChange}
-            placeholder='Cook Time'
+            placeholder="Cook Time"
           />
           <input
-            type='text'
-            name='ingredients'
+            className="form-input"
+            type="text"
+            name="ingredients"
             value={recipeInput.ingredients}
             onChange={handleChange}
-            placeholder='Ingredients'
+            placeholder="Ingredients"
           />
           <input
-            type='text'
-            name='instructions'
+            className="form-input"
+            type="text"
+            name="instructions"
             value={recipeInput.instructions}
             onChange={handleChange}
-            placeholder='Steps/Instructions'
+            placeholder="Steps/Instructions"
           />
           <input
-            type='text'
-            name='source'
+            className="form-input"
+            type="text"
+            name="source"
             value={recipeInput.source}
             onChange={handleChange}
-            placeholder='Source'
+            placeholder="Source"
           />
-          <button>Save</button>
+          <button className="create-button">Save</button>
         </form>
       </div>
     </>
