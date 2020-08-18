@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { putRecipe } from '../../../services/recipes';
-import { Modal, Button, ButtonToolbar, Col, Row, Form } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 
 export default function UpdateRecipe(props) {
   const [recipeUpdate, setRecipeUpdate] = useState({
@@ -16,13 +16,28 @@ export default function UpdateRecipe(props) {
 
   useEffect(() => {
     defaultRecipeData();
-  }, [props.recipeEdit]);
+  }, [props.recipes]);
 
   const defaultRecipeData = (e) => {
-    const recipe = props.recipeEdit.find((recipe) => {
-      return recipe.id === props.match.params.id;
+    const recipe = props.recipes.find((recipe) => {
+      return recipe.id === parseInt(props.match.params.id);
     });
     if (recipe) {
+      setRecipeUpdate({
+        upload_photo: recipe.upload_photo,
+        recipe_name: recipe.recipe_name,
+        description: recipe.description,
+        prep_time: recipe.prep_time,
+        cook_time: recipe.cook_time,
+        ingredients: recipe.ingredients,
+        instructions: recipe.instructions,
+        source: recipe.source,
+      });
+    }
+  };
+
+  const handleChange = (e) => {
+    if (props.currentUser.id) {
       const { name, value } = e.target;
       setRecipeUpdate({
         ...recipeUpdate,
@@ -31,112 +46,111 @@ export default function UpdateRecipe(props) {
     }
   };
 
-  const handleChange = (e) => {
-    const { value } = e.target;
-    setRecipeUpdate({
-      ...recipeUpdate,
-      name: value,
-    });
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('it worked.');
     const { id } = props.match.params;
-    if ((props.currentUser.id, id)) {
-      const newRecipe = await putRecipe(props.currentUser.id, id, recipeUpdate);
-      props.setRecipes(
-        props.recipeEdit.map((recipe) => {
-          return recipe.id === id ? newRecipe : recipe;
-        })
-      );
-      // alert("You've updated the recipe!");
-      props.history.push(`/recipes/${newRecipe.id}`);
-    }
+    const newRecipe = await putRecipe(props.currentUser.id, id, recipeUpdate);
+    props.setRecipes(
+      props.recipes.map((recipe) => {
+        return recipe.id === parseInt(id) ? newRecipe : recipe;
+      })
+    );
+    props.onHide();
   };
 
   return (
     <>
       <Modal
         {...props}
-        size='lg'
-        aria-labelledby='contained-modal-title-vcenter'
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
         centered
       >
         <Modal.Header closeButton>
-          <Modal.Title id='contained-modal-title-vcenter'>
+          <Modal.Title id="contained-modal-title-vcenter">
             Update Recipe
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body className='update-recipe-form mx-1'>
-          <form className='add-recipe'>
+        <Modal.Body className="update-recipe-form mx-1">
+          <form className="add-recipe" onSubmit={handleSubmit}>
+            <label className="input-label">Recipe Name</label>
             <input
-              type='text'
-              name='recipe_name'
+              className="form-input"
+              type="text"
+              name="recipe_name"
               required
-              disabled
               defaultValue={recipeUpdate.recipe_name}
-              placeholder='should show existing Recipe Name'
-            />
-            <input
               onChange={handleChange}
-              type='text'
-              name='upload_photo'
+            />
+            <label className="input-label">Image URL</label>
+            <input
+              className="form-input"
+              type="text"
+              name="upload_photo"
               required
               defaultValue={recipeUpdate.upload_photo}
-              placeholder='Upload a Photo'
+              onChange={handleChange}
             />
+            <label className="input-label">Description</label>
             <input
-              type='text'
-              name='description'
+              className="form-input"
+              type="text"
+              name="description"
               required
               defaultValue={recipeUpdate.description}
-              placeholder='Description'
+              onChange={handleChange}
             />
+            <label className="input-label">Prep Time</label>
             <input
-              type='text'
-              name='prep_time'
+              className="form-input"
+              type="text"
+              name="prep_time"
               required
               defaultValue={recipeUpdate.prep_time}
-              placeholder='Prep Time'
+              onChange={handleChange}
             />
+            <label className="input-label">Cook Time</label>
             <input
-              type='text'
-              name='cook_time'
+              className="form-input"
+              type="text"
+              name="cook_time"
               required
               defaultValue={recipeUpdate.cook_time}
-              placeholder='Cook Time'
+              onChange={handleChange}
             />
+            <label className="input-label">Ingredients</label>
             <input
-              type='text'
-              name='ingredients'
+              className="form-input"
+              type="text"
+              name="ingredients"
               required
               defaultValue={recipeUpdate.ingredients}
-              placeholder='Ingredients'
+              onChange={handleChange}
             />
+            <label className="input-label">Instructions</label>
             <input
-              type='text'
-              name='instructions'
+              className="form-input"
+              type="text"
+              name="instructions"
               required
               defaultValue={recipeUpdate.instructions}
-              placeholder='Instructions'
+              onChange={handleChange}
             />
+            <label className="input-label">Source</label>
             <input
-              type='text'
-              name='source'
+              className="form-input"
+              type="text"
+              name="source"
               required
               defaultValue={recipeUpdate.source}
-              placeholder='Source'
+              onChange={handleChange}
             />
+
+            <button className="save-button">Save Changes</button>
           </form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant='danger' onClick={props.onHide}>
-            Cancel
-          </Button>
-          <Button variant='secondary' onClick={handleSubmit}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
+        <Modal.Footer></Modal.Footer>
       </Modal>
     </>
   );

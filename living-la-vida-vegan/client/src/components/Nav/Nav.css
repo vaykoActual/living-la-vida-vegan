@@ -3,8 +3,13 @@
   flex-direction: row;
   justify-content: space-evenly;
   align-items: flex-end;
+  margin: 20px;
 }
 
-.profile-opt {
+.profile-icon,
+.add-icon,
+.home-icon,
+.fav-icon,
+.share-icon {
   margin: 10px;
 }

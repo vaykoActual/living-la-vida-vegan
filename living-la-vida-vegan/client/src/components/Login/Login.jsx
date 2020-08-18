@@ -24,24 +24,26 @@ export default function Login(props) {
   };
 
   return (
-    <div className='login-form'>
-      <h1>Living La Vida Vegan</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="login">
+      <h1 className="login-title">LOGIN</h1>
+      <form className="login-form" onSubmit={handleSubmit}>
         <input
-          type='text'
-          name='username'
+          className="form-input"
+          type="text"
+          name="username"
           value={formData.username}
           onChange={handleChange}
-          placeholder='Username'
+          placeholder="Username"
         />
         <input
-          type='password'
-          name='password'
+          className="form-input"
+          type="password"
+          name="password"
           value={formData.password}
           onChange={handleChange}
-          placeholder='Password'
+          placeholder="Password"
         />
-        <button>Enter</button>
+        <button className="login-button">Enter</button>
       </form>
     </div>
   );

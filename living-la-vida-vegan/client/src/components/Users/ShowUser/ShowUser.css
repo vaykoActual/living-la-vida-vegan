@@ -1,27 +1,54 @@
-.profile-info {
-  margin: 20px;
-  width: 400px;
-  padding: 20px 50px;
-  border: 3px solid black;
-  border-radius: 5px;
+.user-profile {
   display: flex;
-  flex-flow: column-wrap;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.profile-info {
+  margin: 20px;
+  width: 30rem;
+  padding: 20px 30px;
+  border: 2px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
 }
 
 .profile-picture {
   margin: 20px;
   max-width: 200px;
   max-height: 200px;
-  border-radius: 60px;
+  border-radius: 30px;
+}
+
+.profile-title {
+  font-family: 'Comic Neue';
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.recipe-title,
+.profile-username {
+  font-family: 'Comic Neue';
+  text-align: center;
+  font-weight: bold;
+  color: #285f72;
+}
+
+.profile-text {
+  align-content: center;
+  margin: 20px;
+  font-size: 16px;
 }
 
 .profile-recipe-tiles {
   width: 300px;
-  height: 100%;
+  margin: 30px;
   padding: 20px;
-  border: 3px solid black;
+  border: 2px solid #285f72;
   border-radius: 5px;
   display: flex;
   flex-direction: column;

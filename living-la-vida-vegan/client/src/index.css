@@ -1,3 +1,8 @@
+html {
+  height: 100%;
+  background-color: rgba(245, 146, 110, 0.7);
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

@@ -1,12 +1,13 @@
-.recipe-page {
+.recipe-page,
+.comment-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 40px;
-  padding: 30px;
+  padding: 20px;
   width: 800px;
-  border: 3px solid black;
+  border: 3px solid #285f72;
   border-radius: 5px;
 }
 
@@ -14,6 +15,8 @@
   width: 400px;
   height: 400px;
   margin: 20px;
+  border-radius: 20px;
+  box-shadow: 4px 4px 5px 6px rgba(40, 95, 114, 0.6);
 }
 
 .recipe-details {
@@ -21,7 +24,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 30px;
+  margin: 20px;
 }
 
 .time-check {
@@ -36,25 +39,51 @@
   display: flex;
   align-content: center;
   margin: 10px;
+  font-family: 'Oxygen';
 }
 
 .prep-times,
 .cook-times {
-  font-size: 16px;
   display: flex;
   align-content: center;
   margin: 5px;
 }
 
-.choice-button {
-  border: 3px solid black;
-  border-radius: 5px;
-  margin: 10px;
-  padding: 5px 10px;
+.recipe-title {
+  font-family: 'Handlee', cursive, sans-serif;
+}
+
+.description,
+.ingredients,
+.instructions,
+.source {
+  font-family: 'Oxygen';
+}
+
+.source {
+  color: #285f72;
 }
 
 .comment-section {
-  width: 800px;
-  border: 3px solid black;
-  border-radius: 5px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border: none;
+  margin: 0;
+  padding: 30px;
+}
+
+.comment-title {
+  text-align: left;
+  border-bottom: 3px solid #285f72;
+  width: 100%;
+}
+
+.comment-text {
+  font-style: italic;
+}
+
+.username {
+  font-weight: bold;
+  font-style: normal;
+  color: #285f72;
 }
