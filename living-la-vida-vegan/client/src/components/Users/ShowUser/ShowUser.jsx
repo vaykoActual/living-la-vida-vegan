@@ -2,13 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './ShowUser.css';
 import { readUserRecipes } from '../../../services/recipes';
+import { Card } from 'react-bootstrap';
 
 export default function ShowUser(props) {
   const [userRecipe, setUserRecipe] = useState('');
 
   const getRecipes = async () => {
-    const recipe = await readUserRecipes(props.currentUser.id);
-    setUserRecipe(userRecipe);
+    if (props.currentUser) {
+      const recipe = await readUserRecipes(props.currentUser.id);
+      setUserRecipe(userRecipe);
+    }
   };
 
   useEffect(() => {
@@ -18,36 +21,64 @@ export default function ShowUser(props) {
   return (
     <>
       {props.currentUser && (
-        <>
-          <div className='profile-info'>
-            <img
-              src={props.currentUser.img_url}
-              alt='profile-picture'
-              className='profile-picture'
-            />
-            <div className='profile-text'>
-              <h2>{props.currentUser.username}</h2>
-              <h4>About Me</h4>
-              <p>{props.currentUser.about_me}</p>
-              <h4>Likes/Interests</h4>
-              <p>{props.currentUser.likes_interests}</p>
+        <div className="user-profile">
+          <div className="profile-info">
+            <div>
+              <img
+                src={props.currentUser.img_url}
+                alt="profile"
+                className="profile-picture"
+              />
+            </div>
+
+            <div className="profile-text">
+              <h1 className="profile-username">{props.currentUser.username}</h1>
+              <h4 className="profile-title">about me</h4>
+              <p className="prof-description">"{props.currentUser.about_me}"</p>
+              <h4 className="profile-title">likes & interests</h4>
+              <p className="prof-description">
+                {props.currentUser.likes_interests}
+              </p>
             </div>
           </div>
 
-          {props.recipes &&
-            props.recipes.map((recipe) => (
-              <Link to={`/recipes/${recipe.id}`}>
-                <div className='profile-recipe-tiles'>
-                  <h5>{recipe.recipe_name}</h5>
-                  <img
-                    src={recipe.upload_photo}
-                    alt='recipe-photo'
-                    className='recipe-photo-tile'
-                  />
-                </div>
-              </Link>
-            ))}
-        </>
+          <div className="recipe-card-page">
+            {props.currentUser &&
+              props.recipes &&
+              props.recipes
+                .filter((recipe) => {
+                  return recipe.user_id === props.currentUser.id;
+                })
+                .map((recipe) => (
+                  <Link to={`/recipes/${recipe.id}`}>
+                    <Card
+                      style={{
+                        backgroundColor: 'transparent',
+                        border: '2px solid rgb(40, 95, 114)',
+                      }}
+                      className="recipe-card justify-content-center align-items-center mx-4"
+                    >
+                      <div className="mx-5">
+                        <Card.Title
+                          className="recipe-title-home"
+                          style={{ fontSize: '35px' }}
+                        >
+                          {recipe.recipe_name}
+                        </Card.Title>
+                      </div>
+                      <Card.Body>
+                        <Card.Img
+                          className="recipe-card-photo"
+                          variant="top"
+                          src={recipe.upload_photo}
+                          alt="recipe"
+                        />
+                      </Card.Body>
+                    </Card>
+                  </Link>
+                ))}
+          </div>
+        </div>
       )}
     </>
   );

@@ -1,34 +1,48 @@
-.profile-info {
-  margin: 20px;
-  width: 400px;
-  padding: 20px 50px;
-  border: 3px solid black;
-  border-radius: 5px;
-  display: flex;
-  flex-flow: column-wrap;
-  justify-content: center;
-  align-items: center;
-}
-
-.profile-picture {
-  margin: 20px;
-  max-width: 200px;
-  max-height: 200px;
-  border-radius: 60px;
-}
-
-.profile-recipe-tiles {
-  width: 300px;
-  height: 100%;
-  padding: 20px;
-  border: 3px solid black;
-  border-radius: 5px;
+.user-profile {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.recipe-photo-tile {
-  width: 200px;
-  height: 200px;
+
+.recipe-card-page {
+  margin: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.profile-info {
+  margin: 50px;
+  width: 40rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.profile-picture {
+  margin: 30px;
+  max-width: 300px;
+  max-height: 300px;
+  border-radius: 30px;
+}
+
+.profile-title {
+  font-family: 'Handlee', cursive, sans-serif;
+  font-weight: bold;
+  color: #285f72;
+}
+
+.profile-username {
+  font-family: 'Handlee', cursive, sans-serif;
+  text-align: center;
+  font-weight: bold;
+  color: #285f72;
+  margin: 20px;
+}
+
+.profile-text {
+  text-align: justify;
+}
+
+.prof-description {
+  font-size: 20px;
 }

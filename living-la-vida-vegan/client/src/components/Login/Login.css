@@ -1,22 +1,27 @@
-/* form {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
+.login {
+  margin: 40px;
+  padding: 20px;
 }
 
-input {
-  margin: 10px;
-  text-align: left;
-  padding: 5px 15px;
-}
-button {
-  margin: 10px;
-  padding: 8px 10px;
-  border-radius: 5px;
+.login-form {
+  padding: 20px;
+  border-radius: 6px;
 }
 
-/* .login-form {
-  border: 3px solid;
-  padding: 40px;
-} */
+.login-title {
+  color: #285f72;
+  font-family: 'Sue Ellen Francisco';
+  text-align: center;
+}
+.login-button {
+  margin: 10px;
+  padding: 5px 12px;
+  border: 1px solid #285f72;
+  background: transparent;
+  border-radius: 6px;
+  color: #285f72;
+}
+
+.login-input {
+  margin: 10px;
+}

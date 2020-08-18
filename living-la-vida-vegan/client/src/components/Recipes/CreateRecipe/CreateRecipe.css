@@ -1,14 +1,29 @@
 .create-recipe-form {
   text-align: center;
   padding: 10px;
+  margin: 60px;
+}
+
+.add-recipe {
+  text-align: center;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .form-title {
-  margin: 35px;
+  margin: 25px;
+  font-family: 'Sue Ellen Francisco', cursive, sans-serif;
+  font-weight: bold;
+  text-align: center;
 }
 
-.create-input {
-  border: 3px solid #285f72;
+.save-button {
+  margin: 10px;
+  padding: 5px 12px;
+  border: 1px solid #285f72;
+  background: transparent;
   border-radius: 6px;
-  font-size: 16px;
+  color: #285f72;
 }

@@ -7,13 +7,14 @@ class RecipesController < ApplicationController
     @user = User.find(params[:user_id])
     @recipes = Recipe.where(user_id: @user.id).all
 
-    render json: @recipes, include: :user, status: :ok
+    render json: @recipes, include: :comments, status: :ok
   end
 
   # GET /recipes/1
   def show
     @user = User.find(params[:user_id])
     @recipe = Recipe.where(user_id: @user.id)
+    
     
     render json: @recipe, include: :comments
   end
@@ -48,7 +49,7 @@ class RecipesController < ApplicationController
   # PUT /recipes/1/comments/1
   def add_comment
     @recipes = Recipe.find(params[:id])
-    @comment = Comment.find(params[:flavor_id])
+    @comment = Comment.find(params[:comment_id])
 
     @recipe.comments << @comment
 

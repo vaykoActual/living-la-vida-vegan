@@ -42,5 +42,5 @@ source: 'https://avirtualvegan.com/easy-butternut-squash-spinach-curry/',
 user: @admin)
 p "#{Recipe.count} recipes in the system"
 
-# @comment = Comment.create(content: 'oh so yummmmm', recipe: @curry)
-# p "#{Comment.count} comments in the system"
+@comment = Comment.create(content: 'oh so yummmmm', recipe: @curry, user_id: @admin.id)
+p "#{Comment.count} comments in the system"

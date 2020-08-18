@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import './Register.css';
 import { registerUser } from '../../services/users';
-import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-// import RegisterCont from './RegisterCont';
 
 export default function Register(props) {
   const [formData, setFormData] = useState({
@@ -40,67 +37,79 @@ export default function Register(props) {
   };
 
   return (
-    <div>
-      <form className='register-form' onSubmit={handleSubmit}>
-        <h3>Make an Account</h3>
-        <input
-          type='text'
-          name='email'
-          value={formData.email}
-          onChange={handleChange}
-          placeholder='Email'
-        />
-        <input
-          type='text'
-          name='username'
-          value={formData.username}
-          onChange={handleChange}
-          placeholder='Username'
-        />
-        <input
-          type='password'
-          name='password'
-          value={formData.password}
-          onChange={handleChange}
-          placeholder='Password'
-        />
-        <input
-          type='password'
-          name='confirm_password'
-          value={formData.confirm_password}
-          onChange={handleChange}
-          placeholder='Confirm Password'
-        />
-        <p onClick={handleClick}>Next</p>
-        {clicked ? (
-          ''
-        ) : (
-          <div>
-            <input
-              type='text'
-              name='img_url'
-              value={formData.img_url}
-              onChange={handleChange}
-              placeholder='Image URL'
-            />
-            <input
-              type='text'
-              name='about_me'
-              value={formData.about_me}
-              onChange={handleChange}
-              placeholder='share a few words about yourself'
-            />
-            <input
-              type='text'
-              name='likes_interests'
-              value={formData.likes_interests}
-              onChange={handleChange}
-              placeholder='any likes or interests?'
-            />
-            <button>Save</button>
-          </div>
-        )}
-      </form>
-    </div>
+    <>
+      <div className="register">
+        <form className="register-form" onSubmit={handleSubmit}>
+          <h3 className="register-title">MAKE AN ACCOUNT</h3>
+          <input
+            className="form-input"
+            type="text"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Email"
+          />
+
+          <input
+            className="form-input"
+            type="text"
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
+            placeholder="Username"
+          />
+          <input
+            className="form-input"
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            placeholder="Password"
+          />
+          <input
+            className="form-input"
+            type="password"
+            name="confirm_password"
+            value={formData.confirm_password}
+            onChange={handleChange}
+            placeholder="Confirm Password"
+          />
+          <h4 className="register-title" onClick={handleClick}>
+            NEXT
+          </h4>
+          {clicked ? (
+            ''
+          ) : (
+            <div>
+              <input
+                className="form-input"
+                type="text"
+                name="img_url"
+                value={formData.img_url}
+                onChange={handleChange}
+                placeholder="Image URL"
+              />
+              <input
+                className="form-input"
+                type="text"
+                name="about_me"
+                value={formData.about_me}
+                onChange={handleChange}
+                placeholder="Add About Me"
+              />
+              <input
+                className="form-input"
+                type="text"
+                name="likes_interests"
+                value={formData.likes_interests}
+                onChange={handleChange}
+                placeholder="Any Likes or Interests?"
+              />
+              <button className="register-button">Save</button>
+            </div>
+          )}
+        </form>
+      </div>
+    </>
   );
 }
