@@ -19,6 +19,17 @@
   text-align: center;
 }
 
+.form-input {
+  margin: 10px;
+  width: 300px;
+  text-align: left;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #285f72;
+  background: transparent;
+  color: #285f72;
+}
+
 .save-button {
   margin: 10px;
   padding: 5px 12px;
