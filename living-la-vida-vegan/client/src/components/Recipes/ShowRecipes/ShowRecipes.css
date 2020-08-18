@@ -2,12 +2,23 @@
   margin: 30px;
 }
 
+.recipe-card {
+  max-width: 60rem;
+  max-height: 50rem;
+  padding: 25px;
+}
+
 .recipe-title-home {
   font-family: 'Handlee', cursive, sans-serif;
   color: #8df4a5;
   text-align: center;
+  text-overflow: clip;
 }
 
 .recipe-card-photo {
+  margin: 10px;
   border-radius: 8px;
+  max-width: 184px;
+  max-height: 184px;
+  object-fit: cover;
 }

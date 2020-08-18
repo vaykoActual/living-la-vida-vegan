@@ -43,19 +43,20 @@ export default function CreateRecipe(props) {
           <input
             className="form-input"
             type="text"
-            name="upload_photo"
-            value={recipeInput.upload_photo}
-            onChange={handleChange}
-            placeholder="Upload a Photo"
-          />
-          <input
-            className="form-input"
-            type="text"
             name="recipe_name"
             value={recipeInput.recipe_name}
             onChange={handleChange}
             placeholder="Recipe Name"
           />
+          <input
+            className="form-input"
+            type="text"
+            name="upload_photo"
+            value={recipeInput.upload_photo}
+            onChange={handleChange}
+            placeholder="Upload a Photo"
+          />
+
           <input
             className="form-input"
             type="text"
@@ -93,7 +94,7 @@ export default function CreateRecipe(props) {
             name="instructions"
             value={recipeInput.instructions}
             onChange={handleChange}
-            placeholder="Steps/Instructions"
+            placeholder="Instructions"
           />
           <input
             className="form-input"

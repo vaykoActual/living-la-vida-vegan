@@ -13,12 +13,9 @@ export default function ShowRecipes(props) {
               <CardDeck>
                 <Card
                   style={{
-                    margin: '25px',
-                    width: '16rem',
-                    padding: '15px',
                     backgroundColor: 'rgb(40, 95, 114)',
                   }}
-                  className="recipe-card justify-content-center align-items-center "
+                  className="recipe-card justify-content-center align-items-center mx-4"
                 >
                   <Card.Title
                     className="recipe-title-home"
@@ -28,6 +25,7 @@ export default function ShowRecipes(props) {
                   </Card.Title>
                   <Card.Body>
                     <Card.Img
+                      className="recipe-card-photo"
                       variant="top"
                       src={rec.upload_photo}
                       alt="recipe-photo"
