@@ -3,9 +3,15 @@
   padding: 20px;
 }
 
+.login-form {
+  padding: 20px;
+  border-radius: 6px;
+}
+
 .login-title {
   color: #285f72;
   font-family: 'Sue Ellen Francisco';
+  text-align: center;
 }
 .login-button {
   margin: 10px;
@@ -14,11 +20,6 @@
   background: transparent;
   border-radius: 6px;
   color: #285f72;
-}
-
-.login-form {
-  padding: 20px;
-  border-radius: 6px;
 }
 
 .login-input {

@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Nav from '../Nav/Nav';
-import Register from '../Register/Register';
 import './Header.css';
-import { Button, Modal } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 export default function Header(props) {
   return (
@@ -12,7 +11,6 @@ export default function Header(props) {
         <div className="image-icon">
           <Link to="/">
             <img
-              // src="https://res.cloudinary.com/zumariposa/image/upload/c_scale,w_100/v1597281956/living-la-vida-vegan/apple-touch-icon_s4rh6b.png"
               src="https://res.cloudinary.com/zumariposa/image/upload/c_scale,w_80/v1597281956/living-la-vida-vegan/apple-touch-icon_s4rh6b.png"
               alt="living-la-vida-vegan-icon"
               className="comp-icon"

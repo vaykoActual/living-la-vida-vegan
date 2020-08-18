@@ -4,13 +4,10 @@ import { readAllRecipes } from '../../services/recipes';
 
 import Login from '../Login/Login';
 import Register from '../Register/Register';
-import ShowComments from '../Comments/ShowComments/ShowComments';
 import CreateRecipe from '../Recipes/CreateRecipe/CreateRecipe';
 import ShowRecipes from '../Recipes/ShowRecipes/ShowRecipes';
 import Recipe from '../Recipes/Recipe/Recipe';
-import UpdateRecipe from '../Recipes/UpdateRecipe/UpdateRecipe';
 import ShowUser from '../Users/ShowUser/ShowUser';
-import DeleteRecipe from '../Recipes/DeleteRecipe/DeleteRecipe';
 
 export default function Main(props) {
   const { currentUser, setCurrentUser } = props;
@@ -79,32 +76,6 @@ export default function Main(props) {
           />
         )}
       />
-      {/* <Route
-        path="/recipes/:id/edit"
-        render={(props) => (
-          <UpdateRecipe
-            {...props}
-            recipes={recipes}
-            setRecipes={setRecipes}
-            currentUser={currentUser}
-          />
-        )}
-      /> */}
-      {/* <Route
-        path='/recipes/:id'
-        render={(props) => (
-          <DeleteRecipe
-            {...props}
-            recipes={recipes}
-            setRecipes={setRecipes}
-            currentUser={currentUser}
-          />
-        )}
-      />
-      <Route
-        path='/comments'
-        render={() => <ShowComments {...props} currentUser={currentUser} />}
-      /> */}
     </main>
   );
 }
