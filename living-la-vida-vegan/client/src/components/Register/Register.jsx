@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import './Register.css';
 import { registerUser } from '../../services/users';
-import { Button, Modal, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-// import RegisterCont from './RegisterCont';
 
 export default function Register(props) {
   const [formData, setFormData] = useState({

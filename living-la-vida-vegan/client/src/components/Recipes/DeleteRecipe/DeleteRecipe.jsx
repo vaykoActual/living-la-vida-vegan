@@ -1,6 +1,5 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
-// import { destroyRecipe } from '../../../services/recipes';
 import { Link } from 'react-router-dom';
 
 export default function DeleteRecipes(props) {

@@ -18,7 +18,7 @@ export default function ShowRecipes(props) {
                     padding: '15px',
                     backgroundColor: 'rgb(40, 95, 114)',
                   }}
-                  className="justify-content-center align-items-center recipe-card"
+                  className="recipe-card justify-content-center align-items-center "
                 >
                   <Card.Title
                     className="recipe-title-home"

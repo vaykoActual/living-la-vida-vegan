@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { readOneRecipe, putRecipe } from '../../../services/recipes';
+import { putRecipe } from '../../../services/recipes';
 import { Modal } from 'react-bootstrap';
 
 export default function UpdateRecipe(props) {
@@ -58,13 +58,6 @@ export default function UpdateRecipe(props) {
     );
     props.onHide();
   };
-
-  // // const [addText, setText] = useState('');
-
-  // // const charReplace = (str) => {
-  // //   return String(str).replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  // //   setText(addText);
-  // // };
 
   return (
     <>
