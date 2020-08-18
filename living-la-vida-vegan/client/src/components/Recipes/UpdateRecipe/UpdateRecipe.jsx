@@ -76,8 +76,8 @@ export default function UpdateRecipe(props) {
             UPDATE RECIPE
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body className="update-recipe-form mx-1">
-          <form className="add-recipe" onSubmit={handleSubmit}>
+        <Modal.Body className="update-recipe-form">
+          <form className="create-recipe" onSubmit={handleSubmit}>
             <label className="input-label">Recipe Name</label>
             <input
               className="update-form-input"

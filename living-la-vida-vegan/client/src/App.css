@@ -12,14 +12,8 @@ a {
   background-color: rgba(245, 146, 110, 0.7);
 }
 
-form {
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
-}
-
 input {
-  width: 350px;
+  width: 300px;
   text-align: left;
   padding: 5px 10px;
   border-radius: 5px;

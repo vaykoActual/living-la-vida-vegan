@@ -74,6 +74,7 @@ export default function CreateRecipe(props) {
             placeholder="Prep Time"
           />
           <input
+            className="form-input"
             type="text"
             name="cook_time"
             value={recipeInput.cook_time}

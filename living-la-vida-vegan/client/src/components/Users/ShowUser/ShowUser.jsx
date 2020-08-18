@@ -8,8 +8,10 @@ export default function ShowUser(props) {
   const [userRecipe, setUserRecipe] = useState('');
 
   const getRecipes = async () => {
-    const recipe = await readUserRecipes(props.currentUser.id);
-    setUserRecipe(userRecipe);
+    if (props.currentUser) {
+      const recipe = await readUserRecipes(props.currentUser.id);
+      setUserRecipe(userRecipe);
+    }
   };
 
   useEffect(() => {
@@ -41,36 +43,40 @@ export default function ShowUser(props) {
           </div>
 
           <div className="recipe-card-page">
-            {props.currentUser.id &&
+            {props.currentUser &&
               props.recipes &&
-              props.recipes.map((recipe) => (
-                <Link to={`/recipes/${recipe.id}`}>
-                  <Card
-                    style={{
-                      backgroundColor: 'transparent',
-                      border: '2px solid rgb(40, 95, 114)',
-                    }}
-                    className="recipe-card justify-content-center align-items-center mx-4"
-                  >
-                    <div className="mx-5">
-                      <Card.Title
-                        className="recipe-title-home"
-                        style={{ fontSize: '35px' }}
-                      >
-                        {recipe.recipe_name}
-                      </Card.Title>
-                    </div>
-                    <Card.Body>
-                      <Card.Img
-                        className="recipe-card-photo"
-                        variant="top"
-                        src={recipe.upload_photo}
-                        alt="recipe"
-                      />
-                    </Card.Body>
-                  </Card>
-                </Link>
-              ))}
+              props.recipes
+                .filter((recipe) => {
+                  return recipe.user_id === props.currentUser.id;
+                })
+                .map((recipe) => (
+                  <Link to={`/recipes/${recipe.id}`}>
+                    <Card
+                      style={{
+                        backgroundColor: 'transparent',
+                        border: '2px solid rgb(40, 95, 114)',
+                      }}
+                      className="recipe-card justify-content-center align-items-center mx-4"
+                    >
+                      <div className="mx-5">
+                        <Card.Title
+                          className="recipe-title-home"
+                          style={{ fontSize: '35px' }}
+                        >
+                          {recipe.recipe_name}
+                        </Card.Title>
+                      </div>
+                      <Card.Body>
+                        <Card.Img
+                          className="recipe-card-photo"
+                          variant="top"
+                          src={recipe.upload_photo}
+                          alt="recipe"
+                        />
+                      </Card.Body>
+                    </Card>
+                  </Link>
+                ))}
           </div>
         </div>
       )}

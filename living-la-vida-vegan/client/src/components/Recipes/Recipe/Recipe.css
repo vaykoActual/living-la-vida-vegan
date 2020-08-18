@@ -29,7 +29,7 @@
 }
 
 .recipe-title {
-  font-family: 'Shadows Into Light Two', cursive, sans-serif;
+  font-family: 'Handlee', cursive, sans-serif;
   font-weight: bold;
   margin: 20px;
   color: #285f72;
@@ -49,20 +49,16 @@
   margin: 0px 12px;
 }
 
-/* .ingredients-container,
-.instructions-container {
-  /* width: 100px;
-} */
-
 .ingredients,
 .instructions,
 .source,
 .comment-title,
 .time-title {
-  font-family: 'Shadows Into Light Two', cursive, sans-serif;
+  font-family: 'Handlee', cursive, sans-serif;
   font-weight: bold;
   color: #285f72;
   margin-right: 10px;
+  align-content: center;
 }
 
 .comment-section {

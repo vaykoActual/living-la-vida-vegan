@@ -77,15 +77,15 @@ export default function Recipe(props) {
                   <h1 className="recipe-title">{rec.recipe_name}</h1>
                   <p className="description">{rec.description}</p>
                   <div className="time-check">
-                    <h5 className="prep-times">
+                    <h4 className="prep-times">
                       <span className="time-title">Prep Time:</span>
                       {rec.prep_time}
-                    </h5>
+                    </h4>
 
-                    <h5 className="cook-times">
+                    <h4 className="cook-times">
                       <span className="time-title">Cook Time:</span>{' '}
                       {rec.cook_time}
-                    </h5>
+                    </h4>
                   </div>
                 </div>
                 <div className="ingredients-container">

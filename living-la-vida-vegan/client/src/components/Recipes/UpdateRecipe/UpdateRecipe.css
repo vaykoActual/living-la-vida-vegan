@@ -1,17 +1,21 @@
 .update-recipe-form {
   text-align: left;
-
   padding: 10px;
-}
-
-.input-label {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
   align-items: flex-start;
 }
 
 .update-form-input {
-  width: 60%;
-  margin-top: 0px;
-  margin-bottom: 10px;
+  width: 70%;
+  margin-right: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #285f72;
+  background: transparent;
+  color: #285f72;
+  align-items: left;
 }
 
 .form-title {
