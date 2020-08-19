@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Nav.css';
+import Contact from '../Contact/Contact';
 
-export default function Nav() {
+export default function Nav(props) {
+  const [showContact, setContact] = useState(false);
+
+  const handleClose = () => {
+    setContact(false);
+  };
+
+  const handleShow = () => {
+    setContact(true);
+  };
+
   return (
     <div className="nav-section">
       <Link to="/profile">
@@ -41,7 +52,11 @@ export default function Nav() {
           src="https://res.cloudinary.com/zumariposa/image/upload/v1597788006/living-la-vida-vegan/logos_resize_vmarr1.png"
           className="contact-icon"
           alt="nav-bar-icons"
+          show={showContact}
+          onHide={handleClose}
+          onClick={handleShow}
         />
+        <Contact />
       </Link>
     </div>
   );

@@ -16,3 +16,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* ----------------------- Media Queries  - Mobile -----------------------  */
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  html {
+    height: 100%;
+    background-color: rgba(114, 214, 191, 0.6);
+  }
+}
+
+/* ----------------------- Media Queries  - Tablet -----------------------  */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  html {
+    height: 100%;
+    background-color: rgba(141, 244, 165, 0.6);
+  }
+}
+
+/* ----------------------- Media Queries  - Tablet -----------------------  */
+@media only screen and (min-width: 1025px) and (max-width: 1920px) {
+}

@@ -31,3 +31,73 @@
   margin: 0;
   font-weight: bold;
 }
+
+/* ----------------------- Media Queries  - Mobile -----------------------  */
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  .create-recipe {
+    padding-left: 15px;
+    padding-right: 15px;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: flex-start;
+    width: 20rem;
+  }
+
+  .update-recipe-form {
+    margin: 40px;
+  }
+
+  .input-label {
+    padding-left: 10px;
+  }
+  .update-form-input {
+    width: 40rem;
+  }
+
+  .form-title {
+    margin: 0;
+    font-weight: bold;
+  }
+
+  .save-button {
+    align-items: center;
+  }
+}
+
+/* ----------------------- Media Queries  - Tablet -----------------------  */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .update-recipe-form {
+    margin: 40px;
+  }
+
+  .create-recipe {
+    padding-left: 15px;
+    padding-right: 15px;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: flex-start;
+    width: 40rem;
+  }
+  .input-label {
+    padding-left: 10px;
+  }
+  .update-form-input {
+    width: 20rem;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: flex-start;
+  }
+
+  .form-title {
+    margin: 0;
+    font-weight: bold;
+  }
+
+  .save-button {
+    align-items: center;
+  }
+}
+
+/* ----------------------- Media Queries  - Tablet -----------------------  */
+@media only screen and (min-width: 1025px) and (max-width: 1920px) {
+}

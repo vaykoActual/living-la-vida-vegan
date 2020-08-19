@@ -49,7 +49,6 @@ export default function UpdateRecipe(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('it worked.');
     const { id } = props.match.params;
     const newRecipe = await putRecipe(props.currentUser.id, id, recipeUpdate);
     props.setRecipes(

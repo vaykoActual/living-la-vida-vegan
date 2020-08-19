@@ -83,7 +83,7 @@ export default function Recipe(props) {
                     </h4>
 
                     <h4 className="cook-times">
-                      <span className="time-title">Cook Time:</span>{' '}
+                      <span className="time-title">Cook Time:</span>
                       {rec.cook_time}
                     </h4>
                   </div>

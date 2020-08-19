@@ -80,31 +80,33 @@ export default function Register(props) {
           {clicked ? (
             ''
           ) : (
-            <div>
-              <input
-                className="form-input"
-                type="text"
-                name="img_url"
-                value={formData.img_url}
-                onChange={handleChange}
-                placeholder="Image URL"
-              />
-              <input
-                className="form-input"
-                type="text"
-                name="about_me"
-                value={formData.about_me}
-                onChange={handleChange}
-                placeholder="Add About Me"
-              />
-              <input
-                className="form-input"
-                type="text"
-                name="likes_interests"
-                value={formData.likes_interests}
-                onChange={handleChange}
-                placeholder="Any Likes or Interests?"
-              />
+            <div className="additional-fields">
+              <>
+                <input
+                  className="form-input"
+                  type="text"
+                  name="img_url"
+                  value={formData.img_url}
+                  onChange={handleChange}
+                  placeholder="Image URL"
+                />
+                <input
+                  className="form-input"
+                  type="text"
+                  name="about_me"
+                  value={formData.about_me}
+                  onChange={handleChange}
+                  placeholder="Add About Me"
+                />
+                <input
+                  className="form-input"
+                  type="text"
+                  name="likes_interests"
+                  value={formData.likes_interests}
+                  onChange={handleChange}
+                  placeholder="Any Likes or Interests?"
+                />
+              </>
               <button className="register-button">Save</button>
             </div>
           )}

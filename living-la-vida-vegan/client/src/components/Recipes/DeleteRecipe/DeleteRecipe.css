@@ -1,3 +1,27 @@
-.popup-body {
+.popup {
   font-family: 'Oxygen';
+}
+
+/* ----------------------- Media Queries  - Mobile -----------------------  */
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  .delete-text {
+    margin: 10px;
+    font-size: 20px;
+  }
+}
+
+/* ----------------------- Media Queries  - Tablet -----------------------  */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .delete-text {
+    margin: 10px;
+    font-size: 22px;
+  }
+}
+
+/* ----------------------- Media Queries  - Tablet -----------------------  */
+@media only screen and (min-width: 1025px) and (max-width: 1920px) {
+  .delete-text {
+    margin: 10px;
+    font-size: 32px;
+  }
 }
