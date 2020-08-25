@@ -135,7 +135,7 @@ export default function Recipe(props) {
                     </Button>
                   </ButtonToolbar>
                 ) : (
-                  ''
+                  <ButtonToolbar></ButtonToolbar>
                 )}
                 <div className="comment-section">
                   <h4 className="comment-title">Comments</h4>
