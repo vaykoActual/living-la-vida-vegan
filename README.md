@@ -67,7 +67,7 @@ _The **Living La Vida, Vegan** MVP is to complete full CRUD capability for creat
 
 #### Component Tree
 
-![Component Tree](/Users/zulayscottborgh/my_projects/living-la-vida-vegan/LLVV-compTree.png)
+![Component Tree](LLVV-compTree.png)
 
 #### Component Hierarchy
 
@@ -175,7 +175,7 @@ src
 
 #### ERD Model
 
-![ERD](/Users/zulayscottborgh/my_projects/living-la-vida-vegan/LLVV-ERD.png)
+![ERD](LLVV-ERD.png)
 
 <br>
 
