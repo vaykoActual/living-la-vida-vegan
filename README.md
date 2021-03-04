@@ -26,8 +26,6 @@ _**Living La Vida, Vegan** is an application that allows you to create and accou
 
 ## MVP
 
-> The Minimum Viable Product should be a well-planned, easily-communicated product, ensuring that the client's deliverable will be achievable and meet specifications within the time frame estimated.
-
 _The **Living La Vida, Vegan** MVP is to complete full CRUD capability for creating and add recipes to your account. The user will be able to create an account and view their recipes and those that others have shared via a tiled page feed._
 
 <br>
